@@ -1,9 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from "./Components/NavBar"
+import BodyContainer from './Containers/BodyContainer';
 
 function App() {
   return (
-    <h1>The Bomb Ass Algorithm Visualizer</h1>
+    <>
+      <NavBar />
+      <BodyContainer />
+    </>
   );
 }
 
