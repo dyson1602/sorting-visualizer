@@ -6,9 +6,7 @@ class NavBar extends React.Component {
       <>
         <nav>
           <div class="nav-wrapper">
-            <a href="#" class="brand-logo right">
-              Sorting Algorithm Visualizer
-            </a>
+            <a class="brand-logo right">Sorting Algorithm Visualizer</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
               <li>Set Array Size:</li>
 
@@ -20,13 +18,13 @@ class NavBar extends React.Component {
                 </form>
               </li>
               <li>
-                <a href="collapsible.html">Generate New Array</a>
+                <a>Generate New Array</a>
               </li>
               <li>
-                <a href="sass.html">Sort!</a>
+                <a>Sort!</a>
               </li>
               <li>
-                <a href="badges.html">BubbleSort</a>
+                <a>BubbleSort</a>
               </li>
             </ul>
           </div>
