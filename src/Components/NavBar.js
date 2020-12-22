@@ -5,7 +5,7 @@ class NavBar extends React.Component {
         return (
             <>
                 <h3>NavBar</h3>
-                <button className="button" > Generate New Array </button>
+                <button className="button"> Generate New Array </button>
                 <button className="button"> Generate New Array </button>
             </>
         )
