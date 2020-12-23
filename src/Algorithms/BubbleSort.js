@@ -1,6 +1,9 @@
 
 
+
 function BubbleSort(array) {
+
+  
 
   for (let i = 0; i < array.length; i++) {
 
@@ -15,9 +18,10 @@ function BubbleSort(array) {
       }
     }
   }
-  
+
   return array;
 }
+
 
 
 export { BubbleSort }

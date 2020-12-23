@@ -10,10 +10,10 @@ class Body extends React.Component {
       <div
         style={{
           display: "inline-block",
-          margin: "1px",
+          margin: `${200/array.length}px`,
           backgroundColor: "red",
           height: `${number}px`,
-          width: `${width}px`,
+          width: `${600/array.length}px`,
         }}
       >
       </div>

@@ -25,6 +25,8 @@ class NavBar extends React.Component {
   }
 
   sortHandler = () => {
+    //run bubble sort on array, but let the bubble sort class handle
+    //the dispatchSortedArray and the dispatchSorted, not the nav
     let tempArray = [...this.props.randomArray]
     this.props.dispatchSortedArray(BubbleSort(tempArray))
     this.props.dispatchSetSorted()
