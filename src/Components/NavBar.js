@@ -1,20 +1,35 @@
 import React from "react"
+import { connect } from "react-redux"
+import { setArrayLength } from "../Redux/actions"
 
 class NavBar extends React.Component {
+  arrayLengthHandler = (e) => {
+    console.log(e.target.value)
+
+    // this.setState({ arrayLength: e.target.value })
+    this.props.arrayLength(e.target.value)
+    //dispatch array length
+  }
 
   render() {
     return (
       <>
         <nav>
-          <div class="nav-wrapper">
-            <a class="brand-logo right">Sorting Algorithm Visualizer</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <div className="nav-wrapper">
+            <a className="brand-logo right">Sorting Algorithm Visualizer</a>
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li>Set Array Size:</li>
 
               <li>
                 <form action="#">
-                  <p class="range-field">
-                    <input type="range" id="test5" min="10" max="500" />
+                  <p className="range-field">
+                    <input
+                      type="range"
+                      id="test5"
+                      min="10"
+                      max="500"
+                      onChange={this.arrayLengthHandler}
+                    />
                   </p>
                 </form>
               </li>
@@ -33,8 +48,11 @@ class NavBar extends React.Component {
       </>
     )
   }
-
-  
 }
 
-export default NavBar
+function mdp(dispatch) {
+  console.log("In MDP")
+  return { arrayLength: (length) => dispatch(setArrayLength(length)) }
+}
+
+export default connect(null, mdp)(NavBar)
