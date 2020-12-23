@@ -27,7 +27,7 @@ class NavBar extends React.Component {
                       type="range"
                       id="test5"
                       min="10"
-                      max="500"
+                      max="200"
                       onChange={this.arrayLengthHandler}
                     />
                   </p>
