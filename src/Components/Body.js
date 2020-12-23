@@ -1,9 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
-import { BubbleSort } from '../Algorithms/BubbleSort'
 
 class Body extends React.Component {
-  
+
   arrayBars = (array) => {
     let height = "3"
     let width = "3"
@@ -16,20 +15,16 @@ class Body extends React.Component {
           height: `${number}px`,
           width: `${width}px`,
         }}
-      ></div>
+      >
+      </div>
     ))
   }
 
   render() {
-    // console.log(this.props.sortedArray,this.props.randomArray)
     return (
       <div className="container">
-          {/* {this.props.sorted ? this.arrayBars(this.props.sortedArray)
-          : this.arrayBars(this.props.randomArray)} */}
-
-        {this.arrayBars(this.props.randomArray)}
-        {/* {this.arrayBars(BubbleSort(this.props.randomArray))} */}
-        {/* {this.arrayBars(this.props.sortedArray)} */}
+        {this.props.sorted ? this.arrayBars(this.props.sortedArray)
+          : this.arrayBars(this.props.randomArray)}
       </div>
     )
   }

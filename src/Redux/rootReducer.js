@@ -11,6 +11,7 @@ const defaultState = {
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
   switch (action.type) {
     case SET_RANDOM_ARRAY:
+      console.log('random payload', action.payload)
       return action.payload
     default:
       return prevState
@@ -18,9 +19,9 @@ function randomArrayReducer(prevState = defaultState.randomArray, action) {
 }
 
 function sortedArrayReducer(prevState = defaultState.sortedArray, action) {
-  console.log("action payload", action.payload)
   switch (action.type) {
     case SORTED_ARRAY:
+      console.log('sorted payload: ', action.payload)
       return action.payload
     default:
       return prevState
@@ -28,7 +29,6 @@ function sortedArrayReducer(prevState = defaultState.sortedArray, action) {
 }
 
 function changeSortedReducer(prevState = defaultState.sorted, action) {
-
   switch (action.type) {
     case SORTED:
       return action.payload
