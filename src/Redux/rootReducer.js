@@ -1,16 +1,38 @@
 import { combineReducers } from "redux"
-import { SET_ARRAY_LENGTH } from "./actionTypes"
+import { SET_RANDOM_ARRAY, SORTED, SORTED_ARRAY, UNSORTED } from './actionTypes'
 
 const defaultState = {
-  array: [],
+  randomArray: [],
   sortedArray: [],
   arrayLength: 100,
+  sorted: false
 }
 
-function arrayLengthReducer(prevState = defaultState.arrayLength, action) {
+function randomArrayReducer(prevState = defaultState.randomArray, action) {
   switch (action.type) {
-    case SET_ARRAY_LENGTH:
-      console.log(action.payload)
+    case SET_RANDOM_ARRAY:
+      return action.payload
+    default:
+      return prevState
+  }
+}
+
+function sortedArrayReducer(prevState = defaultState.sortedArray, action) {
+  console.log("action payload", action.payload)
+  switch (action.type) {
+    case SORTED_ARRAY:
+      return action.payload
+    default:
+      return prevState
+  }
+}
+
+function changeSortedReducer(prevState = defaultState.sorted, action) {
+
+  switch (action.type) {
+    case SORTED:
+      return action.payload
+    case UNSORTED:
       return action.payload
     default:
       return prevState
@@ -18,7 +40,9 @@ function arrayLengthReducer(prevState = defaultState.arrayLength, action) {
 }
 
 const rootReducer = combineReducers({
-  arrayLength: arrayLengthReducer,
+  randomArray: randomArrayReducer,
+  sortedArray: sortedArrayReducer,
+  sorted: changeSortedReducer,
 })
 
 export default rootReducer

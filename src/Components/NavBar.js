@@ -1,14 +1,32 @@
 import React from "react"
 import { connect } from "react-redux"
-import { setArrayLength } from "../Redux/actions"
+import { BubbleSort } from "../Algorithms/BubbleSort"
+import { randomizeArray } from "../Algorithms/randomArray"
+import { setRandomArray, setSortedArray, setSorted, setUnsorted } from "../Redux/actions"
 
 class NavBar extends React.Component {
-  arrayLengthHandler = (e) => {
-    console.log(e.target.value)
 
-    // this.setState({ arrayLength: e.target.value })
-    this.props.arrayLength(e.target.value)
-    //dispatch array length
+  state = {
+    arrayLength: 100
+  }
+
+  componentDidMount() {
+    this.newArrayHandler()
+  }
+
+  arrayLengthHandler = (e) => {
+    this.setState({ arrayLength: e.target.value },
+      this.newArrayHandler)
+  }
+
+  newArrayHandler = () => {
+    this.props.dispatchRandomArray(randomizeArray(this.state.arrayLength))
+    this.props.dispatchSetUnsorted()
+  }
+
+  sortHandler = () => {
+    this.props.dispatchSortedArray(BubbleSort(this.props.randomArray))
+    this.props.dispatchSetSorted()
   }
 
   render() {
@@ -18,11 +36,11 @@ class NavBar extends React.Component {
           <div className="nav-wrapper">
             <a className="brand-logo right">Sorting Algorithm Visualizer</a>
             <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li>Set Array Size:</li>
+              <li>Set Array Size: </li>
 
               <li>
                 <form action="#">
-                  <p className="range-field">
+                  <div className="range-field">
                     <input
                       type="range"
                       id="test5"
@@ -30,17 +48,17 @@ class NavBar extends React.Component {
                       max="200"
                       onChange={this.arrayLengthHandler}
                     />
-                  </p>
+                  </div>
                 </form>
               </li>
               <li>
-                <a>Generate New Array</a>
+                <a onClick={this.newArrayHandler}>Generate New Array</a>
               </li>
               <li>
-                <a>Sort!</a>
+                <a onClick={null}>BubbleSort</a>
               </li>
               <li>
-                <a>BubbleSort</a>
+                <a onClick={this.sortHandler}>Sort!</a>
               </li>
             </ul>
           </div>
@@ -50,9 +68,21 @@ class NavBar extends React.Component {
   }
 }
 
-function mdp(dispatch) {
-  console.log("In MDP")
-  return { arrayLength: (length) => dispatch(setArrayLength(length)) }
+function msp(state) {
+  return { 
+    sorted: state.sorted,
+    randomArray: state.randomArray,
+    sortedArray: state.sortedArray
+  }
 }
 
-export default connect(null, mdp)(NavBar)
+function mdp(dispatch) {
+  return {
+    dispatchRandomArray: (randomArray) => dispatch(setRandomArray(randomArray)),
+    dispatchSortedArray: (sortedArray) => dispatch(setSortedArray(sortedArray)),
+    dispatchSetSorted: () => dispatch(setSorted()),
+    dispatchSetUnsorted: () => dispatch(setUnsorted())
+  }
+}
+
+export default connect(msp, mdp)(NavBar)
