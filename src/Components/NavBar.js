@@ -2,12 +2,17 @@ import React from "react"
 import { connect } from "react-redux"
 import { BubbleSort } from "../Algorithms/BubbleSort"
 import { randomizeArray } from "../Algorithms/randomArray"
-import { setRandomArray, setSortedArray, setSorted, setUnsorted } from "../Redux/actions"
+import {
+  changeBarHeight,
+  setRandomArray,
+  setSorted,
+  setSortedArray,
+  setUnsorted,
+} from "../Redux/actions"
 
 class NavBar extends React.Component {
-
   state = {
-    arrayLength: 100
+    arrayLength: 100,
   }
 
   componentDidMount() {
@@ -15,8 +20,7 @@ class NavBar extends React.Component {
   }
 
   arrayLengthHandler = (e) => {
-    this.setState({ arrayLength: e.target.value },
-      this.newArrayHandler)
+    this.setState({ arrayLength: e.target.value }, this.newArrayHandler)
   }
 
   newArrayHandler = () => {
@@ -25,11 +29,18 @@ class NavBar extends React.Component {
   }
 
   sortHandler = () => {
+    console.log(this.state.arrayLength)
     //run bubble sort on array, but let the bubble sort class handle
     //the dispatchSortedArray and the dispatchSorted, not the nav
-    let tempArray = [...this.props.randomArray]
-    this.props.dispatchSortedArray(BubbleSort(tempArray))
-    this.props.dispatchSetSorted()
+    // let tempArray = [...this.props.randomArray]
+    // this.props.dispatchSortedArray(BubbleSort(tempArray))
+    BubbleSort(
+      this.props.randomArray,
+      this.state.arrayLength,
+      (height, index) => this.props.changeBarHeight(height, index),
+      500
+    )
+    // this.props.dispatchSetSorted()
   }
 
   render() {
@@ -72,10 +83,10 @@ class NavBar extends React.Component {
 }
 
 function msp(state) {
-  return { 
+  return {
     sorted: state.sorted,
     randomArray: state.randomArray,
-    sortedArray: state.sortedArray
+    sortedArray: state.sortedArray,
   }
 }
 
@@ -84,7 +95,9 @@ function mdp(dispatch) {
     dispatchRandomArray: (randomArray) => dispatch(setRandomArray(randomArray)),
     dispatchSortedArray: (sortedArray) => dispatch(setSortedArray(sortedArray)),
     dispatchSetSorted: () => dispatch(setSorted()),
-    dispatchSetUnsorted: () => dispatch(setUnsorted())
+    dispatchSetUnsorted: () => dispatch(setUnsorted()),
+    changeBarHeight: (newHeight, index) =>
+      dispatch(changeBarHeight(newHeight, index)),
   }
 }
 
