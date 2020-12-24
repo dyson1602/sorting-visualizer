@@ -39,7 +39,7 @@ class NavBar extends React.Component {
       this.props.randomArray,
       this.state.arrayLength,
       (height, index) => this.props.changeBarHeight(height, index),
-      500
+      10
     )
     // this.props.dispatchSetSorted()
   }
