@@ -3,6 +3,7 @@ import {
   SET_RANDOM_ARRAY,
   SORTED,
   SORTED_ARRAY,
+  STYLE,
   UNSORTED,
 } from "./actionTypes"
 
@@ -28,4 +29,8 @@ export const changeBarHeight = (newHeight, index) => {
     newHeight: newHeight,
     index: index,
   }
+}
+
+export function swapStyles(styleType) {
+  return { type: STYLE, payload: styleType}
 }

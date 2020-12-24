@@ -4,36 +4,36 @@ import '../App.css'
 
 class Body extends React.Component {
 
-  // arrayBars = (array) => {
-  //   let height = "3"
-  //   let width = "3"
-  //   return array.map((number) => (
-  //     <div
-  //       style={{
-  //         display: "inline-block",
-  //         margin: `${200/array.length}px`,
-  //         backgroundColor: "red",
-  //         height: `${number}px`,
-  //         width: `${600/array.length}px`,
-  //       }}
-  //     >
-  //     </div>
-  //   ))
-  // }
-
   arrayBars = (array) => {
-    return array.map((number) => (
-      <div
-        style={{
-          display: "inline-block",
-          backgroundColor: `rgba(${number},9,9,${200/number})`,
-          display: "inline-block",
-          height: "400px",
-          width: `${600 / array.length}px`,
-          marginTop: '150px'
-        }}
-      ></div>
-    ))
+    console.log("style: ", this.props.style)
+    switch (this.props.style) {
+      case "bars":
+        return array.map((number) => (
+          <div
+            style={{
+              display: "inline-block",
+              margin: `${200 / array.length}px`,
+              backgroundColor: "red",
+              height: `${number}px`,
+              width: `${600 / array.length}px`,
+            }}
+          ></div>
+        ))
+      case "gradient":
+        return array.map((number) => (
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: `rgba(${number*.5},9,9,${200 / array.length})`,
+              height: `400px`,
+              width: `${1000 / array.length}px`,
+              marginTop: "75px"
+            }}
+          ></div>
+        ))
+      default:
+        return console.log('hello')
+    }
   }
 
   render() {
@@ -52,6 +52,7 @@ function msp(state) {
     randomArray: state.randomArray,
     sorted: state.sorted,
     sortedArray: state.sortedArray,
+    style: state.style
   }
 }
 
