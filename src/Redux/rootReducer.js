@@ -4,6 +4,7 @@ import {
   SET_RANDOM_ARRAY,
   SORTED,
   SORTED_ARRAY,
+  STYLE,
   UNSORTED,
 } from "./actionTypes"
 
@@ -12,6 +13,7 @@ const defaultState = {
   sortedArray: [],
   arrayLength: 100,
   sorted: false,
+  style: "bars"
 }
 
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
@@ -48,10 +50,20 @@ function changeSortedReducer(prevState = defaultState.sorted, action) {
   }
 }
 
+function changeStyleReducer(prevState = defaultState.style, action){
+  switch(action.type) {
+    case STYLE:
+      return action.payload
+    default:
+      return prevState
+  }
+}
+
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,
   sortedArray: sortedArrayReducer,
   sorted: changeSortedReducer,
+  style: changeStyleReducer
 })
 
 export default rootReducer

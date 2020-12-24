@@ -8,11 +8,24 @@ import {
   setSorted,
   setSortedArray,
   setUnsorted,
+  swapStyles
 } from "../Redux/actions"
 
 class NavBar extends React.Component {
   state = {
     arrayLength: 100,
+  }
+
+  styleSwapHandler = (e) => {
+    let currentStyle = this.props.style
+    switch (currentStyle) {
+      case "bars":
+        return this.props.dispatchStyleSwap("gradient")
+      case "gradient":
+        return this.props.dispatchStyleSwap("bars")
+      default:
+        return this.props.dispatchStyleSwap(currentStyle)
+    }
   }
 
   componentDidMount() {
@@ -39,7 +52,7 @@ class NavBar extends React.Component {
       this.props.randomArray,
       this.state.arrayLength,
       (height, index) => this.props.changeBarHeight(height, index),
-      10
+      0
     )
     // this.props.dispatchSetSorted()
   }
@@ -67,6 +80,14 @@ class NavBar extends React.Component {
                 </form>
               </li>
               <li>
+                <div class="switch">
+                  <label>
+                    <input type="checkbox" />
+                    <span onClick={this.styleSwapHandler} class="lever"></span>
+                  </label>
+                </div>
+              </li>
+              <li>
                 <a onClick={this.newArrayHandler}>Generate New Array</a>
               </li>
               <li>
@@ -88,6 +109,7 @@ function msp(state) {
     sorted: state.sorted,
     randomArray: state.randomArray,
     sortedArray: state.sortedArray,
+    style: state.style
   }
 }
 
@@ -99,6 +121,7 @@ function mdp(dispatch) {
     dispatchSetUnsorted: () => dispatch(setUnsorted()),
     changeBarHeight: (newHeight, index) =>
       dispatch(changeBarHeight(newHeight, index)),
+    dispatchStyleSwap: (styleType) => dispatch(swapStyles(styleType))
   }
 }
 
