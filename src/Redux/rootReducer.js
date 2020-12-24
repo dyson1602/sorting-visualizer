@@ -1,5 +1,11 @@
 import { combineReducers } from "redux"
-import { SET_RANDOM_ARRAY, SORTED, SORTED_ARRAY, UNSORTED } from "./actionTypes"
+import {
+  CHANGE_BAR_HEIGHT,
+  SET_RANDOM_ARRAY,
+  SORTED,
+  SORTED_ARRAY,
+  UNSORTED,
+} from "./actionTypes"
 
 const defaultState = {
   randomArray: [],
@@ -11,16 +17,11 @@ const defaultState = {
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
   switch (action.type) {
     case SET_RANDOM_ARRAY:
-      console.log("random payload", action.payload)
       return action.payload
-    case "CHANGE_BAR_HEIGHT":
-      let newArr = [...prevState.randomArray]
+    case CHANGE_BAR_HEIGHT:
+      let newArr = [...prevState]
       newArr[action.index] = action.newHeight
-      console.log("In bar change:", { ...prevState, randomArray: newArr })
-      return {
-        ...prevState,
-        randomArray: newArr,
-      }
+      return newArr
     default:
       return prevState
   }
@@ -46,20 +47,6 @@ function changeSortedReducer(prevState = defaultState.sorted, action) {
       return prevState
   }
 }
-
-// function changeBarHeightReducer(prevState = defaultState.barHeight, action) {
-//   switch (action.type) {
-//     case "CHANGE_BAR_HEIGHT":
-//       let newArr = [...prevState.array]
-//       newArr[action.index] = action.newHeight
-//       return {
-//         ...prevState,
-//         randomArray: newArr,
-//       }
-//     default:
-//       return prevState
-//   }
-// }
 
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,

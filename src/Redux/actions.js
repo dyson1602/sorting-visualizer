@@ -1,4 +1,10 @@
-import { SET_RANDOM_ARRAY, SORTED, SORTED_ARRAY, UNSORTED } from "./actionTypes"
+import {
+  CHANGE_BAR_HEIGHT,
+  SET_RANDOM_ARRAY,
+  SORTED,
+  SORTED_ARRAY,
+  UNSORTED,
+} from "./actionTypes"
 
 export function setRandomArray(randomArray) {
   return { type: SET_RANDOM_ARRAY, payload: randomArray }
@@ -18,16 +24,8 @@ export function setUnsorted() {
 
 export const changeBarHeight = (newHeight, index) => {
   return {
-    type: "CHANGE_BAR_HEIGHT",
+    type: CHANGE_BAR_HEIGHT,
     newHeight: newHeight,
     index: index,
   }
 }
-
-// export const changeBarColor = (newColor, index) => {
-//   return {
-//     type: "CHANGE_BAR_COLOR",
-//     newColor: newColor,
-//     index: index,
-//   }
-// }
