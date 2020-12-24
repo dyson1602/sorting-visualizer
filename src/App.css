@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.bars {
+  background-color: rgba(121, 9, 9, 1);
+  display: "inline-block";
+  height: "100px";
+}
