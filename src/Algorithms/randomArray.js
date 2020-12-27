@@ -13,5 +13,12 @@ const randomizeArray = (arrayLength) => {
   return array
 }
 
+const generateColorArray = (arrayLength, arrayColor) => {
+  let array = []
+  for (let i = 0; i < arrayLength; i++) {
+    array.push(arrayColor)
+  }
+  return array
+}
 
-export { randomizeArray }
+export { randomizeArray, generateColorArray }

@@ -1,5 +1,7 @@
 import {
+  CHANGE_BAR_COLOR,
   CHANGE_BAR_HEIGHT,
+  SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
   SORTED,
   SORTED_ARRAY,
@@ -14,7 +16,6 @@ export function setRandomArray(randomArray) {
 export function setSortedArray(sortedArray) {
   return { type: SORTED_ARRAY, payload: sortedArray }
 }
-
 export function setSorted() {
   return { type: SORTED, payload: true }
 }
@@ -30,7 +31,18 @@ export const changeBarHeight = (newHeight, index) => {
     index: index,
   }
 }
+export const changeBarColor = (newColor, index) => {
+  return {
+    type: CHANGE_BAR_COLOR,
+    newColor: newColor,
+    index: index,
+  }
+}
 
 export function swapStyles(styleType) {
-  return { type: STYLE, payload: styleType}
+  return { type: STYLE, payload: styleType }
+}
+
+export function setColorArray(colorArray) {
+  return { type: SET_COLOR_ARRAY, payload: colorArray }
 }

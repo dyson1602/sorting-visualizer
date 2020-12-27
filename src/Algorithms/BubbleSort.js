@@ -4,13 +4,25 @@ export const BubbleSort = async (
   array,
   arraySize,
   changeBarHeight,
-  sortSpeed = 500
+  changeBarColor,
+  sortSpeed = 1000,
+  arrayColor = "red",
+  // selectedColor = "yellow",
+  sortedColor = "blue"
 ) => {
   let localArray = [...array]
   console.log(arraySize)
   for (let i = 0; i < arraySize; i++) {
     let isSorted = true
     for (let j = 0; j < arraySize - i; j++) {
+      setTimeout(() => {
+        changeBarColor("yellow", j)
+      }, 1000)
+      setTimeout(() => {
+        changeBarColor("yellow", j + 1)
+      }, 1000)
+      // changeBarColor(selectedColor, j)
+      // changeBarColor(selectedColor, j + 1)
       await sleep(sortSpeed)
       if (localArray[j] > localArray[j + 1]) {
         let temp = localArray[j]
@@ -20,8 +32,19 @@ export const BubbleSort = async (
         await sleep(sortSpeed)
         changeBarHeight(temp2, j)
         changeBarHeight(temp, j + 1)
+        await sleep(sortSpeed)
         isSorted = false
       }
+      changeBarColor(arrayColor, j)
+      changeBarColor(arrayColor, j + 1)
+    }
+    changeBarColor(sortedColor, arraySize - 1 - i)
+    changeBarColor(sortedColor, arraySize - i)
+    if (isSorted === true) {
+      for (let k = 0; k < i; k++) {
+        changeBarColor(sortedColor, k)
+      }
+      break
     }
   }
 }

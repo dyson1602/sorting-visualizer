@@ -7,7 +7,10 @@ import "./index.css"
 import rootReducer from "./Redux/rootReducer"
 import reportWebVitals from "./reportWebVitals"
 
-const store = createStore(rootReducer)
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
   <Provider store={store}>

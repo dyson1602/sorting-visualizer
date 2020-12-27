@@ -1,14 +1,16 @@
 import React from "react"
 import { connect } from "react-redux"
 import { BubbleSort } from "../Algorithms/BubbleSort"
-import { randomizeArray } from "../Algorithms/randomArray"
+import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import {
+  changeBarColor,
   changeBarHeight,
+  setColorArray,
   setRandomArray,
   setSorted,
   setSortedArray,
   setUnsorted,
-  swapStyles
+  swapStyles,
 } from "../Redux/actions"
 
 class NavBar extends React.Component {
@@ -38,6 +40,9 @@ class NavBar extends React.Component {
 
   newArrayHandler = () => {
     this.props.dispatchRandomArray(randomizeArray(this.state.arrayLength))
+    this.props.dispatchColorArray(
+      generateColorArray(this.state.arrayLength, "red")
+    )
     this.props.dispatchSetUnsorted()
   }
 
@@ -52,7 +57,11 @@ class NavBar extends React.Component {
       this.props.randomArray,
       this.state.arrayLength,
       (height, index) => this.props.changeBarHeight(height, index),
-      0
+      (color, index) => this.props.changeBarColor(color, index),
+      500,
+      this.props.arrayColor,
+      "yellow",
+      "blue"
     )
     // this.props.dispatchSetSorted()
   }
@@ -109,7 +118,7 @@ function msp(state) {
     sorted: state.sorted,
     randomArray: state.randomArray,
     sortedArray: state.sortedArray,
-    style: state.style
+    style: state.style,
   }
 }
 
@@ -121,7 +130,10 @@ function mdp(dispatch) {
     dispatchSetUnsorted: () => dispatch(setUnsorted()),
     changeBarHeight: (newHeight, index) =>
       dispatch(changeBarHeight(newHeight, index)),
-    dispatchStyleSwap: (styleType) => dispatch(swapStyles(styleType))
+    changeBarColor: (newColor, index) =>
+      dispatch(changeBarColor(newColor, index)),
+    dispatchStyleSwap: (styleType) => dispatch(swapStyles(styleType)),
+    dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
   }
 }
 
