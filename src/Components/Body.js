@@ -8,19 +8,24 @@ class Body extends React.Component {
     switch (this.props.style) {
       case "bars":
         console.log(this.props.colorArray)
-        // let index = array.indexOf(number)
-        return array.map((number) => (
-          <div
-            style={{
-              display: "inline-block",
-              margin: `${200 / array.length}px`,
-              // backgroundColor: this.props.arrayColor,
-              backgroundColor: this.props.colorArray[array.indexOf(number)],
-              height: `${number}px`,
-              width: `${600 / array.length}px`,
-            }}
-          ></div>
-        ))
+
+        let newArray = []
+        for (let i = 0; i < array.length; i++) {
+          newArray.push(
+            <div
+              style={{
+                display: "inline-block",
+                margin: `${200 / array.length}px`,
+
+                backgroundColor: this.props.colorArray[i],
+                height: `${array[i]}px`,
+                width: `${600 / array.length}px`,
+              }}
+            ></div>
+          )
+        }
+        return newArray
+
       case "gradient":
         return array.map((number) => (
           <div

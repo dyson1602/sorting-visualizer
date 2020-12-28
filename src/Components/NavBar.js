@@ -119,6 +119,7 @@ function msp(state) {
     randomArray: state.randomArray,
     sortedArray: state.sortedArray,
     style: state.style,
+    colorArray: state.colorArray,
   }
 }
 

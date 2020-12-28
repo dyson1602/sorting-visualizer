@@ -23,6 +23,7 @@ const defaultState = {
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
   switch (action.type) {
     case SET_RANDOM_ARRAY:
+      // console.log(prevState.randomArray)
       return action.payload
     case CHANGE_BAR_HEIGHT:
       let newArr = [...prevState]
@@ -42,9 +43,11 @@ function colorArrayReducer(prevState = defaultState.colorArray, action) {
   switch (action.type) {
     case SET_COLOR_ARRAY:
       console.log("color array in reducer: ", action.payload)
+      console.log("PrevState.colorArray: ", prevState.colorArray)
       return action.payload
     case CHANGE_BAR_COLOR:
-      let newArray = [...prevState.colorArray]
+      console.log(prevState)
+      let newArray = [...prevState]
       newArray[action.index] = action.newColor
       console.log(newArray)
       return newArray
