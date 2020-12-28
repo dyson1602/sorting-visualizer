@@ -7,9 +7,9 @@ import {
   changeBarHeight,
   setColorArray,
   setRandomArray,
-  setSorted,
   setSortedArray,
-  setUnsorted,
+  setIsSorting,
+  setFinishedSorting,
   swapStyles,
 } from "../Redux/actions"
 
@@ -43,10 +43,10 @@ class NavBar extends React.Component {
     this.props.dispatchColorArray(
       generateColorArray(this.state.arrayLength, "red")
     )
-    this.props.dispatchSetUnsorted()
   }
 
   sortHandler = () => {
+    this.props.dispatchSetIsSorting()
     BubbleSort(
       this.props.randomArray,
       this.state.arrayLength,
@@ -55,9 +55,9 @@ class NavBar extends React.Component {
       0,
       this.props.arrayColor,
       "yellow",
-      "blue"
+      "blue",
+      this.props.dispatchSetFinishedSorting
     )
-    // this.props.dispatchSetSorted()
   }
 
   render() {
@@ -77,7 +77,7 @@ class NavBar extends React.Component {
                       id="test5"
                       min="10"
                       max="200"
-                      onChange={this.arrayLengthHandler}
+                      onChange={this.props.isSorting ? null : this.arrayLengthHandler}
                     />
                   </div>
                 </form>
@@ -91,13 +91,13 @@ class NavBar extends React.Component {
                 </div>
               </li>
               <li>
-                <a onClick={this.newArrayHandler}>Generate New Array</a>
+                <a onClick={this.props.isSorting ? null : this.newArrayHandler}>Generate New Array</a>
               </li>
               <li>
-                <a onClick={null}>BubbleSort</a>
+                <a onClick={this.props.isSorting ? null : null}>BubbleSort</a>
               </li>
               <li>
-                <a onClick={this.sortHandler}>Sort!</a>
+                <a onClick={this.props.isSorting ? null : this.sortHandler}>Sort!</a>
               </li>
             </ul>
           </div>
@@ -109,7 +109,7 @@ class NavBar extends React.Component {
 
 function msp(state) {
   return {
-    sorted: state.sorted,
+    isSorting: state.isSorting,
     randomArray: state.randomArray,
     sortedArray: state.sortedArray,
     style: state.style,
@@ -120,8 +120,8 @@ function mdp(dispatch) {
   return {
     dispatchRandomArray: (randomArray) => dispatch(setRandomArray(randomArray)),
     dispatchSortedArray: (sortedArray) => dispatch(setSortedArray(sortedArray)),
-    dispatchSetSorted: () => dispatch(setSorted()),
-    dispatchSetUnsorted: () => dispatch(setUnsorted()),
+    dispatchSetIsSorting: () => dispatch(setIsSorting()),
+    dispatchSetFinishedSorting: () => dispatch(setFinishedSorting()),
     changeBarHeight: (newHeight, index) =>
       dispatch(changeBarHeight(newHeight, index)),
     changeBarColor: (newColor, index) =>

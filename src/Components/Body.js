@@ -4,11 +4,8 @@ import "../App.css"
 
 class Body extends React.Component {
   arrayBars = (array) => {
-    console.log("style: ", this.props.style)
     switch (this.props.style) {
       case "bars":
-        console.log(this.props.colorArray)
-
         let newArray = []
         for (let i = 0; i < array.length; i++) {
           newArray.push(

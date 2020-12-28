@@ -4,10 +4,10 @@ import {
   CHANGE_BAR_HEIGHT,
   SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
-  SORTED,
+  IS_SORTING,
   SORTED_ARRAY,
   STYLE,
-  UNSORTED,
+  FINISHED_SORTING,
 } from "./actionTypes"
 
 const defaultState = {
@@ -15,7 +15,7 @@ const defaultState = {
   sortedArray: [],
   colorArray: [],
   arrayLength: 100,
-  sorted: false,
+  isSorting: false,
   style: "bars",
   arrayColor: "red",
 }
@@ -55,11 +55,11 @@ function sortedArrayReducer(prevState = defaultState.sortedArray, action) {
   }
 }
 
-function changeSortedReducer(prevState = defaultState.sorted, action) {
+function changeSortedReducer(prevState = defaultState.isSorting, action) {
   switch (action.type) {
-    case SORTED:
+    case IS_SORTING:
       return action.payload
-    case UNSORTED:
+    case FINISHED_SORTING:
       return action.payload
     default:
       return prevState
@@ -78,7 +78,7 @@ function changeStyleReducer(prevState = defaultState.style, action) {
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,
   sortedArray: sortedArrayReducer,
-  sorted: changeSortedReducer,
+  isSorting: changeSortedReducer,
   style: changeStyleReducer,
   colorArray: colorArrayReducer,
 })

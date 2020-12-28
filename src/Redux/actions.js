@@ -1,12 +1,12 @@
 import {
   CHANGE_BAR_COLOR,
   CHANGE_BAR_HEIGHT,
+  FINISHED_SORTING,
   SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
-  SORTED,
+  IS_SORTING,
   SORTED_ARRAY,
   STYLE,
-  UNSORTED,
 } from "./actionTypes"
 
 export function setRandomArray(randomArray) {
@@ -16,12 +16,13 @@ export function setRandomArray(randomArray) {
 export function setSortedArray(sortedArray) {
   return { type: SORTED_ARRAY, payload: sortedArray }
 }
-export function setSorted() {
-  return { type: SORTED, payload: true }
+
+export function setIsSorting() {
+  return { type: IS_SORTING, payload: true }
 }
 
-export function setUnsorted() {
-  return { type: UNSORTED, payload: false }
+export function setFinishedSorting() {
+  return { type: FINISHED_SORTING, payload: false }
 }
 
 export const changeBarHeight = (newHeight, index) => {

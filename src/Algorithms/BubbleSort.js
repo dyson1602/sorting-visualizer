@@ -1,4 +1,7 @@
+// import { connect } from 'react-redux'
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 
 export const BubbleSort = async (
   array,
@@ -8,10 +11,10 @@ export const BubbleSort = async (
   sortSpeed = 10,
   arrayColor = "red",
   selectedColor = "yellow",
-  sortedColor = "blue"
+  sortedColor = "blue",
+  finished
 ) => {
   let localArray = [...array]
-  console.log(arraySize)
   for (let i = 0; i < arraySize; i++) {
     let isSorted = true
     for (let j = 0; j < arraySize - i; j++) {
@@ -40,4 +43,12 @@ export const BubbleSort = async (
       break
     }
   }
+  finished()
 }
+
+// function mdp(dispatch) {
+//   return {
+//     dispatchSetFinishedSorting: () => dispatch(setFinishedSorting()),
+//   }
+// }
+// export default connect(null, mdp)(BubbleSort)
