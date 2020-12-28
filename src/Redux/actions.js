@@ -2,9 +2,10 @@ import {
   CHANGE_BAR_COLOR,
   CHANGE_BAR_HEIGHT,
   FINISHED_SORTING,
+  IS_SORTING,
+  METHOD,
   SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
-  IS_SORTING,
   SORTED_ARRAY,
   STYLE,
 } from "./actionTypes"
@@ -46,4 +47,8 @@ export function swapStyles(styleType) {
 
 export function setColorArray(colorArray) {
   return { type: SET_COLOR_ARRAY, payload: colorArray }
+}
+
+export function setMethod(methodType) {
+  return { type: METHOD, payload: methodType }
 }

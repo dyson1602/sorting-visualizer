@@ -2,12 +2,13 @@ import { combineReducers } from "redux"
 import {
   CHANGE_BAR_COLOR,
   CHANGE_BAR_HEIGHT,
+  FINISHED_SORTING,
+  IS_SORTING,
+  METHOD,
   SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
-  IS_SORTING,
   SORTED_ARRAY,
   STYLE,
-  FINISHED_SORTING,
 } from "./actionTypes"
 
 const defaultState = {
@@ -18,6 +19,7 @@ const defaultState = {
   isSorting: false,
   style: "bars",
   arrayColor: "red",
+  method: null,
 }
 
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
@@ -75,12 +77,22 @@ function changeStyleReducer(prevState = defaultState.style, action) {
   }
 }
 
+function changeMethodReducer(prevState = defaultState.method, action) {
+  switch (action.type) {
+    case METHOD:
+      return action.payload
+    default:
+      return prevState
+  }
+}
+
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,
   sortedArray: sortedArrayReducer,
   isSorting: changeSortedReducer,
   style: changeStyleReducer,
   colorArray: colorArrayReducer,
+  method: changeMethodReducer,
 })
 
 export default rootReducer
