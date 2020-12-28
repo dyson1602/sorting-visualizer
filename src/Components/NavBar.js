@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { BubbleSort } from "../Algorithms/BubbleSort"
+import { HeapSort } from "../Algorithms/HeapSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import {
   changeBarColor,
@@ -56,7 +57,19 @@ class NavBar extends React.Component {
           this.state.arrayLength,
           (height, index) => this.props.changeBarHeight(height, index),
           (color, index) => this.props.changeBarColor(color, index),
-          0,
+          3,
+          this.props.arrayColor,
+          "yellow",
+          "blue",
+          this.props.dispatchSetFinishedSorting
+        )
+      case "heap":
+        return HeapSort(
+          this.props.randomArray,
+          this.state.arrayLength,
+          (height, index) => this.props.changeBarHeight(height, index),
+          (color, index) => this.props.changeBarColor(color, index),
+          1000,
           this.props.arrayColor,
           "yellow",
           "blue",
@@ -114,6 +127,17 @@ class NavBar extends React.Component {
                   }
                 >
                   BubbleSort
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={
+                    this.props.isSorting
+                      ? null
+                      : () => this.setSortingMethod("heap")
+                  }
+                >
+                  Heap Sort
                 </a>
               </li>
               <li>
