@@ -6,10 +6,11 @@ import {
   changeBarColor,
   changeBarHeight,
   setColorArray,
+  setFinishedSorting,
+  setIsSorting,
+  setMethod,
   setRandomArray,
   setSortedArray,
-  setIsSorting,
-  setFinishedSorting,
   swapStyles,
 } from "../Redux/actions"
 
@@ -47,17 +48,24 @@ class NavBar extends React.Component {
 
   sortHandler = () => {
     this.props.dispatchSetIsSorting()
-    BubbleSort(
-      this.props.randomArray,
-      this.state.arrayLength,
-      (height, index) => this.props.changeBarHeight(height, index),
-      (color, index) => this.props.changeBarColor(color, index),
-      0,
-      this.props.arrayColor,
-      "yellow",
-      "blue",
-      this.props.dispatchSetFinishedSorting
-    )
+    let currentMethod = this.props.method
+    switch (currentMethod) {
+      case "bubble":
+        return BubbleSort(
+          this.props.randomArray,
+          this.state.arrayLength,
+          (height, index) => this.props.changeBarHeight(height, index),
+          (color, index) => this.props.changeBarColor(color, index),
+          0,
+          this.props.arrayColor,
+          "yellow",
+          "blue",
+          this.props.dispatchSetFinishedSorting
+        )
+    }
+  }
+  setSortingMethod = (method) => {
+    this.props.dispatchMethod(method)
   }
 
   render() {
@@ -77,7 +85,9 @@ class NavBar extends React.Component {
                       id="test5"
                       min="10"
                       max="200"
-                      onChange={this.props.isSorting ? null : this.arrayLengthHandler}
+                      onChange={
+                        this.props.isSorting ? null : this.arrayLengthHandler
+                      }
                     />
                   </div>
                 </form>
@@ -91,13 +101,36 @@ class NavBar extends React.Component {
                 </div>
               </li>
               <li>
-                <a onClick={this.props.isSorting ? null : this.newArrayHandler}>Generate New Array</a>
+                <a onClick={this.props.isSorting ? null : this.newArrayHandler}>
+                  Generate New Array
+                </a>
               </li>
               <li>
-                <a onClick={this.props.isSorting ? null : null}>BubbleSort</a>
+                <a
+                  onClick={
+                    this.props.isSorting
+                      ? null
+                      : () => this.setSortingMethod("bubble")
+                  }
+                >
+                  BubbleSort
+                </a>
               </li>
               <li>
-                <a onClick={this.props.isSorting ? null : this.sortHandler}>Sort!</a>
+                <a
+                  onClick={
+                    this.props.isSorting
+                      ? null
+                      : () => this.setSortingMethod("quick")
+                  }
+                >
+                  QuickSort
+                </a>
+              </li>
+              <li>
+                <a onClick={this.props.isSorting ? null : this.sortHandler}>
+                  Sort!
+                </a>
               </li>
             </ul>
           </div>
@@ -113,6 +146,7 @@ function msp(state) {
     randomArray: state.randomArray,
     sortedArray: state.sortedArray,
     style: state.style,
+    method: state.method,
   }
 }
 
@@ -128,6 +162,7 @@ function mdp(dispatch) {
       dispatch(changeBarColor(newColor, index)),
     dispatchStyleSwap: (styleType) => dispatch(swapStyles(styleType)),
     dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
+    dispatchMethod: (methodType) => dispatch(setMethod(methodType)),
   }
 }
 
