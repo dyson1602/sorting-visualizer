@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { BubbleSort } from "../Algorithms/BubbleSort"
+import { QuickSort } from "../Algorithms/QuickSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import {
   changeBarColor,
@@ -59,6 +60,19 @@ class NavBar extends React.Component {
           0,
           this.props.arrayColor,
           "yellow",
+          "blue",
+          this.props.dispatchSetFinishedSorting
+        )
+      case "quick":
+        return QuickSort(
+          this.props.randomArray,
+          this.props.arraySize,
+          (height, color) => this.props.changeBarHeight(height, color),
+          (color, index) => this.props.changeBarColor(color, index),
+          500,
+          "red",
+          "yellow",
+          "purple",
           "blue",
           this.props.dispatchSetFinishedSorting
         )
