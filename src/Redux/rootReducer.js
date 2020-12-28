@@ -23,17 +23,11 @@ const defaultState = {
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
   switch (action.type) {
     case SET_RANDOM_ARRAY:
-      // console.log(prevState.randomArray)
       return action.payload
     case CHANGE_BAR_HEIGHT:
       let newArr = [...prevState]
       newArr[action.index] = action.newHeight
       return newArr
-    // case CHANGE_BAR_COLOR:
-    //   let newArray = [...prevState]
-    //   newArray[action.index] = action.newColor
-    //   console.log(newArray)
-    //   return newArray
     default:
       return prevState
   }
@@ -42,14 +36,10 @@ function randomArrayReducer(prevState = defaultState.randomArray, action) {
 function colorArrayReducer(prevState = defaultState.colorArray, action) {
   switch (action.type) {
     case SET_COLOR_ARRAY:
-      console.log("color array in reducer: ", action.payload)
-      console.log("PrevState.colorArray: ", prevState.colorArray)
       return action.payload
     case CHANGE_BAR_COLOR:
-      console.log(prevState)
       let newArray = [...prevState]
       newArray[action.index] = action.newColor
-      console.log(newArray)
       return newArray
     default:
       return prevState
@@ -59,7 +49,6 @@ function colorArrayReducer(prevState = defaultState.colorArray, action) {
 function sortedArrayReducer(prevState = defaultState.sortedArray, action) {
   switch (action.type) {
     case SORTED_ARRAY:
-      console.log("sorted payload: ", action.payload)
       return action.payload
     default:
       return prevState
@@ -86,24 +75,11 @@ function changeStyleReducer(prevState = defaultState.style, action) {
   }
 }
 
-// function changeBarColorReducer(prevState = defaultState.arrayColor, action) {
-//   switch (action.type) {
-//     case CHANGE_BAR_COLOR:
-//       // let newArray = [...prevState.randomArray]
-//       // newArray[action.index] = action.newColor
-//       // console.log(newArray)
-//       return action.newColor
-//     default:
-//       return prevState
-//   }
-// }
-
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,
   sortedArray: sortedArrayReducer,
   sorted: changeSortedReducer,
   style: changeStyleReducer,
-  // arrayColor: changeBarColorReducer,
   colorArray: colorArrayReducer,
 })
 

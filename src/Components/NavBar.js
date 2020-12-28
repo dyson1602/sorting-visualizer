@@ -47,18 +47,12 @@ class NavBar extends React.Component {
   }
 
   sortHandler = () => {
-    console.log(this.state.arrayLength)
-    //run bubble sort on array, but let the bubble sort class handle
-    //the dispatchSortedArray and the dispatchSorted, not the nav
-
-    // let tempArray = [...this.props.randomArray]
-    // this.props.dispatchSortedArray(BubbleSort(tempArray))
     BubbleSort(
       this.props.randomArray,
       this.state.arrayLength,
       (height, index) => this.props.changeBarHeight(height, index),
       (color, index) => this.props.changeBarColor(color, index),
-      500,
+      0,
       this.props.arrayColor,
       "yellow",
       "blue"
@@ -119,7 +113,6 @@ function msp(state) {
     randomArray: state.randomArray,
     sortedArray: state.sortedArray,
     style: state.style,
-    colorArray: state.colorArray,
   }
 }
 

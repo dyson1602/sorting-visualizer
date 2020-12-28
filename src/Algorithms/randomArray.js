@@ -1,4 +1,3 @@
-//min inclusive, max exclusive
 const getRandomInt = (min, max) => {
   min = Math.ceil(min)
   max = Math.floor(max)
