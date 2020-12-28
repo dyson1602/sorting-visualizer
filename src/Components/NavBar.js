@@ -69,7 +69,7 @@ class NavBar extends React.Component {
           this.state.arrayLength,
           (height, index) => this.props.changeBarHeight(height, index),
           (color, index) => this.props.changeBarColor(color, index),
-          1000,
+          250,
           this.props.arrayColor,
           "yellow",
           "blue",

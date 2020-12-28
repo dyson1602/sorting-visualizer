@@ -1,5 +1,3 @@
-import { changeBarColor } from "../Redux/actions"
-
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export const HeapSort = async (
@@ -16,7 +14,7 @@ export const HeapSort = async (
 
   let tempArray = [...unsortedArray]
 
-  await buildMaxHeap(tempArray)
+  buildMaxHeap(tempArray)
 
   let lastNode = arraySize - 1
 
@@ -26,14 +24,17 @@ export const HeapSort = async (
     let temp2 = tempArray[0]
     tempArray[lastNode] = tempArray[0]
     tempArray[0] = temp
+    changeBarColor(selectedColor, 0)
+    changeBarColor(selectedColor, lastNode)
+    await sleep(sortSpeed)
     changeBarHeight(temp, 0)
     changeBarHeight(temp2, lastNode)
+    changeBarColor(sortedColor, lastNode)
     heapify(tempArray, 0, lastNode)
     lastNode--
   }
 
-
-  async function buildMaxHeap(tempArray) {
+  function buildMaxHeap(tempArray) {
     let currentIndex = Math.floor(tempArray.length / 2)
     while (currentIndex >= 0) {
       heapify(tempArray, currentIndex, tempArray.length)
@@ -41,17 +42,16 @@ export const HeapSort = async (
     }
   }
 
-  async function heapify(array, start, end) {
+  function heapify(array, start, end) {
     let left = start * 2 + 1
     let right = start * 2 + 2 < end ? start * 2 + 2 : null
     let swap
-
+    console.log(array)
     // changeBarColor(selectedColor, left)
     // changeBarColor(selectedColor, right)
 
-    await sleep(sortSpeed)
+    // await sleep(sortSpeed)
 
-    console.log(array)
 
     if (start >= Math.floor(end / 2)) {
       return;
@@ -68,10 +68,16 @@ export const HeapSort = async (
       let temp2 = array[start]
       array[swap] = array[start]
       array[start] = temp
+     
+
       changeBarHeight(temp, start)
       changeBarHeight(temp2, swap)
+      // changeBarColor(arrayColor, swap)
+      // changeBarColor(arrayColor, start)
       heapify(array, swap, end)
     }
+    // changeBarColor(arrayColor, left)
+    // changeBarColor(arrayColor, right)
   }
 
   finished()
