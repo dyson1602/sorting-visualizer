@@ -59,21 +59,14 @@ class NavBar extends React.Component {
           (color, index) => this.props.changeBarColor(color, index),
           3,
           this.props.arrayColor,
-          "yellow",
-          "blue",
           this.props.dispatchSetFinishedSorting
         )
       case "heap":
         return HeapSort(
           this.props.randomArray,
           this.state.arrayLength,
-          (height, index) => this.props.changeBarHeight(height, index),
-          (color, index) => this.props.changeBarColor(color, index),
           250,
-          this.props.arrayColor,
-          "yellow",
-          "blue",
-          this.props.dispatchSetFinishedSorting
+          this.props
         )
     }
   }
