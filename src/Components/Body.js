@@ -4,6 +4,8 @@ import "../App.css"
 
 class Body extends React.Component {
   arrayBars = (array) => {
+    // console.log("In Body")
+    // console.log(array)
     switch (this.props.style) {
       case "bars":
         let newArray = []
@@ -44,11 +46,7 @@ class Body extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        {this.props.sorted
-          ? this.arrayBars(this.props.sortedArray)
-          : this.arrayBars(this.props.randomArray)}
-      </div>
+      <div className="container">{this.arrayBars(this.props.randomArray)}</div>
     )
   }
 }

@@ -9,6 +9,7 @@ import {
   SET_PIVOT,
   SET_QUICK_TWO,
   SET_RANDOM_ARRAY,
+  SET_SORTED,
   SET_SUB_ARRAY,
   SET_SWAP,
   SORTED_ARRAY,
@@ -113,7 +114,7 @@ function changeSubArrayReducer(prevState = defaultState.subArray, action) {
 function changeSwapReducer(prevState = defaultState.swap, action) {
   switch (action.type) {
     case SET_SWAP:
-      if (payload.length) {
+      if (action.payload.length) {
         return [...prevState].concat(action.payload)
       } else {
         return []
@@ -124,8 +125,8 @@ function changeSwapReducer(prevState = defaultState.swap, action) {
 }
 function changeSortedArrayReducer(prevState = defaultState.sorted, action) {
   switch (action.type) {
-    case SET_SWAP:
-      if (payload.length) {
+    case SET_SORTED:
+      if (action.payload.length) {
         return [...prevState].concat(action.payload)
       } else {
         return []
