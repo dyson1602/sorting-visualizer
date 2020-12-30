@@ -76,6 +76,13 @@ class NavBar extends React.Component {
           "blue",
           this.props.dispatchSetFinishedSorting
         )
+      // console.log("Case: Quick")
+      // return QuickSort(
+      //   this.props.randomArray,
+      //   (height, color) => this.props.changeBarHeight(height, color),
+      //   (color, index) => this.props.changeBarColor(color, index),
+      //   this.props.dispatchSetFinishedSorting
+      // )
     }
   }
   setSortingMethod = (method) => {
