@@ -64,25 +64,20 @@ class NavBar extends React.Component {
           this.props.dispatchSetFinishedSorting
         )
       case "quick":
-        return QuickSort(
-          this.props.randomArray,
-          this.props.arraySize,
-          (height, color) => this.props.changeBarHeight(height, color),
-          (color, index) => this.props.changeBarColor(color, index),
-          500,
-          "red",
-          "yellow",
-          "purple",
-          "blue",
-          this.props.dispatchSetFinishedSorting
-        )
-      // console.log("Case: Quick")
-      // return QuickSort(
-      //   this.props.randomArray,
-      //   (height, color) => this.props.changeBarHeight(height, color),
-      //   (color, index) => this.props.changeBarColor(color, index),
-      //   this.props.dispatchSetFinishedSorting
-      // )
+        // return QuickSort(
+        //   this.props.randomArray,
+        //   this.props.arraySize,
+        //   (height, color) => this.props.changeBarHeight(height, color),
+        //   (color, index) => this.props.changeBarColor(color, index),
+        //   500,
+        //   "red",
+        //   "yellow",
+        //   "purple",
+        //   "blue",
+        //   this.props.dispatchSetFinishedSorting
+        // )
+        console.log("Case: Quick")
+        return QuickSort(this.props.randomArray)
     }
   }
   setSortingMethod = (method) => {
