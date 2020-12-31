@@ -7,8 +7,13 @@ import {
   SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
   SORTED_ARRAY,
+  SPEED,
   STYLE,
 } from "./actionTypes"
+
+export function setSpeed(value) {
+  return { type: SPEED, payload: value }
+}
 
 export function setRandomArray(randomArray) {
   return { type: SET_RANDOM_ARRAY, payload: randomArray }

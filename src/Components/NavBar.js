@@ -15,6 +15,7 @@ import {
   setMethod,
   setRandomArray,
   setSortedArray,
+  setSpeed,
   swapStyles,
 } from "../Redux/actions"
 
@@ -48,6 +49,13 @@ class NavBar extends React.Component {
     this.props.dispatchColorArray(
       generateColorArray(this.state.arrayLength, "red")
     )
+    if (this.state.arrayLength < 67) {
+      this.props.dispatchSpeed(50)
+    } else if (this.state.arrayLength > 134) {
+      this.props.dispatchSpeed(10)
+    } else {
+      this.props.dispatchSpeed(30)
+    }
   }
 
   sortHandler = () => {
@@ -57,13 +65,13 @@ class NavBar extends React.Component {
       case "bubble":
         return BubbleSort(this.props)
       case "heap":
-        return HeapSort(this.props.randomArray, 250, this.props)
+        return HeapSort(this.props)
       case "insertion":
-        return InsertionSort(this.props.randomArray, this.props)
+        return InsertionSort(this.props)
       default:
         return BubbleSort(this.props)
       case "quick":
-        return QuickSort(this.props.randomArray, this.props)
+        return QuickSort(this.props)
       case "selection":
         return SelectionSort(this.props)
     }
@@ -184,6 +192,7 @@ function msp(state) {
     sortedArray: state.sortedArray,
     style: state.style,
     method: state.method,
+    speed: state.speed,
   }
 }
 
@@ -200,6 +209,7 @@ function mdp(dispatch) {
     dispatchStyleSwap: (styleType) => dispatch(swapStyles(styleType)),
     dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
     dispatchMethod: (methodType) => dispatch(setMethod(methodType)),
+    dispatchSpeed: (speed) => dispatch(setSpeed(speed)),
   }
 }
 

@@ -1,5 +1,5 @@
-export function QuickSort(randomArray, props) {
-  let array = [...randomArray]
+export function QuickSort(props) {
+  let array = [...props.randomArray]
   let animationArray = []
   // console.log("Random Array: ", array)
   quickSortHelper(array, 0, array.length - 1, animationArray)
@@ -86,5 +86,5 @@ function dispatchHandler(props, array, animationArray) {
       : null
 
   dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(() => dispatchHandler(props, array, animationArray), 25)
+  setTimeout(() => dispatchHandler(props, array, animationArray), props.speed)
 }

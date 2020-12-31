@@ -6,13 +6,9 @@ import {
   IS_SORTING,
   METHOD,
   SET_COLOR_ARRAY,
-  // SET_PIVOT,
-  // SET_QUICK_TWO,
   SET_RANDOM_ARRAY,
-  // SET_SORTED,
-  // SET_SUB_ARRAY,
-  // SET_SWAP,
   SORTED_ARRAY,
+  SPEED,
   STYLE,
 } from "./actionTypes"
 
@@ -25,6 +21,7 @@ const defaultState = {
   style: "bars",
   arrayColor: "red",
   method: null,
+  speed: 50,
 }
 
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
@@ -91,6 +88,15 @@ function changeMethodReducer(prevState = defaultState.method, action) {
   }
 }
 
+function changeSpeedReducer(prevState = defaultState.speed, action) {
+  switch (action.type) {
+    case SPEED:
+      return action.payload
+    default:
+      return prevState
+  }
+}
+
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,
   sortedArray: sortedArrayReducer,
@@ -98,6 +104,7 @@ const rootReducer = combineReducers({
   style: changeStyleReducer,
   colorArray: colorArrayReducer,
   method: changeMethodReducer,
+  speed: changeSpeedReducer,
 })
 
 export default rootReducer

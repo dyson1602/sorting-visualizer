@@ -1,5 +1,5 @@
-function HeapSort(unsortedArray, sortSpeed, props) {
-  let tempArray = [...unsortedArray]
+function HeapSort(props) {
+  let tempArray = [...props.randomArray]
   let animationArray = []
 
   buildMaxHeap(tempArray, animationArray)
@@ -31,7 +31,10 @@ function dispatchHandler(animationArray, props, tempArray) {
   // console.log("case: ", currentPane[0], "function: ", dispatchFunction)
 
   dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(() => dispatchHandler(animationArray, props, tempArray), 200)
+  setTimeout(
+    () => dispatchHandler(animationArray, props, tempArray),
+    props.speed
+  )
 }
 
 function sortMaxHeap(tempArray, lastNode, animationArray) {

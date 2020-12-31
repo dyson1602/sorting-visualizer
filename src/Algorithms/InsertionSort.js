@@ -1,7 +1,5 @@
-
-
-export function InsertionSort(randomArray, props) {
-  let tempArray = [...randomArray]
+export function InsertionSort(props) {
+  let tempArray = [...props.randomArray]
   let animationArray = []
 
   for (let i = 1; i < tempArray.length; i++) {
@@ -21,11 +19,12 @@ export function InsertionSort(randomArray, props) {
       animationArray.push(["height", temp, j])
       animationArray.push(["height", swap, j + 1])
       animationArray.push(["color", "red", j + 1])
-      j - 1 >= 0 ? animationArray.push(["color", "yellow", j - 1])
+      j - 1 >= 0
+        ? animationArray.push(["color", "yellow", j - 1])
         : animationArray.push(["color", "red", j])
-      
+
       if (temp >= tempArray[j - 1]) {
-        animationArray.push(["color", "red", j ])
+        animationArray.push(["color", "red", j])
         animationArray.push(["color", "red", j - 1])
       }
       j--
@@ -44,7 +43,6 @@ export function InsertionSort(randomArray, props) {
   dispatchHandler(animationArray, props, tempArray)
 }
 
-
 function dispatchHandler(animationArray, props, tempArray) {
   if (animationArray.length === 0) {
     props.dispatchSetFinishedSorting()
@@ -53,11 +51,17 @@ function dispatchHandler(animationArray, props, tempArray) {
 
   let currentPane = animationArray.shift()
 
-  let dispatchFunction = currentPane[0] === "color" ? props.changeBarColor
-    : currentPane[0] === "height" ? props.changeBarHeight : null
+  let dispatchFunction =
+    currentPane[0] === "color"
+      ? props.changeBarColor
+      : currentPane[0] === "height"
+      ? props.changeBarHeight
+      : null
   console.log("case: ", currentPane[0], "function: ", dispatchFunction)
 
   dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(() => dispatchHandler(animationArray, props, tempArray), 7)
+  setTimeout(
+    () => dispatchHandler(animationArray, props, tempArray),
+    props.speed
+  )
 }
-
