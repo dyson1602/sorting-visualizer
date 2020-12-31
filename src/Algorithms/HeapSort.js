@@ -1,8 +1,4 @@
-function HeapSort(
-  unsortedArray,
-  sortSpeed,
-  props
-) {
+function HeapSort(unsortedArray, sortSpeed, props) {
   let tempArray = [...unsortedArray]
   let animationArray = []
 
@@ -16,7 +12,6 @@ function HeapSort(
   animationArray.push(["color", "blue", 0])
 
   dispatchHandler(animationArray, props, tempArray)
-
 } //HeapSort
 
 function dispatchHandler(animationArray, props, tempArray) {
@@ -27,14 +22,17 @@ function dispatchHandler(animationArray, props, tempArray) {
 
   let currentPane = animationArray.shift()
 
-  let dispatchFunction = currentPane[0] === "color" ? props.changeBarColor
-    : currentPane[0] === "height" ? props.changeBarHeight : null
-  console.log("case: ", currentPane[0], "function: ", dispatchFunction)
+  let dispatchFunction =
+    currentPane[0] === "color"
+      ? props.changeBarColor
+      : currentPane[0] === "height"
+      ? props.changeBarHeight
+      : null
+  // console.log("case: ", currentPane[0], "function: ", dispatchFunction)
 
   dispatchFunction(currentPane[1], currentPane[2])
   setTimeout(() => dispatchHandler(animationArray, props, tempArray), 200)
 }
-
 
 function sortMaxHeap(tempArray, lastNode, animationArray) {
   let temp = tempArray[lastNode]
@@ -53,7 +51,6 @@ function sortMaxHeap(tempArray, lastNode, animationArray) {
   heapify(tempArray, 0, lastNode, animationArray)
 }
 
-
 function buildMaxHeap(tempArray, animationArray) {
   let currentIndex = Math.floor(tempArray.length / 2)
   while (currentIndex >= 0) {
@@ -68,7 +65,7 @@ function heapify(array, start, end, animationArray) {
   let swap
 
   if (start >= Math.floor(end / 2)) {
-    return;
+    return
   }
 
   if (right) {
@@ -82,7 +79,7 @@ function heapify(array, start, end, animationArray) {
     let temp2 = array[start]
     array[swap] = array[start]
     array[start] = temp
-    
+
     animationArray.push(["color", "yellow", swap])
     animationArray.push(["color", "yellow", start])
     animationArray.push(["height", temp, start])
@@ -96,6 +93,5 @@ function heapify(array, start, end, animationArray) {
     animationArray.push(["color", "red", left])
   }
 }
-
 
 export { HeapSort }

@@ -57,10 +57,6 @@ function msp(state) {
     style: state.style,
     arrayColor: state.arrayColor,
     colorArray: state.colorArray,
-    pivot: state.pivot,
-    swap: state.swap,
-    sorted: state.sorted,
-    quickTwo: state.quickTwo,
   }
 }
 
