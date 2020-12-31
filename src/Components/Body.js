@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-import "../App.css"
 
 class Body extends React.Component {
   arrayBars = (array) => {
