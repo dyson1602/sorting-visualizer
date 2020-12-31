@@ -28,9 +28,8 @@ class Body extends React.Component {
           <div
             style={{
               display: "inline-block",
-              backgroundColor: `rgba(${number * 0.5},9,9,${
-                200 / array.length
-              })`,
+              backgroundColor: `rgba(${number * 0.5},9,9,${200 / array.length
+                })`,
               height: `400px`,
               width: `${1000 / array.length}px`,
               marginTop: "75px",
@@ -43,11 +42,10 @@ class Body extends React.Component {
   }
 
   render() {
+    
     return (
       <div className="container">
-        {this.props.sorted
-          ? this.arrayBars(this.props.sortedArray)
-          : this.arrayBars(this.props.randomArray)}
+        {this.arrayBars(this.props.randomArray)}
       </div>
     )
   }

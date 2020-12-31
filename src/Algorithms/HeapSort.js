@@ -1,84 +1,101 @@
-// import { changeBarColor, changeBarHeight } from '../Redux/actions'
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-
-async function HeapSort(
+function HeapSort(
   unsortedArray,
-  arraySize,
-  sortSpeed = 0,
+  sortSpeed,
   props
 ) {
   let tempArray = [...unsortedArray]
-  await buildMaxHeap(tempArray, sortSpeed, props)
+  let animationArray = []
 
-  let lastNode = arraySize - 1
+  buildMaxHeap(tempArray, animationArray)
+
+  let lastNode = tempArray.length - 1
   while (lastNode > 0) {
-    await sortMaxHeap(tempArray, lastNode, sortSpeed, props)
+    sortMaxHeap(tempArray, lastNode, animationArray)
     lastNode--
   }
+  animationArray.push(["color", "blue", 0])
 
-  if (lastNode === 0) {
-    props.changeBarColor("blue", 0)
-    props.dispatchSetFinishedSorting()
-  }
+  dispatchHandler(animationArray, props, tempArray)
+
 } //HeapSort
 
+function dispatchHandler(animationArray, props, tempArray) {
+  if (animationArray.length === 0) {
+    props.dispatchSetFinishedSorting()
+    return
+  }
 
-async function sortMaxHeap(tempArray, lastNode, sortSpeed, props) {
+  let currentPane = animationArray.shift()
+
+  let dispatchFunction = currentPane[0] === "color" ? props.changeBarColor
+    : currentPane[0] === "height" ? props.changeBarHeight : null
+  console.log("case: ", currentPane[0], "function: ", dispatchFunction)
+
+  dispatchFunction(currentPane[1], currentPane[2])
+  setTimeout(() => dispatchHandler(animationArray, props, tempArray), 200)
+}
+
+
+function sortMaxHeap(tempArray, lastNode, animationArray) {
   let temp = tempArray[lastNode]
   let temp2 = tempArray[0]
   tempArray[lastNode] = tempArray[0]
   tempArray[0] = temp
-  props.changeBarColor("yellow", 0)
-  props.changeBarColor("yellow", lastNode)
-  await sleep(sortSpeed)
-  props.changeBarHeight(temp, 0)
-  props.changeBarHeight(temp2, lastNode)
-  props.changeBarColor("blue", lastNode)
-  heapify(tempArray, 0, lastNode, sortSpeed, props)
+
+  animationArray.push(["color", "yellow", 0])
+  animationArray.push(["color", "yellow", lastNode])
+
+  animationArray.push(["height", temp, 0])
+  animationArray.push(["height", temp2, lastNode])
+
+  animationArray.push(["color", "blue", lastNode])
+
+  heapify(tempArray, 0, lastNode, animationArray)
 }
 
 
-async function buildMaxHeap(tempArray, sortSpeed, props) {
+function buildMaxHeap(tempArray, animationArray) {
   let currentIndex = Math.floor(tempArray.length / 2)
   while (currentIndex >= 0) {
-    await heapify(tempArray, currentIndex, tempArray.length, sortSpeed, props)
-      .then(() => currentIndex--)
+    heapify(tempArray, currentIndex, tempArray.length, animationArray)
+    currentIndex--
   }
 }
 
-
-async function heapify(array, start, end, sortSpeed, props) {
+function heapify(array, start, end, animationArray) {
   let left = start * 2 + 1
   let right = start * 2 + 2 < end ? start * 2 + 2 : null
   let swap
- 
+
   if (start >= Math.floor(end / 2)) {
     return;
   }
-  
+
   if (right) {
     swap = array[left] > array[right] ? left : right
   } else {
     swap = left
   }
-  
-  props.changeBarColor("yellow", left)
-  props.changeBarColor("yellow", right)
-  
+
   if (array[swap] > array[start]) {
     let temp = array[swap]
     let temp2 = array[start]
     array[swap] = array[start]
     array[start] = temp
-    props.changeBarHeight(temp2, swap)
-    props.changeBarHeight(temp, start)
-    props.changeBarColor("red", swap)
-    props.changeBarColor("red", start)
-    heapify(array, swap, end, sortSpeed, props)
-  }
+    
+    animationArray.push(["color", "yellow", swap])
+    animationArray.push(["color", "yellow", start])
+    animationArray.push(["height", temp, start])
+    animationArray.push(["height", temp2, swap])
+    animationArray.push(["color", "red", swap])
+    animationArray.push(["color", "red", start])
 
-  props.changeBarColor("red", left)
-  props.changeBarColor("red", right)
+    heapify(array, swap, end, animationArray)
+  } else {
+    animationArray.push(["color", "red", start])
+    animationArray.push(["color", "red", left])
+  }
 }
+
 
 export { HeapSort }
