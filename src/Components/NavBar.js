@@ -4,6 +4,7 @@ import { BubbleSort } from "../Algorithms/BubbleSort"
 import { HeapSort } from "../Algorithms/HeapSort"
 import { QuickSort } from "../Algorithms/QuickSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
+import { SelectionSort } from "../Algorithms/SelectionSort"
 import {
   changeBarColor,
   changeBarHeight,
@@ -98,6 +99,8 @@ class NavBar extends React.Component {
         //       // )
         console.log(this.props)
         return QuickSort(this.props.randomArray, this.props)
+      case "selection":
+        return SelectionSort(this.props)
     }
   }
   setSortingMethod = (method) => {
@@ -172,6 +175,17 @@ class NavBar extends React.Component {
                   }
                 >
                   QuickSort
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={
+                    this.props.isSorting
+                      ? null
+                      : () => this.setSortingMethod("selection")
+                  }
+                >
+                  SelectionSort
                 </a>
               </li>
               <li>
