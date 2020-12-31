@@ -5,6 +5,7 @@ import { HeapSort } from "../Algorithms/HeapSort"
 import { QuickSort } from "../Algorithms/QuickSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import { SelectionSort } from "../Algorithms/SelectionSort"
+import { InsertionSort } from "../Algorithms/InsertionSort"
 import {
   changeBarColor,
   changeBarHeight,
@@ -71,7 +72,16 @@ class NavBar extends React.Component {
           this.props.dispatchSetFinishedSorting
         )
       case "heap":
-        return HeapSort(this.props.randomArray, 250, this.props)
+        return HeapSort(
+          this.props.randomArray,
+          250,
+          this.props
+        )
+      case "insertion":
+        return InsertionSort(
+          this.props.randomArray,
+          this.props
+        )
       default:
         return BubbleSort(
           this.props.randomArray,
@@ -153,6 +163,17 @@ class NavBar extends React.Component {
                   }
                 >
                   BubbleSort
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={
+                    this.props.isSorting
+                      ? null
+                      : () => this.setSortingMethod("insertion")
+                  }
+                >
+                  Insertion Sort
                 </a>
               </li>
               <li>
