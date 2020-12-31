@@ -1,10 +1,9 @@
 export function QuickSort(randomArray, props) {
   let array = [...randomArray]
   let animationArray = []
-  console.log("Random Array: ", array)
-
+  // console.log("Random Array: ", array)
   quickSortHelper(array, 0, array.length - 1, animationArray)
-  console.log("Quicksorted Array", array)
+  // console.log("Quicksorted Array", array)
   markSorted(array, animationArray)
   dispatchHandler(props, array, animationArray)
   return array
@@ -12,6 +11,8 @@ export function QuickSort(randomArray, props) {
 
 function quickSortHelper(array, start, end, animationArray) {
   if (start >= end) {
+    // animationArray.push(["color", "blue", start])
+    // console.log("start:", start)
     return
   }
   let pivot = start,
@@ -19,9 +20,9 @@ function quickSortHelper(array, start, end, animationArray) {
     right = end
 
   animationArray.push(["color", "purple", pivot])
-  animationArray.push(["color", "orange", left])
-  animationArray.push(["color", "orange", right])
-  // console.log("Pivot: ", pivot)
+  console.log("Pivot:", pivot)
+  // animationArray.push(["color", "orange", left])
+  // animationArray.push(["color", "orange", right])
 
   while (right >= left) {
     if (array[right] < array[pivot] && array[left] > array[pivot]) {
@@ -29,14 +30,13 @@ function quickSortHelper(array, start, end, animationArray) {
       animationArray.push(["color", "yellow", right])
       let temp = array[right]
       animationArray.push(["height", array[left], right])
-
       animationArray.push(["height", temp, left])
-
       array[right] = array[left]
       array[left] = temp
-
       animationArray.push(["color", "red", left])
+      // console.log("Left:", left)
       animationArray.push(["color", "red", right])
+      // console.log("Right:", right)
     }
     if (array[right] >= array[pivot]) {
       right--
@@ -56,14 +56,16 @@ function quickSortHelper(array, start, end, animationArray) {
 
     animationArray.push(["color", "red", pivot])
     animationArray.push(["color", "red", right])
+    // console.log("Pivot:", pivot)
+    // console.log("right:", right)
   }
+  // animationArray.push(["color", "red", left])
+  // animationArray.push(["color", "red", right])
   quickSortHelper(array, start, right - 1, animationArray)
   quickSortHelper(array, right + 1, end, animationArray)
 }
 
 function markSorted(array, animationArray) {
-  // console.log("Array", array)
-  // console.log("Animation Array", animationArray)
   for (let i = 0; i < array.length; i++) {
     animationArray.push(["color", "blue", i])
   }
@@ -82,7 +84,6 @@ function dispatchHandler(props, array, animationArray) {
       : currentPane[0] === "height"
       ? props.changeBarHeight
       : null
-  // console.log("Animation array", animationArray)
 
   dispatchFunction(currentPane[1], currentPane[2])
   setTimeout(() => dispatchHandler(props, array, animationArray), 25)

@@ -12,13 +12,8 @@ import {
   setFinishedSorting,
   setIsSorting,
   setMethod,
-  // setPivot,
-  // setQuickTwo,
   setRandomArray,
-  // setSorted,
   setSortedArray,
-  // setSubArray,
-  // setSwap,
   swapStyles,
 } from "../Redux/actions"
 
@@ -85,19 +80,6 @@ class NavBar extends React.Component {
           this.props.dispatchSetFinishedSorting
         )
       case "quick":
-        // return QuickSort(
-        //       //   this.props.randomArray,
-        //       //   this.props.arraySize,
-        //       //   (height, color) => this.props.changeBarHeight(height, color),
-        //       //   (color, index) => this.props.changeBarColor(color, index),
-        //       //   500,
-        //       //   "red",
-        //       //   "yellow",
-        //       //   "purple",
-        //       //   "blue",
-        //       //   this.props.dispatchSetFinishedSorting
-        //       // )
-        console.log(this.props)
         return QuickSort(this.props.randomArray, this.props)
       case "selection":
         return SelectionSort(this.props)
@@ -208,10 +190,6 @@ function msp(state) {
     sortedArray: state.sortedArray,
     style: state.style,
     method: state.method,
-    // pivot: state.pivot,
-    // swap: state.swap,
-    // sorted: state.sorted,
-    // quickTwo: state.quickTwo,
   }
 }
 
@@ -228,11 +206,6 @@ function mdp(dispatch) {
     dispatchStyleSwap: (styleType) => dispatch(swapStyles(styleType)),
     dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
     dispatchMethod: (methodType) => dispatch(setMethod(methodType)),
-    // dispatchSetPivot: (index) => dispatch(setPivot(index)),
-    // dispatchSetSubArray: (array) => dispatch(setSubArray(array)),
-    // dispatchSetSwap: (array) => dispatch(setSwap(array)),
-    // dispatchSetSorted: (array) => dispatch(setSorted(array)),
-    // dispatchSetQuickTwo: (array) => dispatch(setQuickTwo(array)),
   }
 }
 
