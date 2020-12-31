@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { BubbleSort } from "../Algorithms/BubbleSort"
 import { HeapSort } from "../Algorithms/HeapSort"
+import { QuickSort } from "../Algorithms/QuickSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import {
   changeBarColor,
@@ -10,8 +11,13 @@ import {
   setFinishedSorting,
   setIsSorting,
   setMethod,
+  // setPivot,
+  // setQuickTwo,
   setRandomArray,
+  // setSorted,
   setSortedArray,
+  // setSubArray,
+  // setSwap,
   swapStyles,
 } from "../Redux/actions"
 
@@ -64,11 +70,7 @@ class NavBar extends React.Component {
           this.props.dispatchSetFinishedSorting
         )
       case "heap":
-        return HeapSort(
-          this.props.randomArray,
-          250,
-          this.props
-        )
+        return HeapSort(this.props.randomArray, 250, this.props)
       default:
         return BubbleSort(
           this.props.randomArray,
@@ -81,6 +83,21 @@ class NavBar extends React.Component {
           "blue",
           this.props.dispatchSetFinishedSorting
         )
+      case "quick":
+        // return QuickSort(
+        //       //   this.props.randomArray,
+        //       //   this.props.arraySize,
+        //       //   (height, color) => this.props.changeBarHeight(height, color),
+        //       //   (color, index) => this.props.changeBarColor(color, index),
+        //       //   500,
+        //       //   "red",
+        //       //   "yellow",
+        //       //   "purple",
+        //       //   "blue",
+        //       //   this.props.dispatchSetFinishedSorting
+        //       // )
+        console.log(this.props)
+        return QuickSort(this.props.randomArray, this.props)
     }
   }
   setSortingMethod = (method) => {
@@ -177,6 +194,10 @@ function msp(state) {
     sortedArray: state.sortedArray,
     style: state.style,
     method: state.method,
+    // pivot: state.pivot,
+    // swap: state.swap,
+    // sorted: state.sorted,
+    // quickTwo: state.quickTwo,
   }
 }
 
@@ -193,6 +214,11 @@ function mdp(dispatch) {
     dispatchStyleSwap: (styleType) => dispatch(swapStyles(styleType)),
     dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
     dispatchMethod: (methodType) => dispatch(setMethod(methodType)),
+    // dispatchSetPivot: (index) => dispatch(setPivot(index)),
+    // dispatchSetSubArray: (array) => dispatch(setSubArray(array)),
+    // dispatchSetSwap: (array) => dispatch(setSwap(array)),
+    // dispatchSetSorted: (array) => dispatch(setSorted(array)),
+    // dispatchSetQuickTwo: (array) => dispatch(setQuickTwo(array)),
   }
 }
 

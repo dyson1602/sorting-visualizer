@@ -28,8 +28,9 @@ class Body extends React.Component {
           <div
             style={{
               display: "inline-block",
-              backgroundColor: `rgba(${number * 0.5},9,9,${200 / array.length
-                })`,
+              backgroundColor: `rgba(${number * 0.5},9,9,${
+                200 / array.length
+              })`,
               height: `400px`,
               width: `${1000 / array.length}px`,
               marginTop: "75px",
@@ -42,11 +43,8 @@ class Body extends React.Component {
   }
 
   render() {
-    
     return (
-      <div className="container">
-        {this.arrayBars(this.props.randomArray)}
-      </div>
+      <div className="container">{this.arrayBars(this.props.randomArray)}</div>
     )
   }
 }
@@ -59,6 +57,10 @@ function msp(state) {
     style: state.style,
     arrayColor: state.arrayColor,
     colorArray: state.colorArray,
+    pivot: state.pivot,
+    swap: state.swap,
+    sorted: state.sorted,
+    quickTwo: state.quickTwo,
   }
 }
 
