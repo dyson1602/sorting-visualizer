@@ -1,3 +1,48 @@
+// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+// export const BubbleSort = async (
+//   array,
+//   arraySize,
+//   changeBarHeight,
+//   changeBarColor,
+//   sortSpeed = 10,
+//   arrayColor = "red",
+//   selectedColor = "yellow",
+//   sortedColor = "blue",
+//   finished
+// ) => {
+//   let localArray = [...array]
+//   for (let i = 0; i < arraySize; i++) {
+//     let isSorted = true
+//     for (let j = 0; j < arraySize - i; j++) {
+//       changeBarColor(selectedColor, j)
+//       changeBarColor(selectedColor, j + 1)
+//       await sleep(sortSpeed)
+//       if (localArray[j] > localArray[j + 1]) {
+//         let temp = localArray[j]
+//         let temp2 = localArray[j + 1]
+//         localArray[j] = temp2
+//         localArray[j + 1] = temp
+//         await sleep(sortSpeed)
+//         changeBarHeight(temp2, j)
+//         changeBarHeight(temp, j + 1)
+//         isSorted = false
+//       }
+//       changeBarColor(arrayColor, j)
+//       changeBarColor(arrayColor, j + 1)
+//     }
+//     changeBarColor(sortedColor, arraySize - 1 - i)
+//     changeBarColor(sortedColor, arraySize - i)
+//     if (isSorted === true) {
+//       for (let k = 0; k < i; k++) {
+//         changeBarColor(sortedColor, k)
+//       }
+//       break
+//     }
+//   }
+//   finished()
+// }
+
 // // import { changeBarColor, changeBarHeight } from '../Redux/actions'
 // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -21,7 +66,6 @@
 //     props.dispatchSetFinishedSorting()
 //   }
 // } //HeapSort
-
 
 // async function sortMaxHeap(tempArray, lastNode, sortSpeed, props) {
 //   // await sleep(sortSpeed)
@@ -50,7 +94,6 @@
 //   heapify(tempArray, 0, lastNode, sortSpeed, props)
 // }
 
-
 // async function buildMaxHeap(tempArray, sortSpeed, props) {
 //   let currentIndex = Math.floor(tempArray.length / 2)
 //   while (currentIndex >= 0) {
@@ -75,7 +118,7 @@
 //   } else {
 //     swap = left
 //   }
-  
+
 //   props.changeBarColor("yellow", left)
 //   props.changeBarColor("yellow", right)
 

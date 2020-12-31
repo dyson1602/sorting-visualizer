@@ -1,53 +1,54 @@
-// import { connect } from 'react-redux'
+export function BubbleSort(props) {
+  let animationArray = []
+  let localArray = [...props.randomArray]
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-
-export const BubbleSort = async (
-  array,
-  arraySize,
-  changeBarHeight,
-  changeBarColor,
-  sortSpeed = 10,
-  arrayColor = "red",
-  selectedColor = "yellow",
-  sortedColor = "blue",
-  finished
-) => {
-  let localArray = [...array]
-  for (let i = 0; i < arraySize; i++) {
+  for (let i = 0; i < localArray.length; i++) {
     let isSorted = true
-    for (let j = 0; j < arraySize - i; j++) {
-      changeBarColor(selectedColor, j)
-      changeBarColor(selectedColor, j + 1)
-      await sleep(sortSpeed)
+    for (let j = 0; j < localArray.length - i; j++) {
+      animationArray.push(["color", "yellow", j])
+      animationArray.push(["color", "yellow", j + 1])
+
       if (localArray[j] > localArray[j + 1]) {
         let temp = localArray[j]
         let temp2 = localArray[j + 1]
         localArray[j] = temp2
         localArray[j + 1] = temp
-        await sleep(sortSpeed)
-        changeBarHeight(temp2, j)
-        changeBarHeight(temp, j + 1)
+        animationArray.push(["height", temp2, j])
+        animationArray.push(["height", temp, j + 1])
         isSorted = false
       }
-      changeBarColor(arrayColor, j)
-      changeBarColor(arrayColor, j + 1)
+
+      animationArray.push(["color", "red", j])
+      animationArray.push(["color", "red", j + 1])
     }
-    changeBarColor(sortedColor, arraySize - 1 - i)
-    changeBarColor(sortedColor, arraySize - i)
+    animationArray.push(["color", "blue", localArray.length - 1 - i])
+    animationArray.push(["color", "blue", localArray.length - i])
     if (isSorted === true) {
       for (let k = 0; k < i; k++) {
-        changeBarColor(sortedColor, k)
+        animationArray.push(["color", "blue", k])
       }
       break
     }
   }
-  finished()
+
+  dispatchHandler(animationArray, props, localArray)
 }
 
-// function mdp(dispatch) {
-//   return {
-//     dispatchSetFinishedSorting: () => dispatch(setFinishedSorting()),
-//   }
-// }
-// export default connect(null, mdp)(BubbleSort)
+function dispatchHandler(animationArray, props, localArray) {
+  if (animationArray.length === 0) {
+    props.dispatchSetFinishedSorting()
+    return
+  }
+
+  let currentPane = animationArray.shift()
+
+  let dispatchFunction =
+    currentPane[0] === "color"
+      ? props.changeBarColor
+      : currentPane[0] === "height"
+      ? props.changeBarHeight
+      : null
+
+  dispatchFunction(currentPane[1], currentPane[2])
+  setTimeout(() => dispatchHandler(animationArray, props, localArray), 50)
+}

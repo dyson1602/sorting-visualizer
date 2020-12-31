@@ -2,10 +2,10 @@ import React from "react"
 import { connect } from "react-redux"
 import { BubbleSort } from "../Algorithms/BubbleSort"
 import { HeapSort } from "../Algorithms/HeapSort"
+import { InsertionSort } from "../Algorithms/InsertionSort"
 import { QuickSort } from "../Algorithms/QuickSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import { SelectionSort } from "../Algorithms/SelectionSort"
-import { InsertionSort } from "../Algorithms/InsertionSort"
 import {
   changeBarColor,
   changeBarHeight,
@@ -55,40 +55,13 @@ class NavBar extends React.Component {
     let currentMethod = this.props.method
     switch (currentMethod) {
       case "bubble":
-        return BubbleSort(
-          this.props.randomArray,
-          this.state.arrayLength,
-          (height, index) => this.props.changeBarHeight(height, index),
-          (color, index) => this.props.changeBarColor(color, index),
-          1000,
-          this.props.arrayColor,
-          "yellow",
-          "blue",
-          this.props.dispatchSetFinishedSorting
-        )
+        return BubbleSort(this.props)
       case "heap":
-        return HeapSort(
-          this.props.randomArray,
-          250,
-          this.props
-        )
+        return HeapSort(this.props.randomArray, 250, this.props)
       case "insertion":
-        return InsertionSort(
-          this.props.randomArray,
-          this.props
-        )
+        return InsertionSort(this.props.randomArray, this.props)
       default:
-        return BubbleSort(
-          this.props.randomArray,
-          this.state.arrayLength,
-          (height, index) => this.props.changeBarHeight(height, index),
-          (color, index) => this.props.changeBarColor(color, index),
-          3,
-          this.props.arrayColor,
-          "yellow",
-          "blue",
-          this.props.dispatchSetFinishedSorting
-        )
+        return BubbleSort(this.props)
       case "quick":
         return QuickSort(this.props.randomArray, this.props)
       case "selection":
