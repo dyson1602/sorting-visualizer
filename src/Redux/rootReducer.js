@@ -40,6 +40,8 @@ function randomArrayReducer(prevState = defaultState.randomArray, action) {
       let newArr = [...prevState]
       newArr[action.index] = action.newHeight
       return newArr
+    case SET_SUB_ARRAY:
+      return action.payload
     default:
       return prevState
   }
@@ -103,14 +105,14 @@ function changePivotReducer(prevState = defaultState.pivot, action) {
       return prevState
   }
 }
-function changeSubArrayReducer(prevState = defaultState.subArray, action) {
-  switch (action.type) {
-    case SET_SUB_ARRAY:
-      return action.payload
-    default:
-      return prevState
-  }
-}
+// function changeSubArrayReducer(prevState = defaultState.subArray, action) {
+//   switch (action.type) {
+//     case SET_SUB_ARRAY:
+//       return action.payload
+//     default:
+//       return prevState
+//   }
+// }
 function changeSwapReducer(prevState = defaultState.swap, action) {
   switch (action.type) {
     case SET_SWAP:
@@ -152,7 +154,7 @@ const rootReducer = combineReducers({
   colorArray: colorArrayReducer,
   method: changeMethodReducer,
   pivot: changePivotReducer,
-  subArray: changeSubArrayReducer,
+  // subArray: changeSubArrayReducer,
   swap: changeSwapReducer,
   sorted: changeSortedArrayReducer,
   quickTwo: changeQuickTwoReducer,

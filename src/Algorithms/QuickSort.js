@@ -193,10 +193,9 @@ function handleDispatch(
     setTimeout(() => {
       dispatchSetQuickTwo([])
       //   dispatch(setRunning(false))
-    }, 900)
+    }, 10)
     return
   }
-  //   console.log(dispatchSetPivot)
   let dispatchFunction = !(animationArray[0] instanceof Array)
     ? dispatchSetPivot(animationArray.shift())
     : animationArray[0].length > 3
@@ -207,7 +206,6 @@ function handleDispatch(
       typeof animationArray[0][0] === "boolean"
     ? dispatchSetSorted(animationArray.shift())
     : dispatchSetQuickTwo(animationArray.shift())
-  //   dispatch(dispatchFunction(animationArray.shift()))
   if (dispatchFunction === dispatchSetPivot(animationArray.shift()))
     dispatchSetQuickTwo(animationArray.shift())
   setTimeout(() => {
@@ -220,17 +218,5 @@ function handleDispatch(
       array,
       animationArray
     )
-  }, 500)
+  }, 10)
 }
-
-// function mdp(dispatch) {
-//   return {
-//     dispatchSetPivot: (index) => dispatch(setPivot(index)),
-//     dispatchSetSubArray: (array) => dispatch(setSubArray(array)),
-//     dispatchSetSwap: (array) => dispatch(setSwap(array)),
-//     dispatchSetSorted: (array) => dispatch(setSorted(array)),
-//     dispatchSetQuickTwo: (array) => dispatch(setQuickTwo(array)),
-//   }
-// }
-
-// export default connect(null, mdp)(QuickSort)
