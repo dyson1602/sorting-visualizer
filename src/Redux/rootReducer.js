@@ -6,12 +6,12 @@ import {
   IS_SORTING,
   METHOD,
   SET_COLOR_ARRAY,
-  SET_PIVOT,
-  SET_QUICK_TWO,
+  // SET_PIVOT,
+  // SET_QUICK_TWO,
   SET_RANDOM_ARRAY,
-  SET_SORTED,
-  SET_SUB_ARRAY,
-  SET_SWAP,
+  // SET_SORTED,
+  // SET_SUB_ARRAY,
+  // SET_SWAP,
   SORTED_ARRAY,
   STYLE,
 } from "./actionTypes"
@@ -25,11 +25,11 @@ const defaultState = {
   style: "bars",
   arrayColor: "red",
   method: null,
-  pivot: null,
-  subArray: [],
-  swap: [],
-  sorted: [],
-  quickTwo: [],
+  // pivot: null,
+  // // subArray: [],
+  // swap: [],
+  // sorted: [],
+  // quickTwo: [],
 }
 
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
@@ -40,8 +40,10 @@ function randomArrayReducer(prevState = defaultState.randomArray, action) {
       let newArr = [...prevState]
       newArr[action.index] = action.newHeight
       return newArr
-    case SET_SUB_ARRAY:
-      return action.payload
+    // case SET_SUB_ARRAY:
+    //   console.log("SubArray: ", action.payload)
+
+    //   return action.payload
     default:
       return prevState
   }
@@ -97,54 +99,58 @@ function changeMethodReducer(prevState = defaultState.method, action) {
       return prevState
   }
 }
-function changePivotReducer(prevState = defaultState.pivot, action) {
-  switch (action.type) {
-    case SET_PIVOT:
-      return action.payload
-    default:
-      return prevState
-  }
-}
-// function changeSubArrayReducer(prevState = defaultState.subArray, action) {
+// function changePivotReducer(prevState = defaultState.pivot, action) {
 //   switch (action.type) {
-//     case SET_SUB_ARRAY:
+//     case SET_PIVOT:
+//       console.log("Pivot: ", action.payload, "Action: ", action)
 //       return action.payload
 //     default:
 //       return prevState
 //   }
 // }
-function changeSwapReducer(prevState = defaultState.swap, action) {
-  switch (action.type) {
-    case SET_SWAP:
-      if (action.payload.length) {
-        return [...prevState].concat(action.payload)
-      } else {
-        return []
-      }
-    default:
-      return prevState
-  }
-}
-function changeSortedArrayReducer(prevState = defaultState.sorted, action) {
-  switch (action.type) {
-    case SET_SORTED:
-      if (action.payload.length) {
-        return [...prevState].concat(action.payload)
-      } else {
-        return []
-      }
-    default:
-      return prevState
-  }
-}
-function changeQuickTwoReducer(prevState = defaultState.quickTwo, action) {
-  switch (action.type) {
-    case SET_QUICK_TWO:
-      return action.payload
-    default:
-      return prevState
-  }
-}
+// // function changeSubArrayReducer(prevState = defaultState.subArray, action) {
+// //   switch (action.type) {
+// //     case SET_SUB_ARRAY:
+// //       return action.payload
+// //     default:
+// //       return prevState
+// //   }
+// // }
+// function changeSwapReducer(prevState = defaultState.swap, action) {
+//   switch (action.type) {
+//     case SET_SWAP:
+//       if (action.payload.length) {
+//         console.log("Swap Array:", [...prevState].concat(action.payload))
+//         return [...prevState].concat(action.payload)
+//       } else {
+//         return []
+//       }
+//     default:
+//       return prevState
+//   }
+// }
+// function changeSortedArrayReducer(prevState = defaultState.sorted, action) {
+//   switch (action.type) {
+//     case SET_SORTED:
+//       if (action.payload.length) {
+//         console.log("Sorted Array:", [...prevState].concat(action.payload))
+//         return [...prevState].concat(action.payload)
+//       } else {
+//         return []
+//       }
+//     default:
+//       return prevState
+//   }
+// }
+// function changeQuickTwoReducer(prevState = defaultState.quickTwo, action) {
+//   switch (action.type) {
+//     case SET_QUICK_TWO:
+//       console.log("Quick Two:", action.payload)
+//       return action.payload
+//     default:
+//       return prevState
+//   }
+// }
 
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,
@@ -153,11 +159,10 @@ const rootReducer = combineReducers({
   style: changeStyleReducer,
   colorArray: colorArrayReducer,
   method: changeMethodReducer,
-  pivot: changePivotReducer,
-  // subArray: changeSubArrayReducer,
-  swap: changeSwapReducer,
-  sorted: changeSortedArrayReducer,
-  quickTwo: changeQuickTwoReducer,
+  // pivot: changePivotReducer,
+  // swap: changeSwapReducer,
+  // sorted: changeSortedArrayReducer,
+  // quickTwo: changeQuickTwoReducer,
 })
 
 export default rootReducer

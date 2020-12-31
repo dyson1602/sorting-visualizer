@@ -10,13 +10,13 @@ import {
   setFinishedSorting,
   setIsSorting,
   setMethod,
-  setPivot,
-  setQuickTwo,
+  // setPivot,
+  // setQuickTwo,
   setRandomArray,
-  setSorted,
+  // setSorted,
   setSortedArray,
-  setSubArray,
-  setSwap,
+  // setSubArray,
+  // setSwap,
   swapStyles,
 } from "../Redux/actions"
 
@@ -81,15 +81,8 @@ class NavBar extends React.Component {
         //       //   "blue",
         //       //   this.props.dispatchSetFinishedSorting
         //       // )
-
-        return QuickSort(
-          this.props.randomArray,
-          (index) => this.props.dispatchSetPivot(index),
-          (array) => this.props.dispatchSetSubArray(array),
-          (array) => this.props.dispatchSetSwap(array),
-          (array) => this.props.dispatchSetSorted(array),
-          (array) => this.props.dispatchSetQuickTwo(array)
-        )
+        console.log(this.props)
+        return QuickSort(this.props.randomArray, this.props)
     }
   }
   setSortingMethod = (method) => {
@@ -175,6 +168,10 @@ function msp(state) {
     sortedArray: state.sortedArray,
     style: state.style,
     method: state.method,
+    // pivot: state.pivot,
+    // swap: state.swap,
+    // sorted: state.sorted,
+    // quickTwo: state.quickTwo,
   }
 }
 
@@ -191,11 +188,11 @@ function mdp(dispatch) {
     dispatchStyleSwap: (styleType) => dispatch(swapStyles(styleType)),
     dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
     dispatchMethod: (methodType) => dispatch(setMethod(methodType)),
-    dispatchSetPivot: (index) => dispatch(setPivot(index)),
-    dispatchSetSubArray: (array) => dispatch(setSubArray(array)),
-    dispatchSetSwap: (array) => dispatch(setSwap(array)),
-    dispatchSetSorted: (array) => dispatch(setSorted(array)),
-    dispatchSetQuickTwo: (array) => dispatch(setQuickTwo(array)),
+    // dispatchSetPivot: (index) => dispatch(setPivot(index)),
+    // dispatchSetSubArray: (array) => dispatch(setSubArray(array)),
+    // dispatchSetSwap: (array) => dispatch(setSwap(array)),
+    // dispatchSetSorted: (array) => dispatch(setSorted(array)),
+    // dispatchSetQuickTwo: (array) => dispatch(setQuickTwo(array)),
   }
 }
 

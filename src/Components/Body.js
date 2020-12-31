@@ -4,8 +4,6 @@ import "../App.css"
 
 class Body extends React.Component {
   arrayBars = (array) => {
-    // console.log("In Body")
-    // console.log(array)
     switch (this.props.style) {
       case "bars":
         let newArray = []
@@ -59,6 +57,10 @@ function msp(state) {
     style: state.style,
     arrayColor: state.arrayColor,
     colorArray: state.colorArray,
+    pivot: state.pivot,
+    swap: state.swap,
+    sorted: state.sorted,
+    quickTwo: state.quickTwo,
   }
 }
 
