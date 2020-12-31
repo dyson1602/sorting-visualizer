@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { BubbleSort } from "../Algorithms/BubbleSort"
 import { HeapSort } from "../Algorithms/HeapSort"
+import InsertionSort from "../Algorithms/InsertionSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import {
   changeBarColor,
@@ -69,6 +70,11 @@ class NavBar extends React.Component {
           250,
           this.props
         )
+      case "insertion":
+        return InsertionSort(
+          this.props.randomArray,
+          this.props
+        )
       default:
         return BubbleSort(
           this.props.randomArray,
@@ -133,6 +139,17 @@ class NavBar extends React.Component {
                   }
                 >
                   BubbleSort
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={
+                    this.props.isSorting
+                      ? null
+                      : () => this.setSortingMethod("insertion")
+                  }
+                >
+                  Insertion Sort
                 </a>
               </li>
               <li>
