@@ -49,10 +49,10 @@ class NavBar extends React.Component {
     this.props.dispatchColorArray(
       generateColorArray(this.state.arrayLength, "red")
     )
-    if (this.state.arrayLength < 67) {
+    if (this.state.arrayLength < 30) {
       this.props.dispatchSpeed(50)
-    } else if (this.state.arrayLength > 134) {
-      this.props.dispatchSpeed(10)
+    } else if (this.state.arrayLength > 60) {
+      this.props.dispatchSpeed(5)
     } else {
       this.props.dispatchSpeed(30)
     }
@@ -96,7 +96,7 @@ class NavBar extends React.Component {
                       type="range"
                       id="test5"
                       min="10"
-                      max="200"
+                      max="100"
                       onChange={
                         this.props.isSorting ? null : this.arrayLengthHandler
                       }
