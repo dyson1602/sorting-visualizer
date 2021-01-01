@@ -26,61 +26,31 @@ function merge(localArray, start, middle, end, auxArray, animationArray) {
   let i = start
   let j = middle + 1
   while (i <= middle && j <= end) {
-    // These are the values that we're comparing; we push them once
-    // to change their color.
-    //   animationArray.push([i, j]);
     animationArray.push(["color", "yellow", i])
     animationArray.push(["color", "yellow", j])
-    // These are the values that we're comparing; we push them a second
-    // time to revert their color.
-    //   animationArray.push([i, j]);
     animationArray.push(["color", "red", i])
     animationArray.push(["color", "red", j])
     if (auxArray[i] <= auxArray[j]) {
-      // We overwrite the value at index k in the original array with the
-      // value at index i in the auxiliary array.
-      // animationArray.push([k, auxArray[i]]);
       animationArray.push(["height", auxArray[i], k])
       localArray[k++] = auxArray[i++]
     } else {
-      // We overwrite the value at index k in the original array with the
-      // value at index j in the auxiliary array.
-      // animationArray.push([k, auxArray[j]]);
       animationArray.push(["height", auxArray[j], k])
       localArray[k++] = auxArray[j++]
     }
   }
   while (i <= middle) {
-    // These are the values that we're comparing; we push them once
-    // to change their color.
-    //   animationArray.push([i, i]);
     animationArray.push(["color", "yellow", i])
     animationArray.push(["color", "yellow", i])
-    // These are the values that we're comparing; we push them a second
-    // time to revert their color.
-    //   animationArray.push([i, i]);
     animationArray.push(["color", "red", i])
     animationArray.push(["color", "red", i])
-    // We overwrite the value at index k in the original array with the
-    // value at index i in the auxiliary array.
-    //   animationArray.push([k, auxArray[i]]);
     animationArray.push(["height", auxArray[i], k])
     localArray[k++] = auxArray[i++]
   }
   while (j <= end) {
-    // These are the values that we're comparing; we push them once
-    // to change their color.
-    //   animationArray.push([j, j]);
     animationArray.push(["color", "yellow", j])
     animationArray.push(["color", "yellow", j])
-    // These are the values that we're comparing; we push them a second
-    // time to revert their color.
-    //   animationArray.push([j, j]);
     animationArray.push(["color", "red", j])
     animationArray.push(["color", "red", j])
-    // We overwrite the value at index k in the original array with the
-    // value at index j in the auxiliary array.
-    //   animationArray.push([k, auxArray[j]]);
     animationArray.push(["height", auxArray[j], k])
     localArray[k++] = auxArray[j++]
   }
