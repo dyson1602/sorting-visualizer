@@ -18,11 +18,33 @@ function mergeSortRecursion(localArray, start, end, auxArray, animationArray) {
   if (start === end) return
   const middle = Math.floor((start + end) / 2)
   mergeSortRecursion(auxArray, start, middle, localArray, animationArray)
+  //   console.log(firstSort)
   mergeSortRecursion(auxArray, middle + 1, end, localArray, animationArray)
-  merge(localArray, start, middle, end, auxArray, animationArray)
+  //   console.log(secondSort)
+  //   let isFinalMerge = false
+  //   console.log("Is Final Merge?", isFinalMerge)
+  //   if (firstSort.length + secondSort.length === localArray.length)
+  //     isFinalMerge = true
+  return merge(
+    localArray,
+    start,
+    middle,
+    end,
+    auxArray,
+    animationArray
+    // isFinalMerge
+  )
 }
 
-function merge(localArray, start, middle, end, auxArray, animationArray) {
+function merge(
+  localArray,
+  start,
+  middle,
+  end,
+  auxArray,
+  animationArray
+  //   isFinalMerge
+) {
   let k = start
   let i = start
   let j = middle + 1
@@ -55,6 +77,7 @@ function merge(localArray, start, middle, end, auxArray, animationArray) {
     animationArray.push(["height", auxArray[j], k])
     localArray[k++] = auxArray[j++]
   }
+  //   console.log("Is Final Merge?", isFinalMerge)
 }
 
 function markSorted(array, animationArray) {
