@@ -10,6 +10,7 @@ export function MergeSort(props) {
     auxArray,
     animationArray
   )
+  markSorted(localArray, animationArray)
   dispatchHandler(animationArray, props, localArray)
 }
 
@@ -53,6 +54,12 @@ function merge(localArray, start, middle, end, auxArray, animationArray) {
     animationArray.push(["color", "red", j])
     animationArray.push(["height", auxArray[j], k])
     localArray[k++] = auxArray[j++]
+  }
+}
+
+function markSorted(array, animationArray) {
+  for (let i = 0; i < array.length; i++) {
+    animationArray.push(["color", "blue", i])
   }
 }
 
