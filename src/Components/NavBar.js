@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { BubbleSort } from "../Algorithms/BubbleSort"
 import { HeapSort } from "../Algorithms/HeapSort"
 import { InsertionSort } from "../Algorithms/InsertionSort"
+import { MergeSort } from "../Algorithms/MergeSort"
 import { QuickSort } from "../Algorithms/QuickSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import { SelectionSort } from "../Algorithms/SelectionSort"
@@ -74,6 +75,8 @@ class NavBar extends React.Component {
         return QuickSort(this.props)
       case "selection":
         return SelectionSort(this.props)
+      case "merge":
+        return MergeSort(this.props)
     }
   }
   setSortingMethod = (method) => {
@@ -126,49 +129,94 @@ class NavBar extends React.Component {
           </div>
           <div className="nav-content">
             <ul className="tabs tabs-transparent">
-              <li className="tab"><a onClick={
+              <li className="tab">
+                <a
+                  onClick={
                     this.props.isSorting
                       ? null
                       : () => this.setSortingMethod("bubble")
-                  } 
-                  className={this.props.method === "bubble" ? "active" : null}>Bubble Sort</a>
-                  </li>
-              <li className="tab"><a onClick={
+                  }
+                  className={this.props.method === "bubble" ? "active" : null}
+                >
+                  Bubble Sort
+                </a>
+              </li>
+              <li className="tab">
+                <a
+                  onClick={
                     this.props.isSorting
                       ? null
                       : () => this.setSortingMethod("insertion")
                   }
-                  className={this.props.method === "insertion" ? "active" : null}>Insertion Sort</a></li>
-              <li className="tab"><a onClick={
+                  className={
+                    this.props.method === "insertion" ? "active" : null
+                  }
+                >
+                  Insertion Sort
+                </a>
+              </li>
+              <li className="tab">
+                <a
+                  onClick={
                     this.props.isSorting
                       ? null
                       : () => this.setSortingMethod("selection")
                   }
-                  className={this.props.method === "selection" ? "active" : null}>Selection Sort</a></li>
-              <li className="tab"><a onClick={
+                  className={
+                    this.props.method === "selection" ? "active" : null
+                  }
+                >
+                  Selection Sort
+                </a>
+              </li>
+              <li className="tab">
+                <a
+                  onClick={
                     this.props.isSorting
                       ? null
                       : () => this.setSortingMethod("quick")
                   }
-                  className={this.props.method === "quick" ? "active" : null}>Quick Sort</a></li>
-              <li className="tab"><a onClick={
+                  className={this.props.method === "quick" ? "active" : null}
+                >
+                  Quick Sort
+                </a>
+              </li>
+              <li className="tab">
+                <a
+                  onClick={
                     this.props.isSorting
                       ? null
                       : () => this.setSortingMethod("heap")
                   }
-                  className={this.props.method === "heap" ? "active" : null}>Heap Sort</a></li>
-              <li className="tab"><a onClick={
+                  className={this.props.method === "heap" ? "active" : null}
+                >
+                  Heap Sort
+                </a>
+              </li>
+              <li className="tab">
+                <a
+                  onClick={
                     this.props.isSorting
                       ? null
                       : () => this.setSortingMethod("merge")
                   }
-                  className={this.props.method === "merge" ? "active" : null}>Merge Sort</a></li>
-              <li className="tab"><a onClick={
+                  className={this.props.method === "merge" ? "active" : null}
+                >
+                  Merge Sort
+                </a>
+              </li>
+              <li className="tab">
+                <a
+                  onClick={
                     this.props.isSorting
                       ? null
                       : () => this.setSortingMethod("radix")
                   }
-                  className={this.props.method === "radix" ? "active" : null}>Radix</a></li>
+                  className={this.props.method === "radix" ? "active" : null}
+                >
+                  Radix
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

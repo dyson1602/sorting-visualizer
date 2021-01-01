@@ -50,5 +50,8 @@ function dispatchHandler(animationArray, props, localArray) {
       : null
 
   dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(() => dispatchHandler(animationArray, props, localArray), 5)
+  setTimeout(
+    () => dispatchHandler(animationArray, props, localArray),
+    props.speed
+  )
 }
