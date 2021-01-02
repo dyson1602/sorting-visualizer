@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import { NavLink } from "react-router-dom"
 import { BubbleSort } from "../Algorithms/BubbleSort"
 import { HeapSort } from "../Algorithms/HeapSort"
 import { InsertionSort } from "../Algorithms/InsertionSort"
@@ -93,7 +94,7 @@ class NavBar extends React.Component {
       <>
         <nav class="nav-extended">
           <div className="nav-wrapper">
-            <a className="brand-logo right">Sorting Algorithm Visualizer</a>
+            <div className="brand-logo right">Sorting Algorithm Visualizer</div>
             <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li>Set Array Size: </li>
 
@@ -121,106 +122,129 @@ class NavBar extends React.Component {
                 </div>
               </li>
               <li>
-                <a onClick={this.props.isSorting ? null : this.newArrayHandler}>
-                  Generate New Array
-                </a>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={this.props.isSorting ? null : this.newArrayHandler}
+                  >
+                    Generate New Array
+                  </div>
+                </NavLink>
               </li>
               <li>
-                <a onClick={this.props.isSorting ? null : this.sortHandler}>
+                <div onClick={this.props.isSorting ? null : this.sortHandler}>
                   Sort!
-                </a>
+                </div>
               </li>
             </ul>
           </div>
           <div className="nav-content">
             <ul className="tabs tabs-transparent">
               <li className="tab">
-                <a
-                  onClick={
-                    this.props.isSorting
-                      ? null
-                      : () => this.setSortingMethod("bubble")
-                  }
-                  className={this.props.method === "bubble" ? "active" : null}
-                >
-                  Bubble Sort
-                </a>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={
+                      this.props.isSorting
+                        ? null
+                        : () => this.setSortingMethod("bubble")
+                    }
+                    className={this.props.method === "bubble" ? "active" : null}
+                  >
+                    Bubble Sort
+                  </div>
+                </NavLink>
               </li>
               <li className="tab">
-                <a
-                  onClick={
-                    this.props.isSorting
-                      ? null
-                      : () => this.setSortingMethod("insertion")
-                  }
-                  className={
-                    this.props.method === "insertion" ? "active" : null
-                  }
-                >
-                  Insertion Sort
-                </a>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={
+                      this.props.isSorting
+                        ? null
+                        : () => this.setSortingMethod("insertion")
+                    }
+                    className={
+                      this.props.method === "insertion" ? "active" : null
+                    }
+                  >
+                    Insertion Sort
+                  </div>
+                </NavLink>
               </li>
               <li className="tab">
-                <a
-                  onClick={
-                    this.props.isSorting
-                      ? null
-                      : () => this.setSortingMethod("selection")
-                  }
-                  className={
-                    this.props.method === "selection" ? "active" : null
-                  }
-                >
-                  Selection Sort
-                </a>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={
+                      this.props.isSorting
+                        ? null
+                        : () => this.setSortingMethod("selection")
+                    }
+                    className={
+                      this.props.method === "selection" ? "active" : null
+                    }
+                  >
+                    Selection Sort
+                  </div>
+                </NavLink>
               </li>
               <li className="tab">
-                <a
-                  onClick={
-                    this.props.isSorting
-                      ? null
-                      : () => this.setSortingMethod("quick")
-                  }
-                  className={this.props.method === "quick" ? "active" : null}
-                >
-                  Quick Sort
-                </a>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={
+                      this.props.isSorting
+                        ? null
+                        : () => this.setSortingMethod("quick")
+                    }
+                    className={this.props.method === "quick" ? "active" : null}
+                  >
+                    Quick Sort
+                  </div>
+                </NavLink>
               </li>
               <li className="tab">
-                <a
-                  onClick={
-                    this.props.isSorting
-                      ? null
-                      : () => this.setSortingMethod("heap")
-                  }
-                  className={this.props.method === "heap" ? "active" : null}
-                >
-                  Heap Sort
-                </a>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={
+                      this.props.isSorting
+                        ? null
+                        : () => this.setSortingMethod("heap")
+                    }
+                    className={this.props.method === "heap" ? "active" : null}
+                  >
+                    Heap Sort
+                  </div>
+                </NavLink>
               </li>
               <li className="tab">
-                <a
-                  onClick={
-                    this.props.isSorting
-                      ? null
-                      : () => this.setSortingMethod("merge")
-                  }
-                  className={this.props.method === "merge" ? "active" : null}
-                >
-                  Merge Sort
-                </a>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={
+                      this.props.isSorting
+                        ? null
+                        : () => this.setSortingMethod("merge")
+                    }
+                    className={this.props.method === "merge" ? "active" : null}
+                  >
+                    Merge Sort
+                  </div>
+                </NavLink>
               </li>
               <li className="tab">
-                <a
-                  onClick={
-                    this.props.isSorting
-                      ? null
-                      : () => this.setSortingMethod("radix")
-                  }
-                  className={this.props.method === "radix" ? "active" : null}
-                >
-                  Radix
-                </a>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={
+                      this.props.isSorting
+                        ? null
+                        : () => this.setSortingMethod("radix")
+                    }
+                    className={this.props.method === "radix" ? "active" : null}
+                  >
+                    Radix
+                  </div>
+                </NavLink>
+              </li>
+              <li class="right hide-on-med-and-down tab">
+                <NavLink to="/sorting-visualizer/info">
+                  <div>Algorithm Info</div>
+                </NavLink>
               </li>
             </ul>
           </div>
