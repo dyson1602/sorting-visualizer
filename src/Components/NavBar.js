@@ -89,7 +89,7 @@ class NavBar extends React.Component {
       <>
         <nav class="nav-extended">
           <div className="nav-wrapper">
-            <a className="brand-logo right">Sorting Algorithm Visualizer</a>
+            <div className="brand-logo right">Sorting Algorithm Visualizer</div>
             <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li>Set Array Size: </li>
 
@@ -118,17 +118,17 @@ class NavBar extends React.Component {
               </li>
               <li>
                 <NavLink to="/sorting-visualizer/">
-                  <a
+                  <div
                     onClick={this.props.isSorting ? null : this.newArrayHandler}
                   >
                     Generate New Array
-                  </a>
+                  </div>
                 </NavLink>
               </li>
               <li>
-                <a onClick={this.props.isSorting ? null : this.sortHandler}>
+                <div onClick={this.props.isSorting ? null : this.sortHandler}>
                   Sort!
-                </a>
+                </div>
               </li>
             </ul>
           </div>
