@@ -105,13 +105,19 @@ class Body extends React.Component {
         {
           this.props.method === "radix"
             ? <div className="container">
-              {this.arrayBars(this.props.randomArray)}
-              <br />
-              <div className="row">
-                {this.radixBars(this.props)}
+              <div style={{ justifyContent: "center" }}>
+                {this.arrayBars(this.props.randomArray)}
+                <br />
+                <div className="row">
+                  {this.radixBars(this.props)}
+                </div>
               </div>
             </div>
-            : <div className="container">{this.arrayBars(this.props.randomArray)}</div>
+            : <div className="container">
+              <div style={{ justifyContent: "center" }}>
+                {this.arrayBars(this.props.randomArray)}
+              </div>
+            </div>
         }
       </>
 
