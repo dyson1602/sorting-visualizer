@@ -1,7 +1,9 @@
 import { combineReducers } from "redux"
 import {
+  BUCKETS,
   CHANGE_BAR_COLOR,
   CHANGE_BAR_HEIGHT,
+  CLEAR_BUCKET,
   FINISHED_SORTING,
   IS_SORTING,
   METHOD,
@@ -16,6 +18,8 @@ const defaultState = {
   randomArray: [],
   sortedArray: [],
   colorArray: [],
+  bucketsArray: [[], [], [], [], [], [], [], [], [], []],
+  bucketsColor: [],
   arrayLength: 100,
   isSorting: false,
   style: "bars",
@@ -97,6 +101,20 @@ function changeSpeedReducer(prevState = defaultState.speed, action) {
   }
 }
 
+function changeBucketsReducer(prevState = defaultState.bucketsArray, action) {
+  let newBuckets = [...prevState]
+  switch (action.type) {
+    case BUCKETS:
+      newBuckets[action.bucket].push(action.height)
+      return newBuckets
+    case CLEAR_BUCKET:
+      let item = newBuckets[action.bucket].shift()
+      return newBuckets
+    default:
+      return prevState
+  }
+}
+
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,
   sortedArray: sortedArrayReducer,
@@ -105,6 +123,7 @@ const rootReducer = combineReducers({
   colorArray: colorArrayReducer,
   method: changeMethodReducer,
   speed: changeSpeedReducer,
+  bucketsArray: changeBucketsReducer,
 })
 
 export default rootReducer

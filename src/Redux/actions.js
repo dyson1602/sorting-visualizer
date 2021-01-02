@@ -1,6 +1,8 @@
 import {
+  BUCKETS,
   CHANGE_BAR_COLOR,
   CHANGE_BAR_HEIGHT,
+  CLEAR_BUCKET,
   FINISHED_SORTING,
   IS_SORTING,
   METHOD,
@@ -56,4 +58,16 @@ export function setColorArray(colorArray) {
 
 export function setMethod(methodType) {
   return { type: METHOD, payload: methodType }
+}
+
+export function buildBuckets(bucket, height) {
+  return {
+    type: BUCKETS,
+    bucket: bucket,
+    height: height
+  }
+}
+
+export function clearBuckets(bucket) {
+  return { type: CLEAR_BUCKET, bucket: bucket }
 }

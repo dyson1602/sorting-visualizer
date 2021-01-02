@@ -7,9 +7,12 @@ import { MergeSort } from "../Algorithms/MergeSort"
 import { QuickSort } from "../Algorithms/QuickSort"
 import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
 import { SelectionSort } from "../Algorithms/SelectionSort"
+import { RadixSort } from "../Algorithms/RadixSort"
 import {
+  buildBuckets,
   changeBarColor,
   changeBarHeight,
+  clearBuckets,
   setColorArray,
   setFinishedSorting,
   setIsSorting,
@@ -69,14 +72,16 @@ class NavBar extends React.Component {
         return HeapSort(this.props)
       case "insertion":
         return InsertionSort(this.props)
-      default:
-        return BubbleSort(this.props)
       case "quick":
         return QuickSort(this.props)
       case "selection":
         return SelectionSort(this.props)
       case "merge":
         return MergeSort(this.props)
+      case "radix":
+        return RadixSort(this.props)
+      default:
+        return BubbleSort(this.props)
     }
   }
   setSortingMethod = (method) => {
@@ -250,6 +255,8 @@ function mdp(dispatch) {
     dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
     dispatchMethod: (methodType) => dispatch(setMethod(methodType)),
     dispatchSpeed: (speed) => dispatch(setSpeed(speed)),
+    buildBuckets: (bucket, height) => dispatch(buildBuckets(bucket, height)),
+    clearBuckets: (bucket) => dispatch(clearBuckets(bucket)),
   }
 }
 
