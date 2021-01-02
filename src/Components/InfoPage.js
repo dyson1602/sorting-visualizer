@@ -22,10 +22,13 @@ class InfoPage extends React.Component {
               Bubble Sort<i class="material-icons right">close</i>
             </span>
             <p>
-              Bubble Sort is the simplest sorting algorithm that works by
-              creating a loop that compares each item in the array with another
-              item and repeatedly swapping the adjacent elements if they are in
-              wrong order. This process is repeated until the entire array is
+              Bubble Sort is the simplest sorting algorithm that works by <br />
+              creating a loop that compares each item in the array with another{" "}
+              <br />
+              item and repeatedly swapping the adjacent elements if they are in{" "}
+              <br />
+              wrong order. This process is repeated until the entire array is{" "}
+              <br />
               sorted.
             </p>
           </div>
