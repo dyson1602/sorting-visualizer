@@ -1,18 +1,19 @@
+import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+
 export function QuickSort(props) {
   let array = [...props.randomArray]
   let animationArray = []
-  // console.log("Random Array: ", array)
+
   quickSortHelper(array, 0, array.length - 1, animationArray)
-  // console.log("Quicksorted Array", array)
   markSorted(array, animationArray)
   dispatchHandler(props, array, animationArray)
+
   return array
 }
 
 function quickSortHelper(array, start, end, animationArray) {
   if (start >= end) {
     // animationArray.push(["color", "blue", start])
-    // console.log("start:", start)
     return
   }
   let pivot = start,
@@ -20,7 +21,6 @@ function quickSortHelper(array, start, end, animationArray) {
     right = end
 
   animationArray.push(["color", "purple", pivot])
-  console.log("Pivot:", pivot)
   // animationArray.push(["color", "orange", left])
   // animationArray.push(["color", "orange", right])
 
@@ -34,9 +34,7 @@ function quickSortHelper(array, start, end, animationArray) {
       array[right] = array[left]
       array[left] = temp
       animationArray.push(["color", "red", left])
-      // console.log("Left:", left)
       animationArray.push(["color", "red", right])
-      // console.log("Right:", right)
     }
     if (array[right] >= array[pivot]) {
       right--
@@ -56,8 +54,6 @@ function quickSortHelper(array, start, end, animationArray) {
 
     animationArray.push(["color", "red", pivot])
     animationArray.push(["color", "red", right])
-    // console.log("Pivot:", pivot)
-    // console.log("right:", right)
   }
   // animationArray.push(["color", "red", left])
   // animationArray.push(["color", "red", right])
@@ -69,22 +65,4 @@ function markSorted(array, animationArray) {
   for (let i = 0; i < array.length; i++) {
     animationArray.push(["color", "blue", i])
   }
-}
-
-function dispatchHandler(props, array, animationArray) {
-  if (!animationArray.length) {
-    props.dispatchSetFinishedSorting()
-    return
-  }
-
-  let currentPane = animationArray.shift()
-  let dispatchFunction =
-    currentPane[0] === "color"
-      ? props.changeBarColor
-      : currentPane[0] === "height"
-      ? props.changeBarHeight
-      : null
-
-  dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(() => dispatchHandler(props, array, animationArray), props.speed)
 }

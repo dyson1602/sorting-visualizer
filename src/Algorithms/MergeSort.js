@@ -1,3 +1,5 @@
+import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+
 export function MergeSort(props) {
   let animationArray = []
   let localArray = [...props.randomArray]
@@ -84,26 +86,4 @@ function markSorted(array, animationArray) {
   for (let i = 0; i < array.length; i++) {
     animationArray.push(["color", "blue", i])
   }
-}
-
-function dispatchHandler(animationArray, props, localArray) {
-  if (animationArray.length === 0) {
-    props.dispatchSetFinishedSorting()
-    return
-  }
-
-  let currentPane = animationArray.shift()
-
-  let dispatchFunction =
-    currentPane[0] === "color"
-      ? props.changeBarColor
-      : currentPane[0] === "height"
-      ? props.changeBarHeight
-      : null
-
-  dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(
-    () => dispatchHandler(animationArray, props, localArray),
-    props.speed
-  )
 }

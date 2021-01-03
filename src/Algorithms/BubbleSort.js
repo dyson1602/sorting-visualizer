@@ -1,3 +1,5 @@
+import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+
 export function BubbleSort(props) {
   let animationArray = []
   let localArray = [...props.randomArray]
@@ -32,26 +34,4 @@ export function BubbleSort(props) {
   }
 
   dispatchHandler(animationArray, props, localArray)
-}
-
-function dispatchHandler(animationArray, props, localArray) {
-  if (animationArray.length === 0) {
-    props.dispatchSetFinishedSorting()
-    return
-  }
-
-  let currentPane = animationArray.shift()
-
-  let dispatchFunction =
-    currentPane[0] === "color"
-      ? props.changeBarColor
-      : currentPane[0] === "height"
-      ? props.changeBarHeight
-      : null
-
-  dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(
-    () => dispatchHandler(animationArray, props, localArray),
-    props.speed
-  )
 }

@@ -6,7 +6,7 @@ import { HeapSort } from "../Algorithms/HeapSort"
 import { InsertionSort } from "../Algorithms/InsertionSort"
 import { MergeSort } from "../Algorithms/MergeSort"
 import { QuickSort } from "../Algorithms/QuickSort"
-import { generateColorArray, randomizeArray } from "../Algorithms/randomArray"
+import { generateColorArray, randomizeArray } from "../HelperFunctions/randomArray"
 import { SelectionSort } from "../Algorithms/SelectionSort"
 import { RadixSort } from "../Algorithms/RadixSort"
 import {

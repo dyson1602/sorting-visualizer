@@ -1,3 +1,5 @@
+import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+
 function HeapSort(props) {
   let tempArray = [...props.randomArray]
   let animationArray = []
@@ -13,29 +15,6 @@ function HeapSort(props) {
 
   dispatchHandler(animationArray, props, tempArray)
 } //HeapSort
-
-function dispatchHandler(animationArray, props, tempArray) {
-  if (animationArray.length === 0) {
-    props.dispatchSetFinishedSorting()
-    return
-  }
-
-  let currentPane = animationArray.shift()
-
-  let dispatchFunction =
-    currentPane[0] === "color"
-      ? props.changeBarColor
-      : currentPane[0] === "height"
-      ? props.changeBarHeight
-      : null
-  // console.log("case: ", currentPane[0], "function: ", dispatchFunction)
-
-  dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(
-    () => dispatchHandler(animationArray, props, tempArray),
-    props.speed
-  )
-}
 
 function sortMaxHeap(tempArray, lastNode, animationArray) {
   let temp = tempArray[lastNode]
