@@ -13,7 +13,7 @@ export function MergeSort(props) {
     animationArray
   )
   markSorted(localArray, animationArray)
-  dispatchHandler(animationArray, props, localArray)
+  dispatchHandler(animationArray, props)
 }
 
 function mergeSortRecursion(localArray, start, end, auxArray, animationArray) {

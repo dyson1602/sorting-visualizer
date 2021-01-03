@@ -6,7 +6,7 @@ export function QuickSort(props) {
 
   quickSortHelper(array, 0, array.length - 1, animationArray)
   markSorted(array, animationArray)
-  dispatchHandler(props, array, animationArray)
+  dispatchHandler(animationArray, props)
 
   return array
 }
