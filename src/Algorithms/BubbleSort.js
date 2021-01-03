@@ -33,5 +33,5 @@ export function BubbleSort(props) {
     }
   }
 
-  dispatchHandler(animationArray, props, localArray)
+  dispatchHandler(animationArray, props)
 }

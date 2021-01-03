@@ -42,5 +42,5 @@ export function InsertionSort(props) {
     animationArray.push(["color", "blue", i])
   }
 
-  dispatchHandler(animationArray, props, tempArray)
+  dispatchHandler(animationArray, props)
 }

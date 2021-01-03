@@ -26,5 +26,5 @@ export function SelectionSort(props) {
       animationArray.push(["color", "red", min])
     }
   }
-  dispatchHandler(animationArray, props, localArray)
+  dispatchHandler(animationArray, props)
 }

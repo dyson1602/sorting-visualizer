@@ -13,7 +13,7 @@ function HeapSort(props) {
   }
   animationArray.push(["color", "blue", 0])
 
-  dispatchHandler(animationArray, props, tempArray)
+  dispatchHandler(animationArray, props)
 } //HeapSort
 
 function sortMaxHeap(tempArray, lastNode, animationArray) {
