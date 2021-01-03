@@ -26,7 +26,7 @@ import {
 
 class NavBar extends React.Component {
   state = {
-    arrayLength: 100,
+    arrayLength: 50,
   }
 
   styleSwapHandler = (e) => {

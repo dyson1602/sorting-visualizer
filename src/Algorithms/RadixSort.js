@@ -13,24 +13,27 @@ export function RadixSort(props) {
       animationArray.push(["bucket", position, localArray[j]])
     }
 
-    localArray = [].concat(...buckets)
     let localArrayPosition = 0
+    localArray = [].concat(...buckets)
 
-    for (let i = 0; i < buckets.length; i++) {
-      if (buckets[i].length) {
-        let times = buckets[i].length
-        for (let j = 0; j < times; j++) {
-          animationArray.push(["clear", i, 0])
-          animationArray.push(["height", buckets[i][j], localArrayPosition])
-          animationArray.push(["color", "red", localArrayPosition])
+    for (let k = 0; k < buckets.length; k++) {
+      if (buckets[k].length) {
+        let times = buckets[k].length
+        for (let l = 0; l < times; l++) {
+          animationArray.push(["clear", k, 0])
+          animationArray.push(["height", buckets[k][l], localArrayPosition])
+          if (i === turns - 1) {
+            animationArray.push(["color", "blue", localArrayPosition])
+          } else {
+            animationArray.push(["color", "red", localArrayPosition])
+          }
           localArrayPosition++
         }
       }
     }
-    animationArray.push(["height", localArray[i], i])
-    animationArray.push(["color", "red", i])
   }
-   dispatchHandler(animationArray, props)
+
+  dispatchHandler(animationArray, props)
 }
 
 function findMax(array) {
@@ -46,8 +49,6 @@ function findMax(array) {
 function getPosition(num, place) {
   return Math.floor(Math.abs(num) / Math.pow(10, place)) % 10
 }
-
-
 
 
 function dispatchHandler(animationArray, props) {
