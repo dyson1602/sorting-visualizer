@@ -1,5 +1,13 @@
 import { combineReducers } from "redux"
 import {
+  SORTED_COLOR,
+  INITIAL_COLOR,
+  LIGHT_CYAN,
+  TEA_GREEN,
+  MIDDLE_GREEN_YELLOW
+} from '../HelperFunctions/colors'
+
+import {
   BUCKETS,
   CHANGE_BAR_COLOR,
   CHANGE_BAR_HEIGHT,
@@ -25,7 +33,7 @@ const defaultState = {
   arrayLength: 100,
   isSorting: false,
   style: "bars",
-  arrayColor: "red",
+  arrayColor: INITIAL_COLOR,
   method: null,
   speed: 50,
   onInfo: false,

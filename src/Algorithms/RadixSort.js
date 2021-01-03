@@ -1,4 +1,5 @@
 import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+import { SORTED_COLOR, INITIAL_COLOR, FADED_COLOR } from '../HelperFunctions/colors'
 
 export function RadixSort(props) {
   let localArray = [...props.randomArray]
@@ -11,7 +12,7 @@ export function RadixSort(props) {
     for (let j = 0; j < localArray.length; j++) {
       let position = getPosition(localArray[j], i)
       buckets[position].push(localArray[j])
-      animationArray.push(["color", "pink", j])
+      animationArray.push(["color", FADED_COLOR, j])
       animationArray.push(["bucket", position, localArray[j]])
     }
 
@@ -25,9 +26,9 @@ export function RadixSort(props) {
           animationArray.push(["clear", k, 0])
           animationArray.push(["height", buckets[k][l], localArrayPosition])
           if (i === turns - 1) {
-            animationArray.push(["color", "blue", localArrayPosition])
+            animationArray.push(["color", SORTED_COLOR, localArrayPosition])
           } else {
-            animationArray.push(["color", "red", localArrayPosition])
+            animationArray.push(["color", INITIAL_COLOR, localArrayPosition])
           }
           localArrayPosition++
         }

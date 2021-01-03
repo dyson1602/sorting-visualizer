@@ -1,4 +1,5 @@
 import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+import { SORTED_COLOR, INITIAL_COLOR, COMPARE_COLOR} from '../HelperFunctions/colors'
 
 export function BubbleSort(props) {
   let animationArray = []
@@ -7,8 +8,8 @@ export function BubbleSort(props) {
   for (let i = 0; i < localArray.length; i++) {
     let isSorted = true
     for (let j = 0; j < localArray.length - i; j++) {
-      animationArray.push(["color", "yellow", j])
-      animationArray.push(["color", "yellow", j + 1])
+      animationArray.push(["color", COMPARE_COLOR, j])
+      animationArray.push(["color", COMPARE_COLOR, j + 1])
 
       if (localArray[j] > localArray[j + 1]) {
         let temp = localArray[j]
@@ -20,14 +21,14 @@ export function BubbleSort(props) {
         isSorted = false
       }
 
-      animationArray.push(["color", "red", j])
-      animationArray.push(["color", "red", j + 1])
+      animationArray.push(["color", INITIAL_COLOR, j])
+      animationArray.push(["color", INITIAL_COLOR, j + 1])
     }
-    animationArray.push(["color", "blue", localArray.length - 1 - i])
-    animationArray.push(["color", "blue", localArray.length - i])
+    animationArray.push(["color", SORTED_COLOR, localArray.length - 1 - i])
+    animationArray.push(["color", SORTED_COLOR, localArray.length - i])
     if (isSorted === true) {
       for (let k = 0; k < i; k++) {
-        animationArray.push(["color", "blue", k])
+        animationArray.push(["color", SORTED_COLOR, k])
       }
       break
     }
