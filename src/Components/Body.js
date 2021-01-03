@@ -18,9 +18,10 @@ class Body extends React.Component {
                   display: "inline-block",
                   verticalAlign: "top",
                   margin: `${200 / arraySize}px`,
-                  backgroundColor: "red",
+                  backgroundColor: "#829399ff",
                   height: `${workingBuckets[i][j]}px`,
                   width: `${600 / arraySize}px`,
+                  borderRadius: "3px",
                 }}
               ></div>
             )
@@ -46,6 +47,7 @@ class Body extends React.Component {
                     })`,
                   height: `400px`,
                   width: `${600 / arraySize}px`,
+                  borderRadius: "3px",
                 }}
               ></div>
             )
@@ -75,6 +77,7 @@ class Body extends React.Component {
                 backgroundColor: this.props.colorArray[i],
                 height: `${array[i]}px`,
                 width: `${600 / array.length}px`,
+                borderRadius: "3px",
               }}
             ></div>
           )
@@ -91,6 +94,7 @@ class Body extends React.Component {
               height: `400px`,
               width: `${1000 / array.length}px`,
               marginTop: "75px",
+              borderRadius: "3px",
             }}
           ></div>
         ))

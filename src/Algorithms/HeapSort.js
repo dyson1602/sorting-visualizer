@@ -24,10 +24,8 @@ function sortMaxHeap(tempArray, lastNode, animationArray) {
 
   animationArray.push(["color", "yellow", 0])
   animationArray.push(["color", "yellow", lastNode])
-
   animationArray.push(["height", temp, 0])
   animationArray.push(["height", temp2, lastNode])
-
   animationArray.push(["color", "blue", lastNode])
 
   heapify(tempArray, 0, lastNode, animationArray)
