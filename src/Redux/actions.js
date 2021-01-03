@@ -6,6 +6,8 @@ import {
   FINISHED_SORTING,
   IS_SORTING,
   METHOD,
+  OFF_INFO,
+  ON_INFO,
   SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
   SORTED_ARRAY,
@@ -23,6 +25,14 @@ export function setRandomArray(randomArray) {
 
 export function setSortedArray(sortedArray) {
   return { type: SORTED_ARRAY, payload: sortedArray }
+}
+
+export function setOnInfo() {
+  return { type: ON_INFO, payload: true }
+}
+
+export function setOffInfo() {
+  return { type: OFF_INFO, payload: false }
 }
 
 export function setIsSorting() {

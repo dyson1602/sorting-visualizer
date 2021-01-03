@@ -7,6 +7,8 @@ import {
   FINISHED_SORTING,
   IS_SORTING,
   METHOD,
+  OFF_INFO,
+  ON_INFO,
   SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
   SORTED_ARRAY,
@@ -26,6 +28,7 @@ const defaultState = {
   arrayColor: "red",
   method: null,
   speed: 50,
+  onInfo: false,
 }
 
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
@@ -100,6 +103,16 @@ function changeSpeedReducer(prevState = defaultState.speed, action) {
       return prevState
   }
 }
+function changeOnInfoReducer(prevState = defaultState.onInfo, action) {
+  switch (action.type) {
+    case ON_INFO:
+      return action.payload
+    case OFF_INFO:
+      return action.payload
+    default:
+      return prevState
+  }
+}
 
 function changeBucketsReducer(prevState = defaultState.bucketsArray, action) {
   let newBuckets = [...prevState]
@@ -123,7 +136,11 @@ const rootReducer = combineReducers({
   colorArray: colorArrayReducer,
   method: changeMethodReducer,
   speed: changeSpeedReducer,
+<<<<<<< HEAD
   bucketsArray: changeBucketsReducer,
+=======
+  onInfo: changeOnInfoReducer,
+>>>>>>> cards
 })
 
 export default rootReducer

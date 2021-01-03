@@ -18,6 +18,8 @@ import {
   setFinishedSorting,
   setIsSorting,
   setMethod,
+  setOffInfo,
+  setOnInfo,
   setRandomArray,
   setSortedArray,
   setSpeed,
@@ -51,6 +53,7 @@ class NavBar extends React.Component {
 
   newArrayHandler = () => {
     this.props.dispatchRandomArray(randomizeArray(this.state.arrayLength))
+    this.props.dispatchSetOffInfo()
     this.props.dispatchColorArray(
       generateColorArray(this.state.arrayLength, "red")
     )
@@ -64,6 +67,7 @@ class NavBar extends React.Component {
   }
 
   sortHandler = () => {
+    this.props.dispatchSetOffInfo()
     this.props.dispatchSetIsSorting()
     let currentMethod = this.props.method
     switch (currentMethod) {
@@ -87,6 +91,11 @@ class NavBar extends React.Component {
   }
   setSortingMethod = (method) => {
     this.props.dispatchMethod(method)
+    this.props.dispatchSetOffInfo()
+  }
+
+  handleOnInfo = () => {
+    this.props.dispatchSetOnInfo()
   }
 
   render() {
@@ -131,9 +140,18 @@ class NavBar extends React.Component {
                 </NavLink>
               </li>
               <li>
-                <div onClick={this.props.isSorting ? null : this.sortHandler}>
-                  Sort!
-                </div>
+                <NavLink to="/sorting-visualizer/">
+                  <div
+                    onClick={this.props.isSorting ? null : this.sortHandler}
+                    style={
+                      this.props.onInfo
+                        ? { display: "none" }
+                        : { display: "block" }
+                    }
+                  >
+                    Sort!
+                  </div>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -243,7 +261,9 @@ class NavBar extends React.Component {
               </li>
               <li class="right hide-on-med-and-down tab">
                 <NavLink to="/sorting-visualizer/info">
-                  <div>Algorithm Info</div>
+                  <div onClick={this.props.onInfo ? null : this.handleOnInfo}>
+                    Algorithm Info
+                  </div>
                 </NavLink>
               </li>
             </ul>
@@ -262,6 +282,7 @@ function msp(state) {
     style: state.style,
     method: state.method,
     speed: state.speed,
+    onInfo: state.onInfo,
   }
 }
 
@@ -279,8 +300,13 @@ function mdp(dispatch) {
     dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
     dispatchMethod: (methodType) => dispatch(setMethod(methodType)),
     dispatchSpeed: (speed) => dispatch(setSpeed(speed)),
+<<<<<<< HEAD
     buildBuckets: (bucket, height) => dispatch(buildBuckets(bucket, height)),
     clearBuckets: (bucket) => dispatch(clearBuckets(bucket)),
+=======
+    dispatchSetOnInfo: () => dispatch(setOnInfo()),
+    dispatchSetOffInfo: () => dispatch(setOffInfo()),
+>>>>>>> cards
   }
 }
 
