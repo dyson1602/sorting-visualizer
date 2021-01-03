@@ -1,4 +1,5 @@
 import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+import { SORTED_COLOR, INITIAL_COLOR, COMPARE_COLOR } from '../HelperFunctions/colors'
 
 function HeapSort(props) {
   let tempArray = [...props.randomArray]
@@ -11,7 +12,7 @@ function HeapSort(props) {
     sortMaxHeap(tempArray, lastNode, animationArray)
     lastNode--
   }
-  animationArray.push(["color", "blue", 0])
+  animationArray.push(["color", SORTED_COLOR, 0])
 
   dispatchHandler(animationArray, props)
 } //HeapSort
@@ -22,11 +23,11 @@ function sortMaxHeap(tempArray, lastNode, animationArray) {
   tempArray[lastNode] = tempArray[0]
   tempArray[0] = temp
 
-  animationArray.push(["color", "yellow", 0])
-  animationArray.push(["color", "yellow", lastNode])
+  animationArray.push(["color", COMPARE_COLOR, 0])
+  animationArray.push(["color", COMPARE_COLOR, lastNode])
   animationArray.push(["height", temp, 0])
   animationArray.push(["height", temp2, lastNode])
-  animationArray.push(["color", "blue", lastNode])
+  animationArray.push(["color", SORTED_COLOR, lastNode])
 
   heapify(tempArray, 0, lastNode, animationArray)
 }
@@ -60,17 +61,17 @@ function heapify(array, start, end, animationArray) {
     array[swap] = array[start]
     array[start] = temp
 
-    animationArray.push(["color", "yellow", swap])
-    animationArray.push(["color", "yellow", start])
+    animationArray.push(["color", COMPARE_COLOR, swap])
+    animationArray.push(["color", COMPARE_COLOR, start])
     animationArray.push(["height", temp, start])
     animationArray.push(["height", temp2, swap])
-    animationArray.push(["color", "red", swap])
-    animationArray.push(["color", "red", start])
+    animationArray.push(["color", INITIAL_COLOR, swap])
+    animationArray.push(["color", INITIAL_COLOR, start])
 
     heapify(array, swap, end, animationArray)
   } else {
-    animationArray.push(["color", "red", start])
-    animationArray.push(["color", "red", left])
+    animationArray.push(["color", INITIAL_COLOR, start])
+    animationArray.push(["color", INITIAL_COLOR, left])
   }
 }
 

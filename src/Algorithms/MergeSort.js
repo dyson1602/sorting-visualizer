@@ -1,4 +1,5 @@
 import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+import { SORTED_COLOR, INITIAL_COLOR, COMPARE_COLOR } from '../HelperFunctions/colors'
 
 export function MergeSort(props) {
   let animationArray = []
@@ -51,10 +52,10 @@ function merge(
   let i = start
   let j = middle + 1
   while (i <= middle && j <= end) {
-    animationArray.push(["color", "yellow", i])
-    animationArray.push(["color", "yellow", j])
-    animationArray.push(["color", "red", i])
-    animationArray.push(["color", "red", j])
+    animationArray.push(["color", COMPARE_COLOR, i])
+    animationArray.push(["color", COMPARE_COLOR, j])
+    animationArray.push(["color", INITIAL_COLOR, i])
+    animationArray.push(["color", INITIAL_COLOR, j])
     if (auxArray[i] <= auxArray[j]) {
       animationArray.push(["height", auxArray[i], k])
       localArray[k++] = auxArray[i++]
@@ -64,18 +65,18 @@ function merge(
     }
   }
   while (i <= middle) {
-    animationArray.push(["color", "yellow", i])
-    animationArray.push(["color", "yellow", i])
-    animationArray.push(["color", "red", i])
-    animationArray.push(["color", "red", i])
+    animationArray.push(["color", COMPARE_COLOR, i])
+    animationArray.push(["color", COMPARE_COLOR, i])
+    animationArray.push(["color", INITIAL_COLOR, i])
+    animationArray.push(["color", INITIAL_COLOR, i])
     animationArray.push(["height", auxArray[i], k])
     localArray[k++] = auxArray[i++]
   }
   while (j <= end) {
-    animationArray.push(["color", "yellow", j])
-    animationArray.push(["color", "yellow", j])
-    animationArray.push(["color", "red", j])
-    animationArray.push(["color", "red", j])
+    animationArray.push(["color", COMPARE_COLOR, j])
+    animationArray.push(["color", COMPARE_COLOR, j])
+    animationArray.push(["color", INITIAL_COLOR, j])
+    animationArray.push(["color", INITIAL_COLOR, j])
     animationArray.push(["height", auxArray[j], k])
     localArray[k++] = auxArray[j++]
   }
@@ -84,6 +85,6 @@ function merge(
 
 function markSorted(array, animationArray) {
   for (let i = 0; i < array.length; i++) {
-    animationArray.push(["color", "blue", i])
+    animationArray.push(["color", SORTED_COLOR, i])
   }
 }

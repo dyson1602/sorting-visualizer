@@ -1,4 +1,6 @@
 import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
+import { SORTED_COLOR, INITIAL_COLOR, PIVOT_COLOR, COMPARE_COLOR } from '../HelperFunctions/colors'
+
 
 export function SelectionSort(props) {
   let animationArray = []
@@ -6,24 +8,24 @@ export function SelectionSort(props) {
   for (let i = 0; i < localArray.length; i++) {
     let min = i
     for (let j = i + 1; j < localArray.length; j++) {
-      animationArray.push(["color", "yellow", j])
-      animationArray.push(["color", "purple", min])
+      animationArray.push(["color", COMPARE_COLOR, j])
+      animationArray.push(["color", PIVOT_COLOR, min])
       if (localArray[j] < localArray[min]) {
-        animationArray.push(["color", "red", min])
+        animationArray.push(["color", INITIAL_COLOR, min])
         min = j
       } else {
-        animationArray.push(["color", "red", j])
+        animationArray.push(["color", INITIAL_COLOR, j])
       }
     }
     if (min !== i) {
-      animationArray.push(["color", "yellow", i])
+      animationArray.push(["color", COMPARE_COLOR, i])
       animationArray.push(["height", localArray[min], i])
       animationArray.push(["height", localArray[i], min])
       ;[localArray[i], localArray[min]] = [localArray[min], localArray[i]]
     }
-    animationArray.push(["color", "blue", i])
+    animationArray.push(["color", SORTED_COLOR, i])
     if (min !== i) {
-      animationArray.push(["color", "red", min])
+      animationArray.push(["color", INITIAL_COLOR, min])
     }
   }
   dispatchHandler(animationArray, props)

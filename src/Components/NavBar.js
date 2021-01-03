@@ -9,6 +9,7 @@ import { QuickSort } from "../Algorithms/QuickSort"
 import { generateColorArray, randomizeArray } from "../HelperFunctions/randomArray"
 import { SelectionSort } from "../Algorithms/SelectionSort"
 import { RadixSort } from "../Algorithms/RadixSort"
+import { INITIAL_COLOR, NAVBAR_COLOR } from '../HelperFunctions/colors'
 import {
   buildBuckets,
   changeBarColor,
@@ -23,6 +24,7 @@ import {
   setSpeed,
   swapStyles,
 } from "../Redux/actions"
+
 
 class NavBar extends React.Component {
   state = {
@@ -52,7 +54,7 @@ class NavBar extends React.Component {
   newArrayHandler = () => {
     this.props.dispatchRandomArray(randomizeArray(this.state.arrayLength))
     this.props.dispatchColorArray(
-      generateColorArray(this.state.arrayLength, "red")
+      generateColorArray(this.state.arrayLength, INITIAL_COLOR)
     )
     if (this.state.arrayLength < 30) {
       this.props.dispatchSpeed(50)
@@ -92,7 +94,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <>
-        <nav class="nav-extended">
+        <nav class="nav-extended" style={{backgroundColor: `${NAVBAR_COLOR}`}}>
           <div className="nav-wrapper">
             <div className="brand-logo right">Sorting Algorithm Visualizer</div>
             <ul id="nav-mobile" className="left hide-on-med-and-down">

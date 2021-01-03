@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import { INITIAL_COLOR, SORTED_COLOR } from "../HelperFunctions/colors"
 
 class Body extends React.Component {
   radixBars = () => {
@@ -17,8 +18,9 @@ class Body extends React.Component {
                 style={{
                   display: "inline-block",
                   verticalAlign: "top",
-                  margin: `${200 / arraySize}px`,
-                  backgroundColor: "#829399ff",
+                  // margin: `${200 / arraySize}px`,
+                  margin: `2px`,
+                  backgroundColor: INITIAL_COLOR,
                   height: `${workingBuckets[i][j]}px`,
                   width: `${600 / arraySize}px`,
                   borderRadius: "3px",
@@ -28,7 +30,7 @@ class Body extends React.Component {
           }
           allBuckets.push(
             <div className="col">
-              <div style={{ display: "inline-block", margin: "2px" }}>
+              <div style={{ display: "inline-block", margin: "2px", border: `3px solid ${SORTED_COLOR}`, borderRadius: "3px" }}>
                 {bucket}
               </div>
             </div>
@@ -109,16 +111,20 @@ class Body extends React.Component {
         {
           this.props.method === "radix"
             ? <div className="container">
-              <div style={{ justifyContent: "center" }}>
-                {this.arrayBars(this.props.randomArray)}
+              <div >
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "bottom" }}>
+                  {this.arrayBars(this.props.randomArray)}
+                </div>
                 <br />
                 <div className="row">
-                  {this.radixBars(this.props)}
+                  <div style={{ display: "flex", justifyContent: "center", alignItems: "bottom" }}>
+                    {this.radixBars(this.props)}
+                  </div>
                 </div>
               </div>
             </div>
             : <div className="container">
-              <div style={{ justifyContent: "center" }}>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "bottom" }}>
                 {this.arrayBars(this.props.randomArray)}
               </div>
             </div>
