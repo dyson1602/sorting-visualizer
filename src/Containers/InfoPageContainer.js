@@ -1,7 +1,7 @@
 import React from "react"
-import Card from "./Card"
+import Card from "../Components/Card"
 
-class InfoPage extends React.Component {
+class InfoPageContainer extends React.Component {
   cardObjects = () => {
     return [
       {
@@ -100,44 +100,8 @@ class InfoPage extends React.Component {
     })
   }
   render() {
-    return (
-      <div className="row">{this.arrayOfCards()}</div>
-      //   <>
-      //     <div className="row">
-      //       <div className="col s4">
-      //         <div class="card hoverable">
-      //           <div class="card-image waves-effect waves-block waves-light">
-      //             <img
-      //               class="activator"
-      //               src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F83%2FBubblesort-edited-color.svg%2F1200px-Bubblesort-edited-color.svg.png&f=1&nofb=1"
-
-      //               //   src="../assets/images/bubblesort.jpeg"
-      //             />
-      //           </div>
-      //           <div class="card-content">
-      //             <span class="card-title activator grey-text text-darken-4">
-      //               Bubble Sort
-      //             </span>
-      //           </div>
-      //           <div class="card-reveal">
-      //             <span class="card-title grey-text text-darken-4">
-      //               Bubble Sort<i class="material-icons right">close</i>
-      //             </span>
-      //             <p>
-      //               Bubble Sort is the simplest sorting algorithm that works by
-      //               creating a loop that compares each item in the array with
-      //               another item and repeatedly swapping the adjacent elements if
-      //               they are in wrong order. This process is repeated until the
-      //               entire array is sorted.
-      //             </p>
-      //             <img src="https://cdn-images-1.medium.com/max/800/1*1Gumz2N0q1psNJzjn7_RQw.png" />
-      //           </div>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </>
-    )
+    return <div className="row">{this.arrayOfCards()}</div>
   }
 }
 
-export default InfoPage
+export default InfoPageContainer
