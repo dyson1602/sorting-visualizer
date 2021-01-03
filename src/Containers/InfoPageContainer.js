@@ -38,7 +38,7 @@ class InfoPageContainer extends React.Component {
         id: 4,
         name: "Quick Sort",
         coverImage:
-          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.QlYf6-SE1Eq0_V-vKm1vtgHaEc%26pid%3DApi&f=1",
+          "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-KusCcLfBuN8%2FUwSJWF4DdxI%2FAAAAAAAACF8%2FOX2KlhfYpdQ%2Fs1600%2FQuicksort-example.gif&f=1&nofb=1",
         description:
           "Quick sort is one of the most efficient ways of sorting elements in computer systems. It is known as a divide and conquer algorithm. The term 'divide and conquer' means we divide one large problem into several smaller problems and solve the smaller problems to ultimately solve the large problem.  In quick sort, we find a pivot point in the array to compare all other elements in the array. A pivot can be selected in different ways, as the first, last, random, or median element. If an element is smaller than the pivot, it is moved before the pivot. If an element is greater than the pivot, it is moved after the pivot. This is done simultaneously from both ends of the array, with a left pointer (first element) and right pointer (last element), incrementing toward each other and swapping values should they be on the wrong side. Once this is complete, the process continues recursively on the sub arrays, created by dividing the array in half, or partitioning, until the entire array is sorted.",
         chartImage:
@@ -80,7 +80,7 @@ class InfoPageContainer extends React.Component {
         coverImage:
           "https://cdn-images-1.medium.com/max/800/1*leuidehqYrPSmoBRRjG8zA.png",
         description:
-          "The best time complexity for comparison based sorting algorithms (all of the algorithms we have discussed thus far) is O(nlogn). So how do we do better?  Radix sort is the answer. Radix sort is a non-comparison based sorting algorithm. The radix sort algorithm distributes integers into buckets based on a number's significant digit or value (the radix) to avoid the comparison. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. In other words, the ones place digits are sorted in into buckets first, then the tens place, then the hundreds place, and so on. Radix sort uses another sorting method called counting sort as a subroutine to complete its sort.",
+          "Time complexity is computational representation that describes the amount of time it takes to run an algorithm to completion. Since an algorithm’s running time may vary among different inputs of the same size, we need to consider worst case time complexity, or the maximum amount of time required for inputs of a given size.  Like space complexity, time complexity is also affected by factors such as the operating system and hardware, that is completely independent of the algorithm itself.  Time complexity is commonly estimated by counting the number of elementary operations performed by the algorithm, supposing that each elementary operation takes a fixed amount of time to perform. Therefore, the amount of time taken and the number of elementary operations performed by the algorithm are assumed to differ by at most a constant factor, and the algorithm that performs a task in the smallest number of operations is considered the most efficient one.  As with space complexity, time complexity is also usually represented with big O notation, considering the worst-case scenario. What you create takes up time, and we need to be prepared for the worst!",
         chartImage: "",
       },
       {
@@ -89,14 +89,14 @@ class InfoPageContainer extends React.Component {
         coverImage:
           "https://cdn-images-1.medium.com/max/800/1*leuidehqYrPSmoBRRjG8zA.png",
         description:
-          "Space complexity is used to evaluate the use of memory, or data storage. Algorithms require the use of memory to store program instructions, execute (i.e. function calls) and store data. While these are all contributing factors, the stored variable data is often the primary consideration.  Space complexity is equal to the sum of two components: First, a fixed amount of space that is required to store certain data such as variables, constants, program size, etc. and is not dependent on the size of the problem. Second, a variable amount of space that is required by variables and is totally dependent on the size of the problem (i.e. recursion stack space and dynamic memory allocation).  Space complexity is usually represented with big O notation, which we know considers the worst-case scenario. What you create takes up space, and we need to be prepared for the worst!",
+          "Space complexity is used to evaluate the use of memory, or data storage. Algorithms require the use of memory to store program instructions, execute (i.e. function calls) and store data. While these are all contributing factors, the stored variable data is often the primary consideration.  Space complexity is equal to the sum of two components: First, a fixed amount of space that is required to store certain data such as variables, constants, program size, etc. and is not dependent on the size of the problem. Second, a variable amount of space that is required by variables and is totally dependent on the size of the problem (i.e. recursion stack space and dynamic memory allocation).  Space complexity is usually represented with big O notation, which considers the worst-case scenario. What you create takes up space, and we need to be prepared for the worst!",
         chartImage: "",
       },
     ]
   }
   arrayOfCards = () => {
     return this.cardObjects().map((card) => {
-      return <Card cardObj={card} />
+      return <Card key={card.id} cardObj={card} />
     })
   }
   render() {
