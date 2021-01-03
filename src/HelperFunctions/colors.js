@@ -4,6 +4,7 @@ export const PIVOT_COLOR = "#89bbfeff" //light-cyan "#d0f4eaff"
 export const FADED_COLOR = "pink" //tea-green "#e8fcc2ff"
 export const COMPARE_COLOR = "#b1cc74ff" //middle-green-yellow
 export const NAVBAR_COLOR = "#89bbfeff" //french blue
+export const MAIN_COLOR = "#f8ffe5ff"
 
 // french #89bbfeff
 
