@@ -6,9 +6,12 @@ import { HeapSort } from "../Algorithms/HeapSort"
 import { InsertionSort } from "../Algorithms/InsertionSort"
 import { MergeSort } from "../Algorithms/MergeSort"
 import { QuickSort } from "../Algorithms/QuickSort"
-import { generateColorArray, randomizeArray } from "../HelperFunctions/randomArray"
-import { SelectionSort } from "../Algorithms/SelectionSort"
 import { RadixSort } from "../Algorithms/RadixSort"
+import { SelectionSort } from "../Algorithms/SelectionSort"
+import {
+  generateColorArray,
+  randomizeArray,
+} from "../HelperFunctions/randomArray"
 import {
   buildBuckets,
   changeBarColor,
@@ -300,13 +303,10 @@ function mdp(dispatch) {
     dispatchColorArray: (colorArray) => dispatch(setColorArray(colorArray)),
     dispatchMethod: (methodType) => dispatch(setMethod(methodType)),
     dispatchSpeed: (speed) => dispatch(setSpeed(speed)),
-<<<<<<< HEAD
     buildBuckets: (bucket, height) => dispatch(buildBuckets(bucket, height)),
     clearBuckets: (bucket) => dispatch(clearBuckets(bucket)),
-=======
     dispatchSetOnInfo: () => dispatch(setOnInfo()),
     dispatchSetOffInfo: () => dispatch(setOffInfo()),
->>>>>>> cards
   }
 }
 

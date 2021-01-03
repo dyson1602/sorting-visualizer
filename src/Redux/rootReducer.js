@@ -136,11 +136,8 @@ const rootReducer = combineReducers({
   colorArray: colorArrayReducer,
   method: changeMethodReducer,
   speed: changeSpeedReducer,
-<<<<<<< HEAD
   bucketsArray: changeBucketsReducer,
-=======
   onInfo: changeOnInfoReducer,
->>>>>>> cards
 })
 
 export default rootReducer
