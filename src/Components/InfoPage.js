@@ -28,7 +28,7 @@ class InfoPage extends React.Component {
         id: 3,
         name: "Selection Sort",
         coverImage:
-          "https://cdn-images-1.medium.com/max/800/1*aSPcasKSgu9PPvgnuDBCSA.png",
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsimplesnippets.tech%2Fwp-content%2Fuploads%2F2019%2F07%2Fselection-sorting-featured-image.jpg&f=1&nofb=1",
         description:
           "The selection sort algorithm sorts an array by repeatedly finding the minimum element from an unsorted portion of an array and putting it at the beginning. It does this by assuming the first element in the array is the smallest one and looping through to compare that value to every other value in the array. If it ever reaches a value smaller than itself, that element is set as the new smallest value and their positions in the array are swapped. The process continues doing comparisons until it reaches the end. The loops starts all over again moving on to the second element in the array as the smallest one. This continues until the entire array is sorted.",
         chartImage:
@@ -73,6 +73,26 @@ class InfoPage extends React.Component {
           "The best time complexity for comparison based sorting algorithms (all of the algorithms we have discussed thus far) is O(nlogn). So how do we do better?  Radix sort is the answer. Radix sort is a non-comparison based sorting algorithm. The radix sort algorithm distributes integers into buckets based on a number's significant digit or value (the radix) to avoid the comparison. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. In other words, the ones place digits are sorted in into buckets first, then the tens place, then the hundreds place, and so on. Radix sort uses another sorting method called counting sort as a subroutine to complete its sort.",
         chartImage:
           "https://cdn-images-1.medium.com/max/800/1*NdfBcDQCS9XjGRElA0IfSw.png",
+      },
+      {
+        id: 8,
+        name: "Time Complexity",
+        coverImage:
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wikitechy.com%2Ftechnology%2Fwp-content%2Fuploads%2F2017%2F05%2FA-Time-Complexity.png&f=1&nofb=1",
+        description:
+          "The best time complexity for comparison based sorting algorithms (all of the algorithms we have discussed thus far) is O(nlogn). So how do we do better?  Radix sort is the answer. Radix sort is a non-comparison based sorting algorithm. The radix sort algorithm distributes integers into buckets based on a number's significant digit or value (the radix) to avoid the comparison. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. In other words, the ones place digits are sorted in into buckets first, then the tens place, then the hundreds place, and so on. Radix sort uses another sorting method called counting sort as a subroutine to complete its sort.",
+        chartImage:
+          "https://cdn-images-1.medium.com/max/800/1*leuidehqYrPSmoBRRjG8zA.png",
+      },
+      {
+        id: 9,
+        name: "Space Complexity",
+        coverImage:
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F8mBxpDWEKNw%2Fhqdefault.jpg&f=1&nofb=1",
+        description:
+          "Space complexity is used to evaluate the use of memory, or data storage. Algorithms require the use of memory to store program instructions, execute (i.e. function calls) and store data. While these are all contributing factors, the stored variable data is often the primary consideration.  Space complexity is equal to the sum of two components: First, a fixed amount of space that is required to store certain data such as variables, constants, program size, etc. and is not dependent on the size of the problem. Second, a variable amount of space that is required by variables and is totally dependent on the size of the problem (i.e. recursion stack space and dynamic memory allocation).  Space complexity is usually represented with big O notation, which we know considers the worst-case scenario. What you create takes up space, and we need to be prepared for the worst!",
+        chartImage:
+          "https://cdn-images-1.medium.com/max/800/1*leuidehqYrPSmoBRRjG8zA.png",
       },
     ]
   }
