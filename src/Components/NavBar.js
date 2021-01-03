@@ -138,9 +138,6 @@ class NavBar extends React.Component {
                 <NavLink to="/sorting-visualizer/">
                   <div
                     onClick={this.props.isSorting ? null : this.sortHandler}
-                    // onClick={
-                    //   this.props.onInfo === false ? null : this.sortHandler
-                    // }
                     style={
                       this.props.onInfo
                         ? { display: "none" }

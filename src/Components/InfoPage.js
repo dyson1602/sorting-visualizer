@@ -8,7 +8,7 @@ class InfoPage extends React.Component {
         id: 1,
         name: "Bubble Sort",
         coverImage:
-          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F8%2F83%2FBubblesort-edited-color.svg%2F1200px-Bubblesort-edited-color.svg.png&f=1&nofb=1",
+          "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F0%2F06%2FBubble-sort.gif&f=1&nofb=1",
         description:
           "Bubble Sort is the simplest sorting algorithm that works by creating a loop that compares each item in the array with another item and repeatedly swapping the adjacent elements if they are in wrong order. This process is repeated until the entire array is sorted.",
         chartImage:
@@ -18,7 +18,7 @@ class InfoPage extends React.Component {
         id: 2,
         name: "Insertion Sort",
         coverImage:
-          "https://cdn-images-1.medium.com/max/800/0*E3R9GoB5aeiowlbC",
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F9%2F9c%2FInsertion-sort-example.gif&f=1&nofb=1",
         description:
           "Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part. The algorithm's name comes from the process of picking an element and inserting it in its correct place and then repeating it for all elements. It works by assuming the first element in the array is already sorted. It then selects the next element and compares this to all elements in the array. Every element that is greater than the selected element is shifted, and the selected element is inserted. This process is repeated until the array is sorted.",
         chartImage:
@@ -28,7 +28,7 @@ class InfoPage extends React.Component {
         id: 3,
         name: "Selection Sort",
         coverImage:
-          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsimplesnippets.tech%2Fwp-content%2Fuploads%2F2019%2F07%2Fselection-sorting-featured-image.jpg&f=1&nofb=1",
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F1000%2F1*onU9OmVftR5WeoLWh14iZw.gif&f=1&nofb=1",
         description:
           "The selection sort algorithm sorts an array by repeatedly finding the minimum element from an unsorted portion of an array and putting it at the beginning. It does this by assuming the first element in the array is the smallest one and looping through to compare that value to every other value in the array. If it ever reaches a value smaller than itself, that element is set as the new smallest value and their positions in the array are swapped. The process continues doing comparisons until it reaches the end. The loops starts all over again moving on to the second element in the array as the smallest one. This continues until the entire array is sorted.",
         chartImage:
@@ -38,7 +38,7 @@ class InfoPage extends React.Component {
         id: 4,
         name: "Quick Sort",
         coverImage:
-          "https://cdn-images-1.medium.com/max/800/1*iTlQN_NKD6T6XEK-HQcL1w.jpeg",
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.QlYf6-SE1Eq0_V-vKm1vtgHaEc%26pid%3DApi&f=1",
         description:
           "Quick sort is one of the most efficient ways of sorting elements in computer systems. It is known as a divide and conquer algorithm. The term 'divide and conquer' means we divide one large problem into several smaller problems and solve the smaller problems to ultimately solve the large problem.  In quick sort, we find a pivot point in the array to compare all other elements in the array. A pivot can be selected in different ways, as the first, last, random, or median element. If an element is smaller than the pivot, it is moved before the pivot. If an element is greater than the pivot, it is moved after the pivot. This is done simultaneously from both ends of the array, with a left pointer (first element) and right pointer (last element), incrementing toward each other and swapping values should they be on the wrong side. Once this is complete, the process continues recursively on the sub arrays, created by dividing the array in half, or partitioning, until the entire array is sorted.",
         chartImage:
@@ -58,7 +58,7 @@ class InfoPage extends React.Component {
         id: 6,
         name: "Merge Sort",
         coverImage:
-          "https://cdn-images-1.medium.com/max/800/0*7zpoblFEWMH2uOcM.png",
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fc%2Fcc%2FMerge-sort-example-300px.gif&f=1&nofb=1",
         description:
           "Merge sort is also a divide and conquer algorithm. It divides the input array into two halves, calls itself recursively on the two halves, and then merges the two sorted halves. In merge sort we divide the array into n arrays until each of the arrays contain only one element. The smaller arrays are merged in order to produce a new array. This is repeated until there is only one array remaining, the original array in its sorted state.",
         chartImage:
@@ -68,7 +68,7 @@ class InfoPage extends React.Component {
         id: 7,
         name: "Radix Sort",
         coverImage:
-          "https://cdn-images-1.medium.com/max/800/0*QqMsC6gn9AEwtz4F",
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FDKogfISGwMI%2Fmaxresdefault.jpg&f=1&nofb=1",
         description:
           "The best time complexity for comparison based sorting algorithms (all of the algorithms we have discussed thus far) is O(nlogn). So how do we do better?  Radix sort is the answer. Radix sort is a non-comparison based sorting algorithm. The radix sort algorithm distributes integers into buckets based on a number's significant digit or value (the radix) to avoid the comparison. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. In other words, the ones place digits are sorted in into buckets first, then the tens place, then the hundreds place, and so on. Radix sort uses another sorting method called counting sort as a subroutine to complete its sort.",
         chartImage:
@@ -78,21 +78,19 @@ class InfoPage extends React.Component {
         id: 8,
         name: "Time Complexity",
         coverImage:
-          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wikitechy.com%2Ftechnology%2Fwp-content%2Fuploads%2F2017%2F05%2FA-Time-Complexity.png&f=1&nofb=1",
+          "https://cdn-images-1.medium.com/max/800/1*leuidehqYrPSmoBRRjG8zA.png",
         description:
           "The best time complexity for comparison based sorting algorithms (all of the algorithms we have discussed thus far) is O(nlogn). So how do we do better?  Radix sort is the answer. Radix sort is a non-comparison based sorting algorithm. The radix sort algorithm distributes integers into buckets based on a number's significant digit or value (the radix) to avoid the comparison. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. In other words, the ones place digits are sorted in into buckets first, then the tens place, then the hundreds place, and so on. Radix sort uses another sorting method called counting sort as a subroutine to complete its sort.",
-        chartImage:
-          "https://cdn-images-1.medium.com/max/800/1*leuidehqYrPSmoBRRjG8zA.png",
+        chartImage: "",
       },
       {
         id: 9,
         name: "Space Complexity",
         coverImage:
-          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F8mBxpDWEKNw%2Fhqdefault.jpg&f=1&nofb=1",
+          "https://cdn-images-1.medium.com/max/800/1*leuidehqYrPSmoBRRjG8zA.png",
         description:
           "Space complexity is used to evaluate the use of memory, or data storage. Algorithms require the use of memory to store program instructions, execute (i.e. function calls) and store data. While these are all contributing factors, the stored variable data is often the primary consideration.  Space complexity is equal to the sum of two components: First, a fixed amount of space that is required to store certain data such as variables, constants, program size, etc. and is not dependent on the size of the problem. Second, a variable amount of space that is required by variables and is totally dependent on the size of the problem (i.e. recursion stack space and dynamic memory allocation).  Space complexity is usually represented with big O notation, which we know considers the worst-case scenario. What you create takes up space, and we need to be prepared for the worst!",
-        chartImage:
-          "https://cdn-images-1.medium.com/max/800/1*leuidehqYrPSmoBRRjG8zA.png",
+        chartImage: "",
       },
     ]
   }
@@ -103,7 +101,7 @@ class InfoPage extends React.Component {
   }
   render() {
     return (
-      <>{this.arrayOfCards()}</>
+      <div className="row">{this.arrayOfCards()}</div>
       //   <>
       //     <div className="row">
       //       <div className="col s4">
