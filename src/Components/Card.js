@@ -4,10 +4,13 @@ class Card extends React.Component {
   render() {
     return (
       <>
-        {/* <div className="row"> */}
         <div className="col s4">
           <div class="card hoverable medium">
             <div class="card-image waves-effect waves-block waves-light">
+              <img
+                class="activator"
+                // src="../../public/images/bubblesortgif.gif"
+              />
               <img class="activator" src={this.props.cardObj.coverImage} />
             </div>
             <div class="card-content">
@@ -25,7 +28,6 @@ class Card extends React.Component {
             </div>
           </div>
         </div>
-        {/* </div> */}
       </>
     )
   }

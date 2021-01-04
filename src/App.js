@@ -10,8 +10,8 @@ function App() {
       <NavBar />
       <br></br>
       <Switch>
-        <Route path="/sorting-visualizer/info" component={InfoPageContainer} />
-        <Route path="/sorting-visualizer" component={BodyContainer} />
+        <Route path="/info" component={InfoPageContainer} />
+        <Route path="/" component={BodyContainer} />
       </Switch>
     </>
   )

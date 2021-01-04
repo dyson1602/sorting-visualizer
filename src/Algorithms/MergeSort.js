@@ -1,5 +1,9 @@
-import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
-import { SORTED_COLOR, INITIAL_COLOR, COMPARE_COLOR } from '../HelperFunctions/colors'
+import {
+  COMPARE_COLOR,
+  INITIAL_COLOR,
+  SORTED_COLOR,
+} from "../HelperFunctions/colors"
+import { dispatchHandler } from "../HelperFunctions/dispatchHandler"
 
 export function MergeSort(props) {
   let animationArray = []
@@ -65,6 +69,9 @@ function merge(
     }
   }
   while (i <= middle) {
+    console.log("local Array at i", localArray[i])
+    console.log("aux Array at i", auxArray[i])
+    console.log("i", i)
     animationArray.push(["color", COMPARE_COLOR, i])
     animationArray.push(["color", COMPARE_COLOR, i])
     animationArray.push(["color", INITIAL_COLOR, i])
@@ -73,6 +80,9 @@ function merge(
     localArray[k++] = auxArray[i++]
   }
   while (j <= end) {
+    console.log("local Array at j", localArray[j])
+    console.log("aux Array at j", auxArray[j])
+    console.log("j", j)
     animationArray.push(["color", COMPARE_COLOR, j])
     animationArray.push(["color", COMPARE_COLOR, j])
     animationArray.push(["color", INITIAL_COLOR, j])
