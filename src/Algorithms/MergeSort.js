@@ -73,7 +73,7 @@ function merge(
       animationArray.push(["color", INITIAL_COLOR, j])
       
       if (isFinalMerge) {
-        animationArray.push(["color", SORTED_COLOR, k])
+        animationArray.push(["color", SORTED_COLOR, i])
       }
       localArray[k++] = auxArray[i++]
     } else {
@@ -108,7 +108,7 @@ function merge(
     animationArray.push(["color", COMPARE_COLOR, j])
 
     if (isFinalMerge) {
-      animationArray.push(["color", SORTED_COLOR, j])
+      animationArray.push(["color", SORTED_COLOR, k])
     } else {
       animationArray.push(["color", INITIAL_COLOR, j])
     }
