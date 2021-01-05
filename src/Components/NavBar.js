@@ -61,10 +61,12 @@ class NavBar extends React.Component {
     this.props.dispatchColorArray(
       generateColorArray(this.state.arrayLength, INITIAL_COLOR)
     )
-    if (this.state.arrayLength < 30) {
+    if (this.state.arrayLength < 30 && this.state.arrayLength > 15) {
       this.props.dispatchSpeed(50)
     } else if (this.state.arrayLength > 60) {
       this.props.dispatchSpeed(5)
+    } else if (this.state.arrayLength < 16){
+      this.props.dispatchSpeed(250)
     } else {
       this.props.dispatchSpeed(30)
     }

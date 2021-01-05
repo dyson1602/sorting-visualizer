@@ -25,21 +25,24 @@ function mergeSortRecursion(localArray, start, end, auxArray, animationArray) {
   if (start === end) return
   const middle = Math.floor((start + end) / 2)
   mergeSortRecursion(auxArray, start, middle, localArray, animationArray)
-  //   console.log(firstSort)
+
   mergeSortRecursion(auxArray, middle + 1, end, localArray, animationArray)
-  //   console.log(secondSort)
-  //   let isFinalMerge = false
-  //   console.log("Is Final Merge?", isFinalMerge)
-  //   if (firstSort.length + secondSort.length === localArray.length)
-  //     isFinalMerge = true
+
+  let isFinalMerge = false
+
+  if (end - start + 1 === localArray.length) {
+    isFinalMerge = true
+  }
+
+
   return merge(
     localArray,
     start,
     middle,
     end,
     auxArray,
-    animationArray
-    // isFinalMerge
+    animationArray,
+    isFinalMerge
   )
 }
 
@@ -49,48 +52,75 @@ function merge(
   middle,
   end,
   auxArray,
-  animationArray
-  //   isFinalMerge
+  animationArray,
+  isFinalMerge
 ) {
+  console.log("final merge? ", isFinalMerge)
   let k = start
   let i = start
   let j = middle + 1
+  console.log("i-k-j-middle ", i, k, j, middle)
   while (i <= middle && j <= end) {
+    console.log("first while:", i, k, j, middle, isFinalMerge )
     animationArray.push(["color", COMPARE_COLOR, i])
     animationArray.push(["color", COMPARE_COLOR, j])
-    animationArray.push(["color", INITIAL_COLOR, i])
-    animationArray.push(["color", INITIAL_COLOR, j])
+
+    // animationArray.push(["color", INITIAL_COLOR, i])
+    // animationArray.push(["color", INITIAL_COLOR, j])
+
+
     if (auxArray[i] <= auxArray[j]) {
+      console.log("in first cond", k)
       animationArray.push(["height", auxArray[i], k])
+      
+      animationArray.push(["color", INITIAL_COLOR, i])
+      animationArray.push(["color", INITIAL_COLOR, j])
+      
+      if (isFinalMerge) {
+        animationArray.push(["color", SORTED_COLOR, i])
+      }
       localArray[k++] = auxArray[i++]
     } else {
+      console.log('in else cond', k)
       animationArray.push(["height", auxArray[j], k])
+
+      animationArray.push(["color", INITIAL_COLOR, i])
+      animationArray.push(["color", INITIAL_COLOR, j])
+      
+
+      if (isFinalMerge) {
+        animationArray.push(["color", SORTED_COLOR, k])
+      }
       localArray[k++] = auxArray[j++]
     }
   }
+
   while (i <= middle) {
-    console.log("local Array at i", localArray[i])
-    console.log("aux Array at i", auxArray[i])
-    console.log("i", i)
+    console.log("second while", i,j,k,middle, end)
     animationArray.push(["color", COMPARE_COLOR, i])
-    animationArray.push(["color", COMPARE_COLOR, i])
-    animationArray.push(["color", INITIAL_COLOR, i])
-    animationArray.push(["color", INITIAL_COLOR, i])
+    if (isFinalMerge) {
+      animationArray.push(["color", SORTED_COLOR, i])
+    } else {
+      animationArray.push(["color", INITIAL_COLOR, i])
+    }
     animationArray.push(["height", auxArray[i], k])
     localArray[k++] = auxArray[i++]
   }
+
   while (j <= end) {
-    console.log("local Array at j", localArray[j])
-    console.log("aux Array at j", auxArray[j])
-    console.log("j", j)
+    console.log("third while", i,j,k,middle, end)
     animationArray.push(["color", COMPARE_COLOR, j])
-    animationArray.push(["color", COMPARE_COLOR, j])
-    animationArray.push(["color", INITIAL_COLOR, j])
-    animationArray.push(["color", INITIAL_COLOR, j])
+
+    if (isFinalMerge) {
+      animationArray.push(["color", SORTED_COLOR, k])
+    } else {
+      animationArray.push(["color", INITIAL_COLOR, j])
+    }
     animationArray.push(["height", auxArray[j], k])
     localArray[k++] = auxArray[j++]
   }
-  //   console.log("Is Final Merge?", isFinalMerge)
+
+  return localArray
 }
 
 function markSorted(array, animationArray) {
