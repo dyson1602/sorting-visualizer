@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cd4f30ac.chunk.css",
+    "main.js": "/static/js/main.2079d639.chunk.js",
+    "main.js.map": "/static/js/main.2079d639.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.eef7dd10.js",
+    "runtime-main.js.map": "/static/js/runtime-main.eef7dd10.js.map",
+    "static/js/2.ac695218.chunk.js": "/static/js/2.ac695218.chunk.js",
+    "static/js/2.ac695218.chunk.js.map": "/static/js/2.ac695218.chunk.js.map",
+    "static/js/3.bc20ec89.chunk.js": "/static/js/3.bc20ec89.chunk.js",
+    "static/js/3.bc20ec89.chunk.js.map": "/static/js/3.bc20ec89.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.cd4f30ac.chunk.css.map": "/static/css/main.cd4f30ac.chunk.css.map",
+    "static/js/2.ac695218.chunk.js.LICENSE.txt": "/static/js/2.ac695218.chunk.js.LICENSE.txt",
+    "static/media/bubblesortchart.89bc0893.png": "/static/media/bubblesortchart.89bc0893.png",
+    "static/media/bubblesortgif.1a035f77.gif": "/static/media/bubblesortgif.1a035f77.gif",
+    "static/media/heapsortchart.558f36f6.png": "/static/media/heapsortchart.558f36f6.png",
+    "static/media/heapsortgif.161d8295.gif": "/static/media/heapsortgif.161d8295.gif",
+    "static/media/insertionsortchart.12bb378e.png": "/static/media/insertionsortchart.12bb378e.png",
+    "static/media/insertionsortgif.0644989a.gif": "/static/media/insertionsortgif.0644989a.gif",
+    "static/media/mergesortchart.dfb7b81d.png": "/static/media/mergesortchart.dfb7b81d.png",
+    "static/media/mergesortgif.274044dc.gif": "/static/media/mergesortgif.274044dc.gif",
+    "static/media/quicksortchart.d24f6a02.png": "/static/media/quicksortchart.d24f6a02.png",
+    "static/media/quicksortgif.1f34ac91.gif": "/static/media/quicksortgif.1f34ac91.gif",
+    "static/media/radixsortchart.aeef7be6.png": "/static/media/radixsortchart.aeef7be6.png",
+    "static/media/radixsortimg.2cd2e4de.jpeg": "/static/media/radixsortimg.2cd2e4de.jpeg",
+    "static/media/selectionsortchart.3d3b3633.png": "/static/media/selectionsortchart.3d3b3633.png",
+    "static/media/selectionsortgif.2d424ac2.gif": "/static/media/selectionsortgif.2d424ac2.gif",
+    "static/media/spacetimecomplexity.b60eced8.png": "/static/media/spacetimecomplexity.b60eced8.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eef7dd10.js",
+    "static/js/2.ac695218.chunk.js",
+    "static/css/main.cd4f30ac.chunk.css",
+    "static/js/main.2079d639.chunk.js"
+  ]
+}
