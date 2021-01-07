@@ -21,3 +21,5 @@ export const MAIN_COLOR = "#f8ffe5ff"
 // --light-cyan: #d0f4eaff;
 // --tea-green: #e8fcc2ff;
 // --middle-green-yellow: #b1cc74ff;
+
+// 3, 25, 38

@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { INITIAL_COLOR, SORTED_COLOR } from "../HelperFunctions/colors"
+import { INITIAL_COLOR, SORTED_COLOR, PIVOT_COLOR } from "../HelperFunctions/colors"
 
 class Body extends React.Component {
   radixBars = () => {
@@ -30,7 +30,7 @@ class Body extends React.Component {
           }
           allBuckets.push(
             <div className="col">
-              <div style={{ display: "inline-block", margin: "2px", border: `3px solid ${SORTED_COLOR}`, borderRadius: "3px" }}>
+              <div style={{ display: "inline-block", margin: "2px", border: `3px solid ${SORTED_COLOR}`, borderRadius: "3px"}}>
                 {bucket}
               </div>
             </div>
@@ -45,18 +45,18 @@ class Body extends React.Component {
               <div
                 style={{
                   display: "inline-block",
-                  backgroundColor: `rgba(${workingBuckets[i][j] * 0.5},9,9,${200 / arraySize
-                    })`,
+                  backgroundColor: `rgba(3,9,9,${workingBuckets[i][j] / 400.0 })`,
                   height: `400px`,
                   width: `${600 / arraySize}px`,
                   borderRadius: "3px",
+                  margin: "2px"
                 }}
               ></div>
             )
           }
           allBuckets.push(
             <div className="col">
-              <div style={{ display: "inline-block", margin: "2px" }}>
+              <div style={{ display: "inline-block", margin: "2px", border: `3px solid ${PIVOT_COLOR}`, borderRadius: "3px"}}>
                 {bucket}
               </div>
             </div>
@@ -91,8 +91,7 @@ class Body extends React.Component {
           <div
             style={{
               display: "inline-block",
-              backgroundColor: `rgba(${number * 0.5},9,9,${200 / array.length
-                })`,
+              backgroundColor: `rgba(3,25,38,${number / 400.0})`,
               height: `400px`,
               width: `${1000 / array.length}px`,
               marginTop: "75px",

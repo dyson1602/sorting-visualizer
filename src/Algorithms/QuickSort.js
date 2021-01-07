@@ -6,10 +6,7 @@ export function QuickSort(props) {
   let animationArray = []
 
   quickSortHelper(array, 0, array.length - 1, animationArray)
-  markSorted(array, animationArray)
   dispatchHandler(animationArray, props)
-
-  return array
 }
 
 function quickSortHelper(array, start, end, animationArray) {
@@ -22,9 +19,7 @@ function quickSortHelper(array, start, end, animationArray) {
     right = end
 
   animationArray.push(["color", PIVOT_COLOR, pivot])
-  // animationArray.push(["color", "orange", left])
-  // animationArray.push(["color", "orange", right])
-
+ 
   while (right >= left) {
     if (array[right] < array[pivot] && array[left] > array[pivot]) {
       animationArray.push(["color", COMPARE_COLOR, left])
@@ -56,14 +51,10 @@ function quickSortHelper(array, start, end, animationArray) {
     animationArray.push(["color", INITIAL_COLOR, pivot])
     animationArray.push(["color", INITIAL_COLOR, right])
   }
-  // animationArray.push(["color", INITIAL_COLOR, left])
-  // animationArray.push(["color", INITIAL_COLOR, right])
+
+  animationArray.push(["color", SORTED_COLOR, left])
+  animationArray.push(["color", SORTED_COLOR, right])
+  
   quickSortHelper(array, start, right - 1, animationArray)
   quickSortHelper(array, right + 1, end, animationArray)
-}
-
-function markSorted(array, animationArray) {
-  for (let i = 0; i < array.length; i++) {
-    animationArray.push(["color", SORTED_COLOR, i])
-  }
 }
