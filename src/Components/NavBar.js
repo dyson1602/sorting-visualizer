@@ -268,10 +268,17 @@ class NavBar extends React.Component {
                   </div>
                 </NavLink>
               </li>
-              <li class="right hide-on-med-and-down tab">
+              <li class="hide-on-med-and-down tab">
                 <NavLink to="/info">
                   <div onClick={this.props.onInfo ? null : this.handleOnInfo}>
                     Algorithm Info
+                  </div>
+                </NavLink>
+              </li>
+              <li class="right hide-on-med-and-down tab">
+                <NavLink to="/info">
+                  <div onClick={this.props.onInfo ? null : this.handleOnInfo}>
+                    Pathfinder Algorithm Visualizer
                   </div>
                 </NavLink>
               </li>
