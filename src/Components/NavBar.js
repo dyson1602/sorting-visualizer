@@ -278,7 +278,7 @@ class NavBar extends React.Component {
               <li class="right hide-on-med-and-down tab">
                 <a href="https://mkoenke.github.io/pathfinding-visualizer/">
                   <div>
-                    Pathfinder Algorithm Visualizer
+                    Pathfinding Algorithm Visualizer
                   </div>
                   </a>
               </li>
