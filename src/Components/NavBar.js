@@ -269,7 +269,7 @@ class NavBar extends React.Component {
                 </NavLink>
               </li>
               <li class="hide-on-med-and-down tab">
-                <NavLink to="/info">
+                <NavLink to="/sorting-visualizer/info">
                   <div onClick={this.props.onInfo ? null : this.handleOnInfo}>
                     Algorithm Info
                   </div>
