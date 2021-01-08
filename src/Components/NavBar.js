@@ -140,7 +140,7 @@ class NavBar extends React.Component {
                 </div>
               </li>
               <li>
-                <NavLink to="/">
+                <NavLink to="/sorting-visualizer">
                   <div
                     onClick={this.props.isSorting ? null : this.newArrayHandler}
                   >
