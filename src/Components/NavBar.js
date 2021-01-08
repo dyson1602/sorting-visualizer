@@ -167,7 +167,7 @@ class NavBar extends React.Component {
           <div className="nav-content">
             <ul className="tabs tabs-transparent">
               <li className="tab">
-                <NavLink to="/">
+                <NavLink to="/sorting-visualizer">
                   <div
                     onClick={
                       this.props.isSorting
@@ -181,7 +181,7 @@ class NavBar extends React.Component {
                 </NavLink>
               </li>
               <li className="tab">
-                <NavLink to="/">
+                <NavLink to="/sorting-visualizer">
                   <div
                     onClick={
                       this.props.isSorting
@@ -197,7 +197,7 @@ class NavBar extends React.Component {
                 </NavLink>
               </li>
               <li className="tab">
-                <NavLink to="/">
+                <NavLink to="/sorting-visualizer">
                   <div
                     onClick={
                       this.props.isSorting
@@ -213,7 +213,7 @@ class NavBar extends React.Component {
                 </NavLink>
               </li>
               <li className="tab">
-                <NavLink to="/">
+                <NavLink to="/sorting-visualizer">
                   <div
                     onClick={
                       this.props.isSorting
@@ -227,7 +227,7 @@ class NavBar extends React.Component {
                 </NavLink>
               </li>
               <li className="tab">
-                <NavLink to="/">
+                <NavLink to="/sorting-visualizer">
                   <div
                     onClick={
                       this.props.isSorting
@@ -241,7 +241,7 @@ class NavBar extends React.Component {
                 </NavLink>
               </li>
               <li className="tab">
-                <NavLink to="/">
+                <NavLink to="/sorting-visualizer">
                   <div
                     onClick={
                       this.props.isSorting
@@ -255,7 +255,7 @@ class NavBar extends React.Component {
                 </NavLink>
               </li>
               <li className="tab">
-                <NavLink to="/">
+                <NavLink to="/sorting-visualizer">
                   <div
                     onClick={
                       this.props.isSorting
