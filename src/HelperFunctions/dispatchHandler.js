@@ -1,4 +1,3 @@
-
 export function dispatchHandler(animationArray, props) {
   if (animationArray.length === 0) {
     props.dispatchSetFinishedSorting()
@@ -11,24 +10,13 @@ export function dispatchHandler(animationArray, props) {
     currentPane[0] === "color"
       ? props.changeBarColor
       : currentPane[0] === "height"
-        ? props.changeBarHeight
-        : currentPane[0] === "bucket"
-          ? props.buildBuckets
-          : currentPane[0] === "clear"
-            ? props.clearBuckets :
-            null
+      ? props.changeBarHeight
+      : currentPane[0] === "bucket"
+      ? props.buildBuckets
+      : currentPane[0] === "clear"
+      ? props.clearBuckets
+      : null
 
   dispatchFunction(currentPane[1], currentPane[2])
-  setTimeout(
-    () => dispatchHandler(animationArray, props),
-    props.speed
-  )
+  setTimeout(() => dispatchHandler(animationArray, props), props.speed)
 }
-
-// function msp(state){
-//   return{
-//     isSorting: state.isSorting
-//   }
-// }
-
-// export default connect(msp)(dispatchHandler)
