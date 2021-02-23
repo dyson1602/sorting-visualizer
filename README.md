@@ -1,7 +1,7 @@
 # Sorting Algorithm Visualizer
 
 ## Table of Contents
-* [Contributors](contributors)
+* [Contributors](#contributors)
 
 ## Contributors
 Christopher Michael Clark   &   Mary Koenke
