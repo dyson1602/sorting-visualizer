@@ -53,6 +53,7 @@ class NavBar extends React.Component {
 
   arrayLengthHandler = (e) => {
     this.setState({ arrayLength: e.target.value }, this.newArrayHandler)
+    this.props.dispatchMethod(null)
   }
 
   newArrayHandler = () => {
@@ -61,11 +62,12 @@ class NavBar extends React.Component {
     this.props.dispatchColorArray(
       generateColorArray(this.state.arrayLength, INITIAL_COLOR)
     )
+    this.props.dispatchMethod(null)
     if (this.state.arrayLength < 30 && this.state.arrayLength > 15) {
       this.props.dispatchSpeed(50)
     } else if (this.state.arrayLength > 60) {
       this.props.dispatchSpeed(5)
-    } else if (this.state.arrayLength < 16){
+    } else if (this.state.arrayLength < 16) {
       this.props.dispatchSpeed(250)
     } else {
       this.props.dispatchSpeed(30)
@@ -92,7 +94,7 @@ class NavBar extends React.Component {
       case "radix":
         return RadixSort(this.props)
       default:
-        return BubbleSort(this.props)
+        return QuickSort(this.props)
     }
   }
   setSortingMethod = (method) => {
@@ -150,16 +152,18 @@ class NavBar extends React.Component {
               </li>
               <li>
                 <NavLink to="/sorting-visualizer">
-                  <div
-                    onClick={this.props.isSorting ? null : this.sortHandler}
-                    style={
-                      this.props.onInfo
-                        ? { display: "none" }
-                        : { display: "block" }
-                    }
-                  >
-                    Sort!
+                  {this.props.method ?
+                    <div
+                      onClick={this.props.isSorting ? null : this.sortHandler}
+                      style={
+                        this.props.onInfo
+                          ? { display: "none" }
+                          : { display: "block" }
+                      }
+                    >
+                      Sort!
                   </div>
+                    : null}
                 </NavLink>
               </li>
             </ul>
@@ -280,7 +284,7 @@ class NavBar extends React.Component {
                   <div>
                     Pathfinding Algorithm Visualizer
                   </div>
-                  </a>
+                </a>
               </li>
             </ul>
           </div>

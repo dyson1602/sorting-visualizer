@@ -1,3 +1,4 @@
+
 export function dispatchHandler(animationArray, props) {
   if (animationArray.length === 0) {
     props.dispatchSetFinishedSorting()
@@ -23,3 +24,11 @@ export function dispatchHandler(animationArray, props) {
     props.speed
   )
 }
+
+// function msp(state){
+//   return{
+//     isSorting: state.isSorting
+//   }
+// }
+
+// export default connect(msp)(dispatchHandler)

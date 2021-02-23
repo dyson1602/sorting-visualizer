@@ -50,6 +50,7 @@ export const changeBarHeight = (newHeight, index) => {
     index: index,
   }
 }
+
 export const changeBarColor = (newColor, index) => {
   return {
     type: CHANGE_BAR_COLOR,
