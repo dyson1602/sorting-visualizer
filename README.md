@@ -3,6 +3,7 @@
 ## Table of Contents
 * [Contributors](#contributors)
 * [Installation](#installation)
+* [Deployed Link](#deployed-link)
 * [Summary](#summary)
   * [Setting Up the Sort](#setting-up-the-sort) 
   * [Sort!](#sort!)
@@ -24,6 +25,10 @@ $ cd <app's main directory>
 $ npm install
 $ npm start
 ```
+
+## Deployed Link
+Click <a href="https://dyson1602.github.io/sorting-visualizer/" >here</a> to vist our app in your browser and play around with
+it before instal
 
 ## Summary
 
