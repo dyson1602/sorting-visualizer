@@ -50,7 +50,7 @@ The user can then select a sorting algorithm method from the choices in the tool
 Once a selection has been made a `Sort!` button will appear next to the `Generate New Array`
 button. Upon clicking it the algorithm will begin to go to work. During this time
 all other options are muted except for the ***style toggle***, the Algorithm Info link,
-and the <a href="https://mkoenke.github.io/pathfinding-visualizer/">Pathfinding Algorithm</a> link.
+and the <a href="https://mkoenke.github.io/pathfinding-visualizer/">Pathfinding Algorithm Visualizer</a> link.
 <br/>
 
 ### Example Algorithms
