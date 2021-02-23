@@ -2,27 +2,37 @@
 
 ## Table of Contents
 * [Contributors](#contributors)
-* [Installation and Requirements](#requirements)
+* [Installation and Requirements](#installation)
 * [Summary](#summary)
 
 ## Contributors
 Christopher Michael Clark   &   Mary Koenke
 
-## Installation and Requirements
+## Installation
+If you wish to install on your local machine, first fork and clone the repo.
+After you have completed cloning, simply run the following `npm` commands to get
+it running on a local server:
+
+npm
+```
+S cd <app's main directory>
+$ npm install
+$ npm start
+```
 
 ## Summary
 
 ### Setting Up the Sort
 <img src="./src/images/SetUp.gif" />
-<!-- <img src="https://i.imgur.com/ldcJl1D.mp4"> -->
+
 
 #### Insertion Sort
 <img src="./src/images/InsertionSortRM.gif" />
-<!-- <img src="https://i.imgur.com/oXgtcmR.mp4" /> -->
+
 
 #### Merge Sort
 <img src="./src/images/MergeSortRM.gif" />
-<!-- <img src="https://i.imgur.com/pd9Dn3P.mp4" /> -->
+
 
 
 
