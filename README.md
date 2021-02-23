@@ -22,6 +22,7 @@ Christopher Michael Clark   &   Mary Koenke
 
 #### Merge Sort
 <!-- <img src="./src/images/MergeSortRM.gif" /> -->
-<img src="https://i.imgur.com/pd9Dn3P.mp4" />
+<!-- <img src="https://i.imgur.com/pd9Dn3P.mp4" /> -->
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/4UCEeQ6"  ><a href="//imgur.com/a/4UCEeQ6">Merge Sort</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 
