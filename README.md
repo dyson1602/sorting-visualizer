@@ -2,11 +2,15 @@
 
 ## Table of Contents
 * [Contributors](#contributors)
+* [Installation and Requirements](#requirements)
+* [Summary](#summary)
 
 ## Contributors
 Christopher Michael Clark   &   Mary Koenke
 
-## General Info
+## Installation and Requirements
 
-## Demo
+## Summary
+
+<img src="./images/SetUp.gif" />
 
