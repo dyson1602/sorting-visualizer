@@ -12,5 +12,5 @@ Christopher Michael Clark   &   Mary Koenke
 
 ## Summary
 
-<img src="./images/SetUp.gif" />
+<img src="./src/images/SetUp.gif" />
 
