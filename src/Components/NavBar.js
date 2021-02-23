@@ -111,11 +111,12 @@ class NavBar extends React.Component {
       <>
         <nav
           class="nav-extended"
-          style={{ backgroundColor: `${NAVBAR_COLOR}` }}
+          style={{ backgroundColor: `${NAVBAR_COLOR}`, paddingLeft: "15px", paddingRight: 
+      "15px" }}
         >
           <div className="nav-wrapper">
             <div className="brand-logo right">Sorting Algorithm Visualizer</div>
-            <ul id="nav-mobile" className="left hide-on-med-and-down">
+            <ul id="nav-mobile" className="left hide-on-med-and-down" >
               <li>Set Array Size: </li>
 
               <li>
