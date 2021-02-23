@@ -12,5 +12,13 @@ Christopher Michael Clark   &   Mary Koenke
 
 ## Summary
 
+### Setting Up the Sort
 <img src="./src/images/SetUp.gif" />
+
+#### Insertion Sort
+<img src="./src/images/InsertionSortRM.gif" />
+
+#### Merge Sort
+<img src="./src/images/MergeSortRM.gif" />
+
 
