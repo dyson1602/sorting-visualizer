@@ -1,5 +1,12 @@
 # Sorting Algorithm Visualizer
 
-### Contributors
-**Christopher Michael Clark & Mary Koenke
+## Table of Contents
+* [Contributors](contributors)
+
+## Contributors
+Christopher Michael Clark   &   Mary Koenke
+
+## General Info
+
+## Demo
 
