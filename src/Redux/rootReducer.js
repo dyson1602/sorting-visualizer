@@ -22,6 +22,7 @@ import {
   SORTED_ARRAY,
   SPEED,
   STYLE,
+  SORT_STATUS
 } from "./actionTypes"
 
 const defaultState = {
@@ -37,6 +38,7 @@ const defaultState = {
   method: null,
   speed: 50,
   onInfo: false,
+  sortStatus: false,
 }
 
 function randomArrayReducer(prevState = defaultState.randomArray, action) {
@@ -136,6 +138,15 @@ function changeBucketsReducer(prevState = defaultState.bucketsArray, action) {
   }
 }
 
+function sortStatusReducer(prevState = defaultState.sortStatus, action){
+  switch (action.type){
+    case SORT_STATUS:
+      return !prevState
+    default:
+      return prevState
+  }
+}
+
 const rootReducer = combineReducers({
   randomArray: randomArrayReducer,
   sortedArray: sortedArrayReducer,
@@ -146,6 +157,7 @@ const rootReducer = combineReducers({
   speed: changeSpeedReducer,
   bucketsArray: changeBucketsReducer,
   onInfo: changeOnInfoReducer,
+  sortStatus: sortStatusReducer,
 })
 
 export default rootReducer

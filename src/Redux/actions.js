@@ -11,36 +11,37 @@ import {
   SET_COLOR_ARRAY,
   SET_RANDOM_ARRAY,
   SORTED_ARRAY,
+  SORT_STATUS,
   SPEED,
   STYLE,
-} from "./actionTypes"
+} from './actionTypes';
 
 export function setSpeed(value) {
-  return { type: SPEED, payload: value }
+  return { type: SPEED, payload: value };
 }
 
 export function setRandomArray(randomArray) {
-  return { type: SET_RANDOM_ARRAY, payload: randomArray }
+  return { type: SET_RANDOM_ARRAY, payload: randomArray };
 }
 
 export function setSortedArray(sortedArray) {
-  return { type: SORTED_ARRAY, payload: sortedArray }
+  return { type: SORTED_ARRAY, payload: sortedArray };
 }
 
 export function setOnInfo() {
-  return { type: ON_INFO, payload: true }
+  return { type: ON_INFO, payload: true };
 }
 
 export function setOffInfo() {
-  return { type: OFF_INFO, payload: false }
+  return { type: OFF_INFO, payload: false };
 }
 
 export function setIsSorting() {
-  return { type: IS_SORTING, payload: true }
+  return { type: IS_SORTING, payload: true };
 }
 
 export function setFinishedSorting() {
-  return { type: FINISHED_SORTING, payload: false }
+  return { type: FINISHED_SORTING, payload: false };
 }
 
 export const changeBarHeight = (newHeight, index) => {
@@ -48,37 +49,41 @@ export const changeBarHeight = (newHeight, index) => {
     type: CHANGE_BAR_HEIGHT,
     newHeight: newHeight,
     index: index,
-  }
-}
+  };
+};
 
 export const changeBarColor = (newColor, index) => {
   return {
     type: CHANGE_BAR_COLOR,
     newColor: newColor,
     index: index,
-  }
-}
+  };
+};
 
 export function swapStyles(styleType) {
-  return { type: STYLE, payload: styleType }
+  return { type: STYLE, payload: styleType };
 }
 
 export function setColorArray(colorArray) {
-  return { type: SET_COLOR_ARRAY, payload: colorArray }
+  return { type: SET_COLOR_ARRAY, payload: colorArray };
 }
 
 export function setMethod(methodType) {
-  return { type: METHOD, payload: methodType }
+  return { type: METHOD, payload: methodType };
 }
 
 export function buildBuckets(bucket, height) {
   return {
     type: BUCKETS,
     bucket: bucket,
-    height: height
-  }
+    height: height,
+  };
 }
 
 export function clearBuckets(bucket) {
-  return { type: CLEAR_BUCKET, bucket: bucket }
+  return { type: CLEAR_BUCKET, bucket: bucket };
+}
+
+export function sortStatus() {
+  return { type: SORT_STATUS };
 }

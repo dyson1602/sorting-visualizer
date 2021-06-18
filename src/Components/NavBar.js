@@ -28,6 +28,7 @@ import {
   setSortedArray,
   setSpeed,
   swapStyles,
+  sortStatus,
 } from "../Redux/actions"
 
 class NavBar extends React.Component {
@@ -105,6 +106,10 @@ class NavBar extends React.Component {
   handleOnInfo = () => {
     this.props.dispatchSetOnInfo()
   }
+  
+  stopSort = () => {
+    this.props.dispatchSortStatus()
+  }
 
   render() {
     return (
@@ -150,6 +155,9 @@ class NavBar extends React.Component {
                     Generate New Array
                   </div>
                 </NavLink>
+              </li>
+              <li>
+                <button onClick={this.stopSort()}>Stop</button>
               </li>
               <li>
                 <NavLink to="/sorting-visualizer">
@@ -325,6 +333,7 @@ function mdp(dispatch) {
     clearBuckets: (bucket) => dispatch(clearBuckets(bucket)),
     dispatchSetOnInfo: () => dispatch(setOnInfo()),
     dispatchSetOffInfo: () => dispatch(setOffInfo()),
+    dispatchSortStatus: () => dispatch(sortStatus())
   }
 }
 
