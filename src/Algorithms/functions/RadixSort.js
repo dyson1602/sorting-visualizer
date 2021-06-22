@@ -1,5 +1,5 @@
-import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
-import { SORTED_COLOR, INITIAL_COLOR, FADED_COLOR } from '../HelperFunctions/colors'
+import { dispatchHandler } from '../../HelperFunctions/dispatchHandler'
+import { SORTED_COLOR, INITIAL_COLOR, FADED_COLOR } from '../../HelperFunctions/colors'
 
 export function RadixSort(props) {
   let localArray = [...props.randomArray]

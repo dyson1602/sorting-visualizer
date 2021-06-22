@@ -1,5 +1,5 @@
-import { dispatchHandler } from '../HelperFunctions/dispatchHandler'
-import { SORTED_COLOR, INITIAL_COLOR, COMPARE_COLOR } from '../HelperFunctions/colors'
+import { dispatchHandler } from '../../HelperFunctions/dispatchHandler'
+import { SORTED_COLOR, INITIAL_COLOR, COMPARE_COLOR } from '../../HelperFunctions/colors'
 
 function HeapSort(props) {
   let tempArray = [...props.randomArray]

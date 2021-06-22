@@ -2,8 +2,8 @@ import {
   COMPARE_COLOR,
   INITIAL_COLOR,
   SORTED_COLOR,
-} from "../HelperFunctions/colors"
-import { dispatchHandler } from "../HelperFunctions/dispatchHandler"
+} from "../../HelperFunctions/colors"
+import { dispatchHandler } from "../../HelperFunctions/dispatchHandler"
 
 export function MergeSort(props) {
   let animationArray = []

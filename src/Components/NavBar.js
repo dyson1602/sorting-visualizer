@@ -1,18 +1,14 @@
-import React from "react"
-import { connect } from "react-redux"
-import { NavLink } from "react-router-dom"
-import { BubbleSort } from "../Algorithms/BubbleSort"
-import { HeapSort } from "../Algorithms/HeapSort"
-import { InsertionSort } from "../Algorithms/InsertionSort"
-import { MergeSort } from "../Algorithms/MergeSort"
-import { QuickSort } from "../Algorithms/QuickSort"
-import { RadixSort } from "../Algorithms/RadixSort"
-import { SelectionSort } from "../Algorithms/SelectionSort"
-import { INITIAL_COLOR, NAVBAR_COLOR } from "../HelperFunctions/colors"
+import React from 'react';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import {
+ algorithms
+} from '../Algorithms';
+import { INITIAL_COLOR, NAVBAR_COLOR } from '../HelperFunctions/colors';
 import {
   generateColorArray,
   randomizeArray,
-} from "../HelperFunctions/randomArray"
+} from '../HelperFunctions/randomArray';
 import {
   buildBuckets,
   changeBarColor,
@@ -28,95 +24,99 @@ import {
   setSortedArray,
   setSpeed,
   swapStyles,
-} from "../Redux/actions"
+} from '../Redux/actions';
 
 class NavBar extends React.Component {
   state = {
     arrayLength: 50,
-  }
+  };
 
   styleSwapHandler = (e) => {
-    let currentStyle = this.props.style
+    let currentStyle = this.props.style;
     switch (currentStyle) {
-      case "bars":
-        return this.props.dispatchStyleSwap("gradient")
-      case "gradient":
-        return this.props.dispatchStyleSwap("bars")
+      case 'bars':
+        return this.props.dispatchStyleSwap('gradient');
+      case 'gradient':
+        return this.props.dispatchStyleSwap('bars');
       default:
-        return this.props.dispatchStyleSwap(currentStyle)
+        return this.props.dispatchStyleSwap(currentStyle);
     }
-  }
+  };
 
   componentDidMount() {
-    this.newArrayHandler()
+    console.log(algorithms)
+    this.newArrayHandler();
   }
 
   arrayLengthHandler = (e) => {
-    this.setState({ arrayLength: e.target.value }, this.newArrayHandler)
-    this.props.dispatchMethod(null)
-  }
+    this.setState({ arrayLength: e.target.value }, this.newArrayHandler);
+    this.props.dispatchMethod(null);
+  };
 
   newArrayHandler = () => {
-    this.props.dispatchRandomArray(randomizeArray(this.state.arrayLength))
-    this.props.dispatchSetOffInfo()
+    this.props.dispatchRandomArray(randomizeArray(this.state.arrayLength));
+    this.props.dispatchSetOffInfo();
     this.props.dispatchColorArray(
       generateColorArray(this.state.arrayLength, INITIAL_COLOR)
-    )
-    this.props.dispatchMethod(null)
+    );
+    this.props.dispatchMethod(null);
     if (this.state.arrayLength < 30 && this.state.arrayLength > 15) {
-      this.props.dispatchSpeed(50)
+      this.props.dispatchSpeed(50);
     } else if (this.state.arrayLength > 60) {
-      this.props.dispatchSpeed(5)
+      this.props.dispatchSpeed(5);
     } else if (this.state.arrayLength < 16) {
-      this.props.dispatchSpeed(250)
+      this.props.dispatchSpeed(250);
     } else {
-      this.props.dispatchSpeed(30)
+      this.props.dispatchSpeed(30);
     }
-  }
+  };
 
   sortHandler = () => {
-    this.props.dispatchSetOffInfo()
-    this.props.dispatchSetIsSorting()
-    let currentMethod = this.props.method
+    this.props.dispatchSetOffInfo();
+    this.props.dispatchSetIsSorting();
+    let currentMethod = this.props.method;
     switch (currentMethod) {
-      case "bubble":
-        return BubbleSort(this.props)
-      case "heap":
-        return HeapSort(this.props)
-      case "insertion":
-        return InsertionSort(this.props)
-      case "quick":
-        return QuickSort(this.props)
-      case "selection":
-        return SelectionSort(this.props)
-      case "merge":
-        return MergeSort(this.props)
-      case "radix":
-        return RadixSort(this.props)
+      case 'bubble':
+        return algorithms.BubbleSort(this.props);
+      case 'heap':
+        return algorithms.HeapSort(this.props);
+      case 'insertion':
+        return algorithms.InsertionSort(this.props);
+      case 'quick':
+        return algorithms.QuickSort(this.props);
+      case 'selection':
+        return algorithms.SelectionSort(this.props);
+      case 'merge':
+        return algorithms.MergeSort(this.props);
+      case 'radix':
+        return algorithms.RadixSort(this.props);
       default:
-        return QuickSort(this.props)
+        return algorithms.QuickSort(this.props);
     }
-  }
+  };
   setSortingMethod = (method) => {
-    this.props.dispatchMethod(method)
-    this.props.dispatchSetOffInfo()
-  }
+    this.props.dispatchMethod(method);
+    this.props.dispatchSetOffInfo();
+  };
 
   handleOnInfo = () => {
-    this.props.dispatchSetOnInfo()
-  }
+    this.props.dispatchSetOnInfo();
+  };
 
   render() {
     return (
       <>
         <nav
           class="nav-extended"
-          style={{ backgroundColor: `${NAVBAR_COLOR}`, paddingLeft: "15px", paddingRight: 
-      "15px" }}
+          style={{
+            backgroundColor: `${NAVBAR_COLOR}`,
+            paddingLeft: '15px',
+            paddingRight: '15px',
+          }}
         >
           <div className="nav-wrapper">
             <div className="brand-logo right">Sorting Algorithm Visualizer</div>
-            <ul id="nav-mobile" className="left hide-on-med-and-down" >
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li>Set Array Size: </li>
 
               <li>
@@ -153,18 +153,18 @@ class NavBar extends React.Component {
               </li>
               <li>
                 <NavLink to="/sorting-visualizer">
-                  {this.props.method ?
+                  {this.props.method ? (
                     <div
                       onClick={this.props.isSorting ? null : this.sortHandler}
                       style={
                         this.props.onInfo
-                          ? { display: "none" }
-                          : { display: "block" }
+                          ? { display: 'none' }
+                          : { display: 'block' }
                       }
                     >
                       Sort!
-                  </div>
-                    : null}
+                    </div>
+                  ) : null}
                 </NavLink>
               </li>
             </ul>
@@ -177,9 +177,9 @@ class NavBar extends React.Component {
                     onClick={
                       this.props.isSorting
                         ? null
-                        : () => this.setSortingMethod("bubble")
+                        : () => this.setSortingMethod('bubble')
                     }
-                    className={this.props.method === "bubble" ? "active" : null}
+                    className={this.props.method === 'bubble' ? 'active' : null}
                   >
                     Bubble Sort
                   </div>
@@ -191,10 +191,10 @@ class NavBar extends React.Component {
                     onClick={
                       this.props.isSorting
                         ? null
-                        : () => this.setSortingMethod("insertion")
+                        : () => this.setSortingMethod('insertion')
                     }
                     className={
-                      this.props.method === "insertion" ? "active" : null
+                      this.props.method === 'insertion' ? 'active' : null
                     }
                   >
                     Insertion Sort
@@ -207,10 +207,10 @@ class NavBar extends React.Component {
                     onClick={
                       this.props.isSorting
                         ? null
-                        : () => this.setSortingMethod("selection")
+                        : () => this.setSortingMethod('selection')
                     }
                     className={
-                      this.props.method === "selection" ? "active" : null
+                      this.props.method === 'selection' ? 'active' : null
                     }
                   >
                     Selection Sort
@@ -223,9 +223,9 @@ class NavBar extends React.Component {
                     onClick={
                       this.props.isSorting
                         ? null
-                        : () => this.setSortingMethod("quick")
+                        : () => this.setSortingMethod('quick')
                     }
-                    className={this.props.method === "quick" ? "active" : null}
+                    className={this.props.method === 'quick' ? 'active' : null}
                   >
                     Quick Sort
                   </div>
@@ -237,9 +237,9 @@ class NavBar extends React.Component {
                     onClick={
                       this.props.isSorting
                         ? null
-                        : () => this.setSortingMethod("heap")
+                        : () => this.setSortingMethod('heap')
                     }
-                    className={this.props.method === "heap" ? "active" : null}
+                    className={this.props.method === 'heap' ? 'active' : null}
                   >
                     Heap Sort
                   </div>
@@ -251,9 +251,9 @@ class NavBar extends React.Component {
                     onClick={
                       this.props.isSorting
                         ? null
-                        : () => this.setSortingMethod("merge")
+                        : () => this.setSortingMethod('merge')
                     }
-                    className={this.props.method === "merge" ? "active" : null}
+                    className={this.props.method === 'merge' ? 'active' : null}
                   >
                     Merge Sort
                   </div>
@@ -265,9 +265,9 @@ class NavBar extends React.Component {
                     onClick={
                       this.props.isSorting
                         ? null
-                        : () => this.setSortingMethod("radix")
+                        : () => this.setSortingMethod('radix')
                     }
-                    className={this.props.method === "radix" ? "active" : null}
+                    className={this.props.method === 'radix' ? 'active' : null}
                   >
                     Radix
                   </div>
@@ -282,16 +282,14 @@ class NavBar extends React.Component {
               </li>
               <li class="right hide-on-med-and-down tab">
                 <a href="https://mkoenke.github.io/pathfinding-visualizer/">
-                  <div>
-                    Pathfinding Algorithm Visualizer
-                  </div>
+                  <div>Pathfinding Algorithm Visualizer</div>
                 </a>
               </li>
             </ul>
           </div>
         </nav>
       </>
-    )
+    );
   }
 }
 
@@ -304,7 +302,7 @@ function msp(state) {
     method: state.method,
     speed: state.speed,
     onInfo: state.onInfo,
-  }
+  };
 }
 
 function mdp(dispatch) {
@@ -325,7 +323,7 @@ function mdp(dispatch) {
     clearBuckets: (bucket) => dispatch(clearBuckets(bucket)),
     dispatchSetOnInfo: () => dispatch(setOnInfo()),
     dispatchSetOffInfo: () => dispatch(setOffInfo()),
-  }
+  };
 }
 
-export default connect(msp, mdp)(NavBar)
+export default connect(msp, mdp)(NavBar);
